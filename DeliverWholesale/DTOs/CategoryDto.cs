@@ -1,0 +1,8 @@
+﻿namespace DeliverWholesale.DTOs
+{
+    public class CategoryDto
+    {
+        public required string Nom { get; set; }
+        public required string Description { get; set; }
+    }
+}
