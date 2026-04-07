@@ -1,48 +1,38 @@
-﻿using DeliverWholesale.Data;
+﻿using DeliverWholesale.Handler.Config;
 using DeliverWholesale.Models;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace DeliverWholesale.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/config")]
     [Authorize(Roles = "Admin")]
     public class ConfigController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IMediator _mediator;
 
-        public ConfigController(ApplicationDbContext context)
+        public ConfigController(IMediator mediator)
         {
-            _context = context;
+            _mediator = mediator;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetConfig()
         {
-            var config = await _context.Configs.FirstOrDefaultAsync(); 
-            if (config == null)
-            {
-                config = new Config { Id = 1, MontantMinimumCommande = 100, FraisLivraison = 15, ProfitPercentage = 20, SeuilAlerteStockBas = 10 };
-                _context.Configs.Add(config);
-                await _context.SaveChangesAsync();
-            }
+            var config = await _mediator.Send(new GetConfigQuery());
             return Ok(config);
         }
 
         [HttpPut]
         public async Task<IActionResult> UpdateConfig([FromBody] Config updated)
         {
-            var config = await _context.Configs.FindAsync(1);
-            if (config == null) return NotFound();
+            var success = await _mediator.Send(new UpdateConfigCommand(updated));
 
-            config.MontantMinimumCommande = updated.MontantMinimumCommande;
-            config.FraisLivraison = updated.FraisLivraison;
-            config.ProfitPercentage = updated.ProfitPercentage;
-            config.SeuilAlerteStockBas = updated.SeuilAlerteStockBas;
+            if (!success)
+                return NotFound("Configuration introuvable");
 
-            await _context.SaveChangesAsync();
             return NoContent();
         }
     }

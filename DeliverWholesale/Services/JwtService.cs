@@ -11,30 +11,29 @@ namespace DeliverWholesale.Services
     public class JwtService
     {
         private readonly JwtConfig _config;
+        private readonly SymmetricSecurityKey _key;
 
         public JwtService(IOptions<JwtConfig> config)
         {
             _config = config.Value;
+            _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.Secret));
         }
 
         public string GenerateToken(User user)
         {
-            var claims = new[]
+            var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.Role, user.Role.ToString())
+                new(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new(ClaimTypes.Email, user.Email),
+                new(ClaimTypes.Role, user.Role.ToString())
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.Secret));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
             var token = new JwtSecurityToken(
-                _config.Issuer,
-                _config.Audience,
-                claims,
+                issuer: _config.Issuer,
+                audience: _config.Audience,
+                claims: claims,
                 expires: DateTime.UtcNow.AddMinutes(_config.ExpiryMinutes),
-                signingCredentials: creds
+                signingCredentials: new SigningCredentials(_key, SecurityAlgorithms.HmacSha256)
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);

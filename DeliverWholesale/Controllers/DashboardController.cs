@@ -1,57 +1,33 @@
-﻿using DeliverWholesale.Data;
-using DeliverWholesale.Models;
+﻿using DeliverWholesale.Handler.Dashboard;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace DeliverWholesale.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/dashboard")]
     [Authorize(Roles = "Admin")]
     public class DashboardController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IMediator _mediator;
 
-        public DashboardController(ApplicationDbContext context)
+        public DashboardController(IMediator mediator)
         {
-            _context = context;
+            _mediator = mediator;
         }
 
         [HttpGet("stats")]
         public async Task<IActionResult> GetDashboardStats()
         {
-            var stats = new
-            {
-                TotalProduits = await _context.Produits.CountAsync(p => p.IsActive),
-                TotalCommandes = await _context.Orders.CountAsync(),
-                CommandesEnAttente = await _context.Orders.CountAsync(o => o.Statut == StatutOrder.EnAttente),
-                StockBas = await _context.Produits.CountAsync(p => p.StockActuel <= 10 && p.IsActive),
-                StockNegatif = await _context.Produits.CountAsync(p => p.StockActuel < 0 && p.IsActive),
-                ChiffreAffairesMois = await _context.Orders
-                    .Where(o => o.DateCommande >= DateTime.UtcNow.AddMonths(-1) && o.Statut == StatutOrder.Livree)
-                    .SumAsync(o => o.TotalFinal)
-            };
-
+            var stats = await _mediator.Send(new GetDashboardStatsQuery());
             return Ok(stats);
         }
 
         [HttpGet("alertes")]
         public async Task<IActionResult> GetAlertes()
         {
-            var config = await _context.Configs.FirstOrDefaultAsync();
-            int seuil = config?.SeuilAlerteStockBas ?? 10;
-
-            var alertes = await _context.Produits
-                .Where(p => p.IsActive && p.StockActuel <= seuil)
-                .Select(p => new
-                {
-                    Produit = p.Nom,
-                    Stock = p.StockActuel,
-                    EstCritique = p.StockActuel < 0
-                })
-                .ToListAsync();
-
+            var alertes = await _mediator.Send(new GetDashboardAlertesQuery());
             return Ok(alertes);
         }
     }

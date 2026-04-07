@@ -1,80 +1,55 @@
-﻿using DeliverWholesale.Data;
-using DeliverWholesale.DTOs;
-using DeliverWholesale.Models;
-using DeliverWholesale.Services;
-using Microsoft.AspNetCore.Authorization;
+﻿using DeliverWholesale.DTOs;
+using DeliverWholesale.Handler.Products;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace DeliverWholesale.Controllers
 {
     [ApiController]
-    [Route("api/products")]
+    [Route("api/[controller]")]
     public class ProductsController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
-        private readonly PricingService _pricing;
+        private readonly IMediator _mediator;
 
-        public ProductsController(ApplicationDbContext context, PricingService pricing)
+        public ProductsController(IMediator mediator)
         {
-            _context = context;
-            _pricing = pricing;
+            _mediator = mediator;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(ProductCreateDto dto)
+        {
+            var result = await _mediator.Send(new CreateProductCommand(dto));
+            return Ok(result);
         }
 
         [HttpGet]
-        [Authorize] 
-        public async Task<IActionResult> Get()
-            => Ok(await _context.Produits.Where(p => p.IsActive).Include(p => p.Categorie).ToListAsync());
-
-        [HttpPost]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Create(ProductCreateDto dto)
+        public async Task<IActionResult> GetAll()
         {
-            var config = await _context.Configs.FirstAsync();
-            var product = new Produit
-            {
-                Nom = dto.Nom,
-                Description = dto.Description,
-                PrixAchat = dto.PrixAchat,
-                PrixVente = _pricing.CalculerPrixVente(dto.PrixAchat, config.ProfitPercentage),
-                CategorieId = dto.CategorieId,
-                IsActive = true
-            };
-
-            _context.Produits.Add(product);
-            await _context.SaveChangesAsync();
-            return Ok(product);
+            var products = await _mediator.Send(new GetProductsQuery());
+            return Ok(products);
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Update(int id, ProductUpdateDto dto)
+        public async Task<IActionResult> Update(int id, ProductCreateDto dto)
         {
-            var product = await _context.Produits.FindAsync(id);
-            if (product == null) return NotFound();
+            var result = await _mediator.Send(new UpdateProductCommand(id, dto));
 
-            product.Nom = dto.Nom ?? product.Nom;
-            product.Description = dto.Description ?? product.Description;
-            product.PrixAchat = dto.PrixAchat ?? product.PrixAchat;
-            product.PrixVente = _pricing.CalculerPrixVente(product.PrixAchat, (await _context.Configs.FirstAsync()).ProfitPercentage);
-            product.CategorieId = dto.CategorieId ?? product.CategorieId;
+            if (!result)
+                return NotFound();
 
-            await _context.SaveChangesAsync();
-            return NoContent();
+            return Ok();
         }
 
-        
-
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
-            var product = await _context.Produits.FindAsync(id);
-            if (product == null) return NotFound();
+            var result = await _mediator.Send(new DeleteProductCommand(id));
 
-            _context.Produits.Remove(product);
-            await _context.SaveChangesAsync();
-            return NoContent();
+            if (!result)
+                return NotFound();
+
+            return Ok();
         }
     }
 }

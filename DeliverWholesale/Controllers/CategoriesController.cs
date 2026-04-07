@@ -1,9 +1,8 @@
-﻿using DeliverWholesale.Data;
-using DeliverWholesale.DTOs;
-using DeliverWholesale.Models;
+﻿using DeliverWholesale.DTOs;
+using DeliverWholesale.Handler.Categories;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace DeliverWholesale.Controllers
 {
@@ -11,24 +10,25 @@ namespace DeliverWholesale.Controllers
     [Route("api/categories")]
     public class CategoriesController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IMediator _mediator;
 
-        public CategoriesController(ApplicationDbContext context)
+        public CategoriesController(IMediator mediator)
         {
-            _context = context;
+            _mediator = mediator;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
-            => Ok(await _context.Categories.Include(c => c.Produits).ToListAsync());
+        {
+            var categories = await _mediator.Send(new GetCategoriesQuery());
+            return Ok(categories);
+        }
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(CategoryDto dto)
         {
-            var category = new Categorie { Nom = dto.Nom, Description = dto.Description };
-            _context.Categories.Add(category);
-            await _context.SaveChangesAsync();
+            var category = await _mediator.Send(new CreateCategoryCommand(dto));
             return Ok(category);
         }
 
@@ -36,12 +36,11 @@ namespace DeliverWholesale.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id, CategoryDto dto)
         {
-            var category = await _context.Categories.FindAsync(id);
-            if (category == null) return NotFound();
+            var success = await _mediator.Send(new UpdateCategoryCommand(id, dto));
 
-            category.Nom = dto.Nom;
-            category.Description = dto.Description;
-            await _context.SaveChangesAsync();
+            if (!success)
+                return NotFound("Catégorie introuvable");
+
             return NoContent();
         }
 
@@ -49,11 +48,11 @@ namespace DeliverWholesale.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
-            var category = await _context.Categories.FindAsync(id);
-            if (category == null) return NotFound();
+            var success = await _mediator.Send(new DeleteCategoryCommand(id));
 
-            _context.Categories.Remove(category);
-            await _context.SaveChangesAsync();
+            if (!success)
+                return NotFound("Catégorie introuvable");
+
             return NoContent();
         }
     }

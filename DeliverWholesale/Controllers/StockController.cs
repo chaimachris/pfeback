@@ -1,83 +1,40 @@
-﻿using DeliverWholesale.Data;
-using DeliverWholesale.DTOs;
-using DeliverWholesale.Models;
-using Microsoft.AspNetCore.Authorization;
+﻿using DeliverWholesale.DTOs;
+using DeliverWholesale.Handler.Stock;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace DeliverWholesale.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
+    [Route("api/[controller]")]
     public class StockController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IMediator _mediator;
 
-        public StockController(ApplicationDbContext context)
+        public StockController(IMediator mediator)
         {
-            _context = context;
+            _mediator = mediator;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddStock(AddStockLotDto dto)
+        {
+            var result = await _mediator.Send(new AddStockCommand(dto));
+            return Ok(result);
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetStockOverview()
+        public async Task<IActionResult> GetStock()
         {
-            var stock = await _context.Produits
-                .Where(p => p.IsActive)
-                .Select(p => new
-                {
-                    ProduitId = p.Id,
-                    Nom = p.Nom,
-                    StockActuel = p.StockActuel,
-                    PrixVente = p.PrixVente,
-                    DernierAchat = p.StockLots
-                        .OrderByDescending(l => l.DateAchat)
-                        .Select(l => new { l.DateAchat, l.QuantiteAchetee })
-                        .FirstOrDefault()
-                })
-                .OrderBy(x => x.StockActuel)
-                .ToListAsync();
-
+            var stock = await _mediator.Send(new GetStockQuery());
             return Ok(stock);
         }
 
-
-        [HttpPost("add-lot")]
-        public async Task<IActionResult> AddStockLot([FromBody] AddStockLotDto dto)
+        [HttpGet("{produitId}")]
+        public async Task<IActionResult> GetProductStock(int produitId)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            var product = await _context.Produits.FindAsync(dto.ProduitId);
-            if (product == null)
-                return NotFound("Produit non trouvé");
-
-            var lot = new StockLot
-            {
-                ProduitId = dto.ProduitId,
-                QuantiteAchetee = dto.Quantite,
-                PrixAchatLot = dto.PrixAchatTotal,
-                Fournisseur = dto.Fournisseur,
-                DateAchat = DateTime.UtcNow,
-                Unite = dto.Unite ?? "unité"
-            };
-
-            // Ajoute transaction entrée
-            var transaction = new Transaction
-            {
-                StockLot = lot,
-                Type = TypeMouvement.Entree,
-                Quantite = dto.Quantite,
-                DateMouvement = DateTime.UtcNow
-            };
-            lot.Transactions.Add(transaction);
-
-            _context.StockLots.Add(lot);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetStockOverview), new { id = lot.Id }, lot);
+            var stock = await _mediator.Send(new GetProductStockQuery(produitId));
+            return Ok(stock);
         }
-
-        
     }
 }

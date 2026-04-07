@@ -1,4 +1,6 @@
-﻿namespace DeliverWholesale.DTOs
+﻿using System.Collections.Generic;
+
+namespace DeliverWholesale.DTOs
 {
     public class OrderCreateDto
     {

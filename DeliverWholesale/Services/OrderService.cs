@@ -24,10 +24,15 @@ namespace DeliverWholesale.Services
 
             decimal total = 0;
 
+            var productIds = dto.Items.Select(i => i.ProduitId).ToList();
+            var products = await _context.Produits
+                .Where(p => productIds.Contains(p.Id) && p.IsActive)
+                .ToListAsync();
+
             foreach (var item in dto.Items)
             {
-                var product = await _context.Produits.FindAsync(item.ProduitId);
-                if (product == null || !product.IsActive)
+                var product = products.FirstOrDefault(p => p.Id == item.ProduitId);
+                if (product == null)
                     throw new Exception("Produit invalide");
 
                 var detail = new OrderDetail
@@ -54,7 +59,8 @@ namespace DeliverWholesale.Services
                         StockLotId = lot.Id,
                         OrderDetailId = detail.Id,
                         Type = TypeMouvement.Sortie,
-                        Quantite = item.Quantite
+                        Quantite = item.Quantite,
+                        DateMouvement = DateTime.UtcNow
                     });
                 }
             }
@@ -69,24 +75,27 @@ namespace DeliverWholesale.Services
             return order;
         }
 
-
         public async Task RevertStock(Order order)
         {
-            foreach (var detail in order.OrderDetails)
+            var detailsIds = order.OrderDetails.Select(d => d.Id).ToList();
+
+            var transactions = await _context.Transactions
+                .Where(t => t.OrderDetailId.HasValue
+                         && detailsIds.Contains(t.OrderDetailId.Value)
+                         && t.Type == TypeMouvement.Sortie)
+                .ToListAsync();
+
+            foreach (var t in transactions)
             {
-                var transactions = await _context.Transactions.Where(t => t.OrderDetailId == detail.Id && t.Type == TypeMouvement.Sortie).ToListAsync();
-                foreach (var t in transactions)
+                _context.Transactions.Add(new Transaction
                 {
-                    var adjust = new Transaction
-                    {
-                        StockLotId = t.StockLotId,
-                        Type = TypeMouvement.Ajustement,
-                        Quantite = t.Quantite, 
-                        DateMouvement = DateTime.UtcNow
-                    };
-                    _context.Transactions.Add(adjust);
-                }
+                    StockLotId = t.StockLotId,
+                    Type = TypeMouvement.Ajustement,
+                    Quantite = t.Quantite,
+                    DateMouvement = DateTime.UtcNow
+                });
             }
+
             await _context.SaveChangesAsync();
         }
     }

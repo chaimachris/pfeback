@@ -1,82 +1,56 @@
-﻿using DeliverWholesale.Data;
-using DeliverWholesale.DTOs;
-using DeliverWholesale.Models;
-using DeliverWholesale.Services;
-using Microsoft.AspNetCore.Authorization;
+﻿using DeliverWholesale.DTOs;
+using DeliverWholesale.Handler.Orders;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace DeliverWholesale.Controllers
 {
     [ApiController]
-    [Route("api/orders")]
-    [Authorize]
+    [Route("api/[controller]")]
     public class OrdersController : ControllerBase
     {
-        private readonly OrderService _service;
-        private readonly ApplicationDbContext _context;
+        private readonly IMediator _mediator;
 
-        public OrdersController(OrderService service, ApplicationDbContext context)
+        public OrdersController(IMediator mediator)
         {
-            _service = service;
-            _context = context;
+            _mediator = mediator;
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(OrderCreateDto dto)
         {
-            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
-            var order = await _service.CreateOrder(userId, dto);
-            return Ok(order);
+            var result = await _mediator.Send(new CreateOrderCommand(dto));
+            return Ok(result);
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetMyOrders()
+        public async Task<IActionResult> GetAll()
         {
-            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
-            var orders = await _context.Orders
-                .Where(o => o.UserId == userId)
-                .Include(o => o.OrderDetails).ThenInclude(od => od.Produit)
-                .ToListAsync();
+            var orders = await _mediator.Send(new GetOrdersQuery());
             return Ok(orders);
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetOrder(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
-            var order = await _context.Orders
-                .Include(o => o.OrderDetails).ThenInclude(od => od.Produit)
-                .FirstOrDefaultAsync(o => o.Id == id && (o.UserId == userId || User.IsInRole("Admin")));
-            if (order == null) return NotFound();
+            var order = await _mediator.Send(new GetOrderByIdQuery(id));
+
+            if (order == null)
+                return NotFound();
+
             return Ok(order);
         }
 
-      
-
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Annuler(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
-            var order = await _context.Orders.FindAsync(id);
-            if (order == null || order.UserId != userId || order.Statut != StatutOrder.EnAttente) return BadRequest("Impossible d'annuler");
+            var result = await _mediator.Send(new DeleteOrderCommand(id));
 
-            order.Statut = StatutOrder.Annulee;
-            await _service.RevertStock(order);
-            await _context.SaveChangesAsync();
-            return NoContent();
-        }
+            if (!result)
+                return NotFound();
 
-        [HttpGet("all")]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> GetAllOrders()
-        {
-            var orders = await _context.Orders
-                .Include(o => o.User)
-                .Include(o => o.OrderDetails).ThenInclude(od => od.Produit)
-                .ToListAsync();
-            return Ok(orders);
+            return Ok();
         }
     }
 }

@@ -16,6 +16,5 @@ namespace DeliverWholesale.Models
 
         public string Statut { get; set; } = "En préparation";
 
-        public string NotesLivraison { get; set; }
     }
 }

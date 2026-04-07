@@ -6,7 +6,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using MediatR;
+using System.Reflection;
 using System.Text;
+using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 {
@@ -14,25 +18,30 @@ var builder = WebApplication.CreateBuilder(new WebApplicationOptions
     WebRootPath = null
 });
 
+// ========================
+// MEDIATR
+// ========================
+builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 
 // ========================
 // DATABASE
 // ========================
-
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection")
+    ));
 
 // ========================
 // JWT CONFIG
 // ========================
+builder.Services.Configure<JwtConfig>(
+    builder.Configuration.GetSection("JwtConfig"));
 
-builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection("JwtConfig"));
+var jwt = builder.Configuration.GetSection("JwtConfig").Get<JwtConfig>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
-        var jwt = builder.Configuration.GetSection("JwtConfig").Get<JwtConfig>();
-
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
@@ -42,8 +51,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
             ValidIssuer = jwt!.Issuer,
             ValidAudience = jwt.Audience,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt.Secret)),
-
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(jwt.Secret)
+            ),
             ClockSkew = TimeSpan.Zero
         };
     });
@@ -53,19 +63,23 @@ builder.Services.AddAuthorization();
 // ========================
 // SERVICES
 // ========================
-
 builder.Services.AddScoped<JwtService>();
 builder.Services.AddScoped<PricingService>();
 builder.Services.AddScoped<OrderService>();
 builder.Services.AddScoped<StockService>();
 
 // ========================
-// CONTROLLERS + SWAGGER
+// CONTROLLERS + JSON + SWAGGER
 // ========================
-
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler =
+            ReferenceHandler.IgnoreCycles;
+    });
 
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -78,11 +92,11 @@ builder.Services.AddSwaggerGen(c =>
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Name = "Authorization",
-        Type = SecuritySchemeType.ApiKey,
-        Scheme = "Bearer",
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
         BearerFormat = "JWT",
         In = ParameterLocation.Header,
-        Description = "Enter: Bearer {your JWT token}"
+        Description = "Enter your JWT token"
     });
 
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -96,24 +110,28 @@ builder.Services.AddSwaggerGen(c =>
                     Id = "Bearer"
                 }
             },
-            new string[] {}
+            Array.Empty<string>()
         }
     });
 });
 
 // ========================
-// APP PIPELINE
+// BUILD APP
 // ========================
-
 var app = builder.Build();
 
-// Swagger toujours actif 
-app.UseSwagger();
-app.UseSwaggerUI(c =>
+// ========================
+// MIDDLEWARE
+// ========================
+if (app.Environment.IsDevelopment())
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "DeliverWholesale API v1");
-    c.RoutePrefix = string.Empty; 
-});
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "DeliverWholesale API v1");
+        c.RoutePrefix = string.Empty;
+    });
+}
 
 app.UseHttpsRedirection();
 
@@ -123,9 +141,8 @@ app.UseAuthorization();
 app.MapControllers();
 
 // ========================
-// ADMIN PAR DÉFAUT
+// AUTO MIGRATION + DEFAULT ADMIN
 // ========================
-
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
@@ -144,6 +161,7 @@ using (var scope = app.Services.CreateScope())
         });
 
         db.SaveChanges();
+         Console.WriteLine("Admin créé : admin@admin.com / Admin123");
     }
 }
 

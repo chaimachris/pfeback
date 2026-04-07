@@ -7,7 +7,15 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Repositories\**" />
+	  <Content Remove="Repositories\**" />
+	  <EmbeddedResource Remove="Repositories\**" />
+	  <None Remove="Repositories\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.3" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.2">
 			<PrivateAssets>all</PrivateAssets>
@@ -19,10 +27,6 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.0" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Repositories\" />
 	</ItemGroup>
 
 </Project>
