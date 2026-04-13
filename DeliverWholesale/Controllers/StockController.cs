@@ -1,12 +1,15 @@
 ﻿using DeliverWholesale.DTOs;
 using DeliverWholesale.Handler.Stock;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DeliverWholesale.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(Roles = "Admin")]
+
     public class StockController : ControllerBase
     {
         private readonly IMediator _mediator;
