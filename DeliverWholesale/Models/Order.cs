@@ -11,6 +11,8 @@ namespace DeliverWholesale.Models
         public int UserId { get; set; }
         public User User { get; set; }
 
+
+
         public DateTime DateCommande { get; set; } = DateTime.UtcNow;
 
         public decimal TotalProduits { get; set; }
@@ -32,8 +34,10 @@ namespace DeliverWholesale.Models
     public enum StatutOrder
     {
         EnAttente,
-        Validee,
-        Livree,
+        Confirmee,
+        Preparation,
+        Expediee,
+        livree,
         Annulee
     }
 }

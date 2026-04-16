@@ -20,7 +20,7 @@ namespace DeliverWholesale.Handler.Dashboard
         {
             var chiffre = await _context.Orders
                 .Where(o => o.DateCommande >= DateTime.UtcNow.AddMonths(-1)
-                         && o.Statut == StatutOrder.Livree)
+                         && o.Statut == StatutOrder.livree)
                 .SumAsync(o => (decimal?)o.TotalFinal) ?? 0;
 
             return new

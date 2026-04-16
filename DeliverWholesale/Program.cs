@@ -12,10 +12,22 @@ using System.Text;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 
+
+
 var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 {
     Args = args,
     WebRootPath = null
+});
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AngularPolicy", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
 });
 
 // ========================
@@ -164,5 +176,6 @@ using (var scope = app.Services.CreateScope())
          Console.WriteLine("Admin créé : admin@admin.com / Admin123");
     }
 }
+app.UseCors("AngularPolicy");
 
 app.Run();

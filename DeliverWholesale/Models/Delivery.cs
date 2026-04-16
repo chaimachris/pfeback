@@ -11,10 +11,19 @@ namespace DeliverWholesale.Models
 
         public string AdresseLivraison { get; set; }
 
-        public DateTime? DateLivraisonPrevue { get; set; }
-        public DateTime? DateLivraisonReelle { get; set; }
-
-        public string Statut { get; set; } = "En préparation";
+        public DateOnly DateLivraisonPrevue { get; set; }
+        public DateOnly? DateLivraisonReelle { get; set; }
+        public DeliveryStatus Statut { get; set; } = DeliveryStatus.EnAttente;
 
     }
+    public enum DeliveryStatus
+    {
+        EnAttente,
+        Confirmee,
+        Preparation,
+        Expediee,
+        livree,
+        Annulee
+    }
+
 }
