@@ -10,14 +10,18 @@ namespace DeliverWholesale.Data
         {
         }
 
+        public DbSet<AchatLot> AchatLots { get; set; }
+        public DbSet<StockLot> StockLots { get; set; }
+        public DbSet<LotCommande> LotCommandes { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
+
         public DbSet<User> Users { get; set; }
         public DbSet<Categorie> Categories { get; set; }
         public DbSet<Produit> Produits { get; set; }
-        public DbSet<Config> Configs { get; set; } 
-        public DbSet<StockLot> StockLots { get; set; }
+        public DbSet<Config> Configs { get; set; }
+
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
-        public DbSet<Transaction> Transactions { get; set; }
         public DbSet<Delivery> Deliveries { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -42,20 +46,7 @@ namespace DeliverWholesale.Data
                 .HasForeignKey(od => od.ProduitId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Transaction>()
-                .HasOne(t => t.StockLot)
-                .WithMany(sl => sl.Transactions)
-                .HasForeignKey(t => t.StockLotId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<Transaction>()
-                .HasOne(t => t.OrderDetail)
-                .WithMany()
-                .HasForeignKey(t => t.OrderDetailId)
-                .IsRequired(false) 
-                .OnDelete(DeleteBehavior.Restrict);
-
-
+            
             modelBuilder.Entity<Delivery>()
                 .HasOne(d => d.Order)
                 .WithOne(o => o.Delivery)
@@ -68,12 +59,51 @@ namespace DeliverWholesale.Data
                 .HasForeignKey(p => p.CategorieId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            
+            modelBuilder.Entity<AchatLot>()
+                .HasOne(a => a.Produit)
+                .WithMany()
+                .HasForeignKey(a => a.ProduitId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<AchatLot>()
+                .HasIndex(a => a.NumeroLot)
+                .IsUnique();
+
+            
             modelBuilder.Entity<StockLot>()
-                .HasOne(s => s.Produit)
-                .WithMany(p => p.StockLots)
-                .HasForeignKey(s => s.ProduitId)
+                .HasOne(s => s.AchatLot)
+                .WithMany(a => a.StockLots)
+                .HasForeignKey(s => s.AchatLotId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<LotCommande>()
+                .HasOne(l => l.StockLot)
+                .WithMany(s => s.LotCommandes)
+                .HasForeignKey(l => l.StockLotId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<LotCommande>()
+                .HasOne(l => l.OrderDetail)
+                .WithMany()
+                .HasForeignKey(l => l.OrderDetailId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            
+            modelBuilder.Entity<Transaction>()
+                .HasOne(t => t.StockLot)
+                .WithMany(s => s.Transactions) 
+                .HasForeignKey(t => t.StockLotId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Transaction>()
+                .HasOne(t => t.OrderDetail)
+                .WithMany()
+                .HasForeignKey(t => t.OrderDetailId)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Restrict);
+
+           
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.Email)
                 .IsUnique();
@@ -87,8 +117,10 @@ namespace DeliverWholesale.Data
             modelBuilder.Entity<Order>()
                 .HasIndex(o => o.Statut);
 
+            
             modelBuilder.Entity<Config>()
                 .HasKey(c => c.Id);
+
             modelBuilder.Entity<Config>()
                 .Property(c => c.Id)
                 .ValueGeneratedNever();

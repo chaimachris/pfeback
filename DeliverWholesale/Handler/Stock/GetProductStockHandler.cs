@@ -27,8 +27,9 @@ namespace DeliverWholesale.Handler.Stock
         public async Task<List<StockLot>> Handle(GetProductStockQuery request, CancellationToken cancellationToken)
         {
             return await _context.StockLots
-                .Where(s => s.ProduitId == request.ProduitId)
-                .ToListAsync();
+                .Include(s => s.AchatLot)
+                .Where(s => s.AchatLot.ProduitId == request.ProduitId)
+                .ToListAsync(cancellationToken);
         }
     }
 }

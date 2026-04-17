@@ -17,19 +17,23 @@ namespace DeliverWholesale.Models
         public string Description { get; set; }
 
         [Column(TypeName = "decimal(18,3)")]
-        public decimal PrixAchat { get; set; }
+        public decimal Prix { get; set; }
 
-        [Column(TypeName = "decimal(18,3)")]
-        public decimal PrixVente { get; set; } 
-
-        public int CategorieId { get; set; }
-        public Categorie Categorie { get; set; }
+        public int SeuilAlerte { get; set; }
 
         public bool IsActive { get; set; } = true;
 
+        
+        public int CategorieId { get; set; }
+        public Categorie Categorie { get; set; }
+
+       
         public List<StockLot> StockLots { get; set; } = new List<StockLot>();
 
         [NotMapped]
-        public int StockActuel => StockLots.Sum(l => l.QuantiteAchetee) - StockLots.SelectMany(l => l.Transactions.Where(t => t.Type == TypeMouvement.Sortie)).Sum(t => t.Quantite);
+        public int StockDisponible => StockLots.Sum(l => l.QuantiteRestante);
+
+        [NotMapped]
+        public bool AlerteStock => StockDisponible <= SeuilAlerte;
     }
 }

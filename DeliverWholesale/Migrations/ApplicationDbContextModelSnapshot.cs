@@ -22,6 +22,44 @@ namespace DeliverWholesale.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("DeliverWholesale.Models.AchatLot", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("DateAchat")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Fournisseur")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NumeroLot")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<decimal>("PrixUnitaire")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ProduitId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuantiteAchetee")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NumeroLot")
+                        .IsUnique();
+
+                    b.HasIndex("ProduitId");
+
+                    b.ToTable("AchatLots");
+                });
+
             modelBuilder.Entity("DeliverWholesale.Models.Categorie", b =>
                 {
                     b.Property<int>("Id")
@@ -84,7 +122,7 @@ namespace DeliverWholesale.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("DateLivraisonPrevue")
+                    b.Property<DateTime>("DateLivraisonPrevue")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DateLivraisonReelle")
@@ -194,11 +232,11 @@ namespace DeliverWholesale.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<decimal>("PrixAchat")
+                    b.Property<decimal>("Prix")
                         .HasColumnType("decimal(18,3)");
 
-                    b.Property<decimal>("PrixVente")
-                        .HasColumnType("decimal(18,3)");
+                    b.Property<int>("SeuilAlerte")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -207,41 +245,6 @@ namespace DeliverWholesale.Migrations
                     b.HasIndex("Nom");
 
                     b.ToTable("Produits");
-                });
-
-            modelBuilder.Entity("DeliverWholesale.Models.StockLot", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("DateAchat")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Fournisseur")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("PrixAchatLot")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("ProduitId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("QuantiteAchetee")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Unite")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProduitId");
-
-                    b.ToTable("StockLots");
                 });
 
             modelBuilder.Entity("DeliverWholesale.Models.Transaction", b =>
@@ -288,6 +291,12 @@ namespace DeliverWholesale.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("EmailConfirmationToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsEmailConfirmed")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Nom")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -309,6 +318,72 @@ namespace DeliverWholesale.Migrations
                         .IsUnique();
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("LotCommande", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("OrderDetailId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuantitePrelevee")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StockLotId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderDetailId");
+
+                    b.HasIndex("StockLotId");
+
+                    b.ToTable("LotCommandes");
+                });
+
+            modelBuilder.Entity("StockLot", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AchatLotId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateReception")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ProduitId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuantiteRestante")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AchatLotId");
+
+                    b.HasIndex("ProduitId");
+
+                    b.ToTable("StockLots");
+                });
+
+            modelBuilder.Entity("DeliverWholesale.Models.AchatLot", b =>
+                {
+                    b.HasOne("DeliverWholesale.Models.Produit", "Produit")
+                        .WithMany()
+                        .HasForeignKey("ProduitId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Produit");
                 });
 
             modelBuilder.Entity("DeliverWholesale.Models.Categorie", b =>
@@ -372,17 +447,6 @@ namespace DeliverWholesale.Migrations
                     b.Navigation("Categorie");
                 });
 
-            modelBuilder.Entity("DeliverWholesale.Models.StockLot", b =>
-                {
-                    b.HasOne("DeliverWholesale.Models.Produit", "Produit")
-                        .WithMany("StockLots")
-                        .HasForeignKey("ProduitId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Produit");
-                });
-
             modelBuilder.Entity("DeliverWholesale.Models.Transaction", b =>
                 {
                     b.HasOne("DeliverWholesale.Models.OrderDetail", "OrderDetail")
@@ -390,7 +454,7 @@ namespace DeliverWholesale.Migrations
                         .HasForeignKey("OrderDetailId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("DeliverWholesale.Models.StockLot", "StockLot")
+                    b.HasOne("StockLot", "StockLot")
                         .WithMany("Transactions")
                         .HasForeignKey("StockLotId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -399,6 +463,45 @@ namespace DeliverWholesale.Migrations
                     b.Navigation("OrderDetail");
 
                     b.Navigation("StockLot");
+                });
+
+            modelBuilder.Entity("LotCommande", b =>
+                {
+                    b.HasOne("DeliverWholesale.Models.OrderDetail", "OrderDetail")
+                        .WithMany()
+                        .HasForeignKey("OrderDetailId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("StockLot", "StockLot")
+                        .WithMany("LotCommandes")
+                        .HasForeignKey("StockLotId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("OrderDetail");
+
+                    b.Navigation("StockLot");
+                });
+
+            modelBuilder.Entity("StockLot", b =>
+                {
+                    b.HasOne("DeliverWholesale.Models.AchatLot", "AchatLot")
+                        .WithMany("StockLots")
+                        .HasForeignKey("AchatLotId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DeliverWholesale.Models.Produit", null)
+                        .WithMany("StockLots")
+                        .HasForeignKey("ProduitId");
+
+                    b.Navigation("AchatLot");
+                });
+
+            modelBuilder.Entity("DeliverWholesale.Models.AchatLot", b =>
+                {
+                    b.Navigation("StockLots");
                 });
 
             modelBuilder.Entity("DeliverWholesale.Models.Categorie", b =>
@@ -421,14 +524,16 @@ namespace DeliverWholesale.Migrations
                     b.Navigation("StockLots");
                 });
 
-            modelBuilder.Entity("DeliverWholesale.Models.StockLot", b =>
-                {
-                    b.Navigation("Transactions");
-                });
-
             modelBuilder.Entity("DeliverWholesale.Models.User", b =>
                 {
                     b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("StockLot", b =>
+                {
+                    b.Navigation("LotCommandes");
+
+                    b.Navigation("Transactions");
                 });
 #pragma warning restore 612, 618
         }

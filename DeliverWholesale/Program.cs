@@ -1,16 +1,17 @@
 using DeliverWholesale.Data;
+using DeliverWholesale.Handler.Auth;
 using DeliverWholesale.Helpers;
 using DeliverWholesale.Models;
 using DeliverWholesale.Services;
+using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using MediatR;
 using System.Reflection;
 using System.Text;
 using System.Text.Json.Serialization;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 
 
@@ -76,9 +77,11 @@ builder.Services.AddAuthorization();
 // SERVICES
 // ========================
 builder.Services.AddScoped<JwtService>();
+builder.Services.AddMediatR(typeof(LoginHandler).Assembly);
 builder.Services.AddScoped<PricingService>();
 builder.Services.AddScoped<OrderService>();
 builder.Services.AddScoped<StockService>();
+builder.Services.AddScoped<EmailService>();
 
 // ========================
 // CONTROLLERS + JSON + SWAGGER
@@ -169,7 +172,8 @@ using (var scope = app.Services.CreateScope())
             Prenom = "System",
             Email = "admin@admin.com",
             PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123"),
-            Role = Role.Admin
+            Role = Role.Admin,
+            EmailConfirmationToken = ""
         });
 
         db.SaveChanges();

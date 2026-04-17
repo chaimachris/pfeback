@@ -1,6 +1,6 @@
 ﻿using DeliverWholesale.Data;
-using DeliverWholesale.Models;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace DeliverWholesale.Handler.Stock
 {
@@ -27,17 +27,18 @@ namespace DeliverWholesale.Handler.Stock
 
         public async Task<bool> Handle(RemoveStockCommand request, CancellationToken cancellationToken)
         {
-            var stock = await _context.StockLots.FindAsync(request.StockLotId);
+            var stock = await _context.StockLots
+                .FirstOrDefaultAsync(s => s.Id == request.StockLotId, cancellationToken);
 
             if (stock == null)
                 return false;
 
-            if (stock.QuantiteAchetee < request.Quantite)
+            if (stock.QuantiteRestante < request.Quantite)
                 return false;
 
-            stock.QuantiteAchetee -= request.Quantite;
+            stock.QuantiteRestante -= request.Quantite;
 
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
 
             return true;
         }

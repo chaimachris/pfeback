@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DeliverWholesale.Models
+﻿namespace DeliverWholesale.Models
 {
     public class Delivery
     {
@@ -11,19 +9,19 @@ namespace DeliverWholesale.Models
 
         public string AdresseLivraison { get; set; }
 
-        public DateOnly DateLivraisonPrevue { get; set; }
-        public DateOnly? DateLivraisonReelle { get; set; }
-        public DeliveryStatus Statut { get; set; } = DeliveryStatus.EnAttente;
+        public DateTime DateLivraisonPrevue { get; set; }
+        public DateTime? DateLivraisonReelle { get; set; }
 
+        public DeliveryStatus Statut { get; set; } = DeliveryStatus.EnAttente;
     }
+
     public enum DeliveryStatus
     {
         EnAttente,
         Confirmee,
         Preparation,
         Expediee,
-        livree,
+        Livree,
         Annulee
     }
-
 }

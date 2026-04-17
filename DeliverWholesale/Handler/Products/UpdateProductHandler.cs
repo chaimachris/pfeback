@@ -1,6 +1,5 @@
 ﻿using DeliverWholesale.Data;
 using DeliverWholesale.DTOs;
-using DeliverWholesale.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,18 +28,18 @@ namespace DeliverWholesale.Handler.Products
 
         public async Task<bool> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
         {
-            var product = await _context.Produits.FindAsync(request.Id);
+            var product = await _context.Produits
+                .FirstOrDefaultAsync(p => p.Id == request.Id, cancellationToken);
 
             if (product == null)
                 return false;
 
             product.Nom = request.ProductDto.Nom;
             product.Description = request.ProductDto.Description;
-            product.PrixAchat = request.ProductDto.PrixAchat;
-            product.PrixVente = request.ProductDto.PrixAchat * 1.2m;
+            product.Prix = request.ProductDto.Prix;   
             product.CategorieId = request.ProductDto.CategorieId;
 
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
 
             return true;
         }

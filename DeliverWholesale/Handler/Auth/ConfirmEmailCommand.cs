@@ -1,6 +1,16 @@
-﻿namespace DeliverWholesale.Handler.Auth
+﻿using MediatR;
+
+namespace DeliverWholesale.Handler.Auth
 {
-    public class ConfirmEmailCommand
+    public class ConfirmEmailCommand : IRequest<string>
     {
+        public string Email { get; set; }
+        public string Token { get; set; }
+
+        public ConfirmEmailCommand(string email, string token)
+        {
+            Email = email;
+            Token = token;
+        }
     }
 }

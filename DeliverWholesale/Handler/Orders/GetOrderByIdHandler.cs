@@ -5,16 +5,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DeliverWholesale.Handler.Orders
 {
-    public class GetOrderByIdQuery : IRequest<Order>
-    {
-        public int Id { get; set; }
-
-        public GetOrderByIdQuery(int id)
-        {
-            Id = id;
-        }
-    }
-
     public class GetOrderByIdHandler : IRequestHandler<GetOrderByIdQuery, Order>
     {
         private readonly ApplicationDbContext _context;
@@ -28,8 +18,9 @@ namespace DeliverWholesale.Handler.Orders
         {
             return await _context.Orders
                 .Include(o => o.OrderDetails)
-                .ThenInclude(d => d.Produit)
-                .FirstOrDefaultAsync(o => o.Id == request.Id, cancellationToken);
+                    .ThenInclude(d => d.Produit)
+                .Include(o => o.Delivery)
+                .FirstOrDefaultAsync(o => o.Id == request.Id);
         }
     }
 }

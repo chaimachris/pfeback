@@ -1,20 +1,9 @@
 ﻿using DeliverWholesale.Data;
 using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace DeliverWholesale.Handler.Orders
 {
-    public class DeleteOrderCommand : IRequest<bool>
-    {
-        public int Id { get; set; }
-
-        public DeleteOrderCommand(int id)
-        {
-            Id = id;
-        }
-    }
-
     public class DeleteOrderHandler : IRequestHandler<DeleteOrderCommand, bool>
     {
         private readonly ApplicationDbContext _context;
@@ -26,14 +15,17 @@ namespace DeliverWholesale.Handler.Orders
 
         public async Task<bool> Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
         {
-            var order = await _context.Orders.FindAsync(request.Id);
+            var order = await _context.Orders
+                .Include(o => o.OrderDetails)
+                .FirstOrDefaultAsync(o => o.Id == request.Id);
 
             if (order == null)
                 return false;
 
+            _context.OrderDetails.RemoveRange(order.OrderDetails);
             _context.Orders.Remove(order);
-            await _context.SaveChangesAsync(cancellationToken);
 
+            await _context.SaveChangesAsync();
             return true;
         }
     }

@@ -40,16 +40,16 @@ namespace DeliverWholesale.Services
                     OrderId = order.Id,
                     ProduitId = product.Id,
                     Quantite = item.Quantite,
-                    PrixUnitaire = product.PrixVente
+                    PrixUnitaire = product.Prix
                 };
 
                 total += detail.SousTotal;
                 _context.OrderDetails.Add(detail);
                 await _context.SaveChangesAsync();
-
                 var lot = await _context.StockLots
-                    .Where(l => l.ProduitId == product.Id)
-                    .OrderBy(l => l.DateAchat)
+                    .Include(l => l.AchatLot)
+                    .Where(l => l.AchatLot.ProduitId == product.Id && l.QuantiteRestante > 0)
+                    .OrderBy(l => l.DateReception)
                     .FirstOrDefaultAsync();
 
                 if (lot != null)

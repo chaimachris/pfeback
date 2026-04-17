@@ -28,16 +28,13 @@ namespace DeliverWholesale.Handler.Stock
         {
             var stockLot = new StockLot
             {
-                ProduitId = request.StockDto.ProduitId,
-                QuantiteAchetee = request.StockDto.Quantite,
-                PrixAchatLot = request.StockDto.PrixAchatTotal,
-                Fournisseur = request.StockDto.Fournisseur,
-                Unite = request.StockDto.Unite,
-                DateAchat = DateTime.Now
+                AchatLotId = request.StockDto.AchatLotId, 
+                QuantiteRestante = request.StockDto.Quantite,
+                DateReception = DateTime.UtcNow
             };
 
             _context.StockLots.Add(stockLot);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
 
             return stockLot.Id;
         }

@@ -30,13 +30,14 @@ namespace DeliverWholesale.Handler.Products
             {
                 Nom = request.ProductDto.Nom,
                 Description = request.ProductDto.Description,
-                PrixAchat = request.ProductDto.PrixAchat,
-                PrixVente = request.ProductDto.PrixAchat * 1.2m,
-                CategorieId = request.ProductDto.CategorieId
+                Prix = request.ProductDto.Prix,   
+                CategorieId = request.ProductDto.CategorieId,
+                SeuilAlerte = request.ProductDto.SeuilAlerte,
+                IsActive = true
             };
 
             _context.Produits.Add(product);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
 
             return product.Id;
         }

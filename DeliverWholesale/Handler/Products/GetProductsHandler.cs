@@ -1,4 +1,5 @@
 ﻿using DeliverWholesale.Data;
+using DeliverWholesale.Handler.Stock;
 using DeliverWholesale.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -9,20 +10,21 @@ namespace DeliverWholesale.Handler.Products
     {
     }
 
-    public class GetProductsHandler : IRequestHandler<GetProductsQuery, List<Produit>>
+    public class GetProductStockHandler : IRequestHandler<GetProductStockQuery, List<StockLot>>
     {
         private readonly ApplicationDbContext _context;
 
-        public GetProductsHandler(ApplicationDbContext context)
+        public GetProductStockHandler(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task<List<Produit>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
+        public async Task<List<StockLot>> Handle(GetProductStockQuery request, CancellationToken cancellationToken)
         {
-            return await _context.Produits
-                .Include(p => p.Categorie)
-                .ToListAsync();
+            return await _context.StockLots
+                .Include(s => s.AchatLot) 
+                .Where(s => s.AchatLot.ProduitId == request.ProduitId)
+                .ToListAsync(cancellationToken);
         }
     }
 }

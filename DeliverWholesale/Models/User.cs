@@ -11,6 +11,9 @@ namespace DeliverWholesale.Models
         public string PasswordHash { get; set; }
         public Role Role { get; set; } = Role.Client;
 
+        public bool IsEmailConfirmed { get; set; } = false;
+        public string? EmailConfirmationToken { get; set; }
+
         public List<Order> Orders { get; set; } = new List<Order>();
     }
 

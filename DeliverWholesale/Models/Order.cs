@@ -24,7 +24,6 @@ namespace DeliverWholesale.Models
 
         public StatutOrder Statut { get; set; } = StatutOrder.EnAttente;
 
-        public bool IsDeleted { get; set; }
 
         public Delivery Delivery { get; set; }
 

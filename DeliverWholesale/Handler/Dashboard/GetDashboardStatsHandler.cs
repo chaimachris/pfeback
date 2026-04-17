@@ -28,8 +28,8 @@ namespace DeliverWholesale.Handler.Dashboard
                 TotalProduits = await _context.Produits.CountAsync(p => p.IsActive),
                 TotalCommandes = await _context.Orders.CountAsync(),
                 CommandesEnAttente = await _context.Orders.CountAsync(o => o.Statut == StatutOrder.EnAttente),
-                StockBas = await _context.Produits.CountAsync(p => p.StockActuel <= 10 && p.IsActive),
-                StockNegatif = await _context.Produits.CountAsync(p => p.StockActuel < 0 && p.IsActive),
+                StockBas = await _context.Produits.CountAsync(p => p.StockDisponible <= 10 && p.IsActive),
+                StockNegatif = await _context.Produits.CountAsync(p => p.StockDisponible < 0 && p.IsActive),
                 ChiffreAffairesMois = chiffre
             };
         }

@@ -19,12 +19,10 @@ namespace DeliverWholesale.Handler.Delivery
         public async Task<Models.Delivery> Handle(CreateDeliveryCommand request, CancellationToken cancellationToken)
         {
             var orderExists = await _context.Orders
-        .AnyAsync(o => o.Id == request.Dto.OrderId, cancellationToken);
+                .AnyAsync(o => o.Id == request.Dto.OrderId, cancellationToken);
 
             if (!orderExists)
-            {
-                throw new Exception($"Order with Id {request.Dto.OrderId} does not exist.");
-            }
+                throw new Exception($"Order {request.Dto.OrderId} does not exist.");
 
             var delivery = new Models.Delivery
             {

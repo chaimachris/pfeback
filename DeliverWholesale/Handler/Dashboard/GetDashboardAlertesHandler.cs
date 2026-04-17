@@ -17,18 +17,27 @@ namespace DeliverWholesale.Handler.Dashboard
 
         public async Task<object> Handle(GetDashboardAlertesQuery request, CancellationToken cancellationToken)
         {
-            var config = await _context.Configs.FirstOrDefaultAsync();
+            var config = await _context.Configs.FirstOrDefaultAsync(cancellationToken);
             int seuil = config?.SeuilAlerteStockBas ?? 10;
 
-            return await _context.Produits
-                .Where(p => p.IsActive && p.StockActuel <= seuil)
+            var result = await _context.Produits
+                .Where(p => p.IsActive)
                 .Select(p => new
                 {
                     Produit = p.Nom,
-                    Stock = p.StockActuel,
-                    EstCritique = p.StockActuel < 0
+
+                    
+                    Stock = _context.StockLots
+                        .Where(l => l.AchatLot.ProduitId == p.Id)
+                        .Sum(l => l.QuantiteRestante),
+
+                    EstCritique = _context.StockLots
+                        .Where(l => l.AchatLot.ProduitId == p.Id)
+                        .Sum(l => l.QuantiteRestante) < seuil
                 })
-                .ToListAsync();
+                .ToListAsync(cancellationToken);
+
+            return result;
         }
     }
 }

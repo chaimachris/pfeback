@@ -23,6 +23,13 @@ namespace DeliverWholesale.Controllers
             return Ok(new { message = result });
         }
 
+        [HttpGet("confirm-email")]
+        public async Task<IActionResult> ConfirmEmail(string email, string token)
+        {
+            var result = await _mediator.Send(new ConfirmEmailCommand(email, token));
+            return Ok(new { message = result });
+        }
+
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginDto dto)
         {

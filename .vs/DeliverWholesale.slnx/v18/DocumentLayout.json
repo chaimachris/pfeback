@@ -3,88 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\dtos\\createdeliverydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\dtos\\createdeliverydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\models\\categorie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\models\\categorie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\delivery\\updatedeliverystatushandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\delivery\\updatedeliverystatushandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\models\\achatlot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\models\\achatlot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\models\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\models\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\models\\delivery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\models\\delivery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\controllers\\deliverycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\controllers\\deliverycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\delivery\\getdeliverieshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\delivery\\getdeliverieshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\delivery\\createdeliveryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\delivery\\createdeliveryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\dtos\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\dtos\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\dtos\\addstocklotdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\dtos\\addstocklotdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\dtos\\productupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\dtos\\productupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\dtos\\productcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\dtos\\productcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\dtos\\ordercreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\dtos\\ordercreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\dashboard\\getdashboardstatshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\dashboard\\getdashboardstatshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\controllers\\stockcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\controllers\\stockcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\stock\\getstockhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\stock\\getstockhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\data\\updatedeliverystatusdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\data\\updatedeliverystatusdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\models\\lotcommande.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\models\\lotcommande.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\models\\produit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\models\\produit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\models\\stocklot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -95,64 +43,188 @@
       "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\models\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\models\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\models\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\services\\pricingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\services\\pricingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\categories\\deletecategoryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\categories\\deletecategoryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\services\\stockservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\services\\stockservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\models\\typemouvement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\models\\typemouvement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\models\\produit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\models\\produit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\auth\\loginhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\auth\\loginhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\achatlots\\createachatlothandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\achatlots\\createachatlothandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\models\\categorie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\models\\categorie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\migrations\\20260317225156_updatestockandorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\migrations\\20260317225156_updatestockandorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\auth\\registerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\auth\\registerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\helpers\\jwtconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\helpers\\jwtconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\config\\getconfighandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\config\\getconfighandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\delivery\\createdeliveryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\delivery\\createdeliveryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\delivery\\getdeliverieshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\delivery\\getdeliverieshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\delivery\\gettodayclientshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\delivery\\gettodayclientshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\delivery\\gettodayclientsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\delivery\\gettodayclientsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\delivery\\gettodayproductshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\delivery\\gettodayproductshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\delivery\\gettodayproductsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\delivery\\gettodayproductsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\delivery\\updatedeliverydatecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\delivery\\updatedeliverydatecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\delivery\\updatedeliverydatehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\delivery\\updatedeliverydatehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\delivery\\updatedeliverystatushandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\delivery\\updatedeliverystatushandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\controllers\\deliverycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\controllers\\deliverycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\controllers\\achatlotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\controllers\\achatlotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\controllers\\configcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\controllers\\configcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\controllers\\stockcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\controllers\\stockcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\dtos\\addstocklotdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\dtos\\addstocklotdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\dtos\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\dtos\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\dtos\\createdeliverydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\dtos\\createdeliverydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\dtos\\ordercreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\dtos\\ordercreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\dtos\\productcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\dtos\\productcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\dtos\\productupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\dtos\\productupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\dtos\\updatedeliverystatusdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\dtos\\updatedeliverystatusdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\achatlots\\getallachatlotsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\achatlots\\getallachatlotsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\achatlots\\getallachatlotshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\achatlots\\getallachatlotshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\achatlots\\getachatlotbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\achatlots\\getachatlotbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\achatlots\\getachatlotbyidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\achatlots\\getachatlotbyidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\achatlots\\deleteachatlothandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\achatlots\\deleteachatlothandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\achatlots\\deleteachatlotcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\achatlots\\deleteachatlotcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\achatlots\\createachatlotcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\achatlots\\createachatlotcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\auth\\registercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\auth\\registercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\auth\\logincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\auth\\logincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\auth\\confirmemailhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\auth\\confirmemailhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\auth\\confirmemailcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\auth\\confirmemailcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\categories\\updatecategoryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -163,48 +235,60 @@
       "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\categories\\getcategorieshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\categories\\deletecategoryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\categories\\deletecategoryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\categories\\createcategoryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\categories\\createcategoryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\auth\\registerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\auth\\registerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\config\\updateconfighandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\config\\updateconfighandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\auth\\loginhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\auth\\loginhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\config\\getconfighandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\config\\getconfighandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\dashboard\\getdashboardalerteshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\dashboard\\getdashboardalerteshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\dashboard\\getdashboardstatshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\dashboard\\getdashboardstatshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\orders\\getorderbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\orders\\getorderbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\controllers\\configcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\controllers\\configcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\orders\\getorderbyidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\orders\\getorderbyidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\orders\\getallordersquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\orders\\getallordersquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\orders\\getallordershandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\orders\\getallordershandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\orders\\deleteorderhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\orders\\deleteorderhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\orders\\deleteordercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\orders\\deleteordercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\orders\\createorderhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\orders\\createorderhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\stock\\removestockhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\stock\\removestockhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\stock\\getproductstockhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\stock\\getproductstockhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\stock\\addstockhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\stock\\addstockhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\orders\\createordercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\orders\\createordercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\products\\updateproducthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -223,24 +307,48 @@
       "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\products\\createproducthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\orders\\getordershandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\orders\\getordershandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\orders\\getorderbyidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\orders\\getorderbyidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\orders\\deleteorderhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\orders\\deleteorderhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\services\\pricingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\services\\pricingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\dashboard\\getdashboardalerteshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\dashboard\\getdashboardalerteshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\services\\stockservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\services\\stockservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\config\\updateconfighandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\config\\updateconfighandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\stock\\getstockhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\stock\\getstockhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\stock\\getproductstockhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\stock\\getproductstockhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\stock\\addstockhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\stock\\addstockhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\handler\\stock\\removestockhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\handler\\stock\\removestockhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\helpers\\jwtconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\helpers\\jwtconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\migrations\\20260317225156_updatestockandorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|solutionrelative:deliverwholesale\\migrations\\20260317225156_updatestockandorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6EADB2DA-1F43-6DCC-CD2C-8F8DEFAE6E04}|DeliverWholesale\\DeliverWholesale.csproj|c:\\users\\admin\\source\\repos\\deliverwholesale\\deliverwholesale\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -270,154 +378,492 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UpdateDeliveryStatusHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\UpdateDeliveryStatusHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Delivery\\UpdateDeliveryStatusHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\UpdateDeliveryStatusHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Delivery\\UpdateDeliveryStatusHandler.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAApwCMAAAAvAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "StockLot.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\StockLot.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Models\\StockLot.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\StockLot.cs",
+              "RelativeToolTip": "DeliverWholesale\\Models\\StockLot.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAA3wAsAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T19:12:00.129Z",
+              "WhenOpened": "2026-02-19T12:31:57.604Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
+              "Title": "Produit.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Produit.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Models\\Produit.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Produit.cs",
+              "RelativeToolTip": "DeliverWholesale\\Models\\Produit.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAYwCMAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-19T12:31:49.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "OrderDetail.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\OrderDetail.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Models\\OrderDetail.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\OrderDetail.cs",
+              "RelativeToolTip": "DeliverWholesale\\Models\\OrderDetail.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBAAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-19T12:31:41.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Models\\Order.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Order.cs",
+              "RelativeToolTip": "DeliverWholesale\\Models\\Order.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAtwBoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-19T12:31:31.232Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LotCommande.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\LotCommande.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Models\\LotCommande.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\LotCommande.cs",
+              "RelativeToolTip": "DeliverWholesale\\Models\\LotCommande.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T11:43:50.738Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Delivery.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Delivery.cs",
               "RelativeDocumentMoniker": "DeliverWholesale\\Models\\Delivery.cs",
               "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Delivery.cs",
               "RelativeToolTip": "DeliverWholesale\\Models\\Delivery.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAADwvxEAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAzwBoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-19T12:31:14.509Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Config.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Config.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Models\\Config.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Config.cs",
+              "RelativeToolTip": "DeliverWholesale\\Models\\Config.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-19T12:31:07.065Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CreateDeliveryDto.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\CreateDeliveryDto.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\DTOs\\CreateDeliveryDto.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\CreateDeliveryDto.cs*",
-              "RelativeToolTip": "DeliverWholesale\\DTOs\\CreateDeliveryDto.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Title": "Categorie.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Categorie.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Models\\Categorie.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Categorie.cs",
+              "RelativeToolTip": "DeliverWholesale\\Models\\Categorie.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T19:44:25.158Z",
+              "WhenOpened": "2026-02-17T21:07:02.471Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DeliveryController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\DeliveryController.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Controllers\\DeliveryController.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\DeliveryController.cs",
-              "RelativeToolTip": "DeliverWholesale\\Controllers\\DeliveryController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAfAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "AchatLot.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\AchatLot.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Models\\AchatLot.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\AchatLot.cs",
+              "RelativeToolTip": "DeliverWholesale\\Models\\AchatLot.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA1wAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T19:03:52.76Z",
+              "WhenOpened": "2026-04-17T11:43:02.206Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "GetDeliveriesHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\GetDeliveriesHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Delivery\\GetDeliveriesHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\GetDeliveriesHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Delivery\\GetDeliveriesHandler.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAA3wBoAAAABAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "Transaction.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Transaction.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Models\\Transaction.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Transaction.cs",
+              "RelativeToolTip": "DeliverWholesale\\Models\\Transaction.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAIwAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T19:02:47.017Z",
+              "WhenOpened": "2026-02-19T12:32:06.654Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
+              "Title": "TypeMouvement.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\TypeMouvement.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Models\\TypeMouvement.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\TypeMouvement.cs",
+              "RelativeToolTip": "DeliverWholesale\\Models\\TypeMouvement.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T13:26:50.711Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\User.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\User.cs",
+              "RelativeToolTip": "DeliverWholesale\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-19T12:32:14.893Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "LoginHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Auth\\LoginHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Auth\\LoginHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Auth\\LoginHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Auth\\LoginHandler.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAswCkAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T14:39:35.104Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Program.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Program.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Program.cs",
+              "RelativeToolTip": "DeliverWholesale\\Program.cs",
+              "ViewState": "AgIAAJ8AAAAAAAAAAAAiwKsAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-19T12:33:10.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CreateAchatLotHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\AchatLots\\CreateAchatLotHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\AchatLots\\CreateAchatLotHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\AchatLots\\CreateAchatLotHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\AchatLots\\CreateAchatLotHandler.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwBgAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T11:58:40.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "GetTodayProductsHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\GetTodayProductsHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Delivery\\GetTodayProductsHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\GetTodayProductsHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Delivery\\GetTodayProductsHandler.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAqwCEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T13:43:17.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "GetTodayClientsHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\GetTodayClientsHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Delivery\\GetTodayClientsHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\GetTodayClientsHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Delivery\\GetTodayClientsHandler.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAqwCAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T13:43:58.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "CreateDeliveryHandler.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\CreateDeliveryHandler.cs",
               "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Delivery\\CreateDeliveryHandler.cs",
               "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\CreateDeliveryHandler.cs",
               "RelativeToolTip": "DeliverWholesale\\Handler\\Delivery\\CreateDeliveryHandler.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAwwBcAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-16T19:02:02.286Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ProductCreateDto.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\ProductCreateDto.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\DTOs\\ProductCreateDto.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\ProductCreateDto.cs",
-              "RelativeToolTip": "DeliverWholesale\\DTOs\\ProductCreateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "DocumentIndex": 20,
+              "Title": "GetTodayClientsQuery.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\GetTodayClientsQuery.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Delivery\\GetTodayClientsQuery.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\GetTodayClientsQuery.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Delivery\\GetTodayClientsQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:30:05.921Z",
+              "WhenOpened": "2026-04-17T13:43:39.839Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "OrderCreateDto.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\OrderCreateDto.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\DTOs\\OrderCreateDto.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\OrderCreateDto.cs",
-              "RelativeToolTip": "DeliverWholesale\\DTOs\\OrderCreateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "DocumentIndex": 15,
+              "Title": "RegisterHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Auth\\RegisterHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Auth\\RegisterHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Auth\\RegisterHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Auth\\RegisterHandler.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAArwDcAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:29:57.981Z",
+              "WhenOpened": "2026-03-30T14:39:46.717Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ProductUpdateDto.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\ProductUpdateDto.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\DTOs\\ProductUpdateDto.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\ProductUpdateDto.cs",
-              "RelativeToolTip": "DeliverWholesale\\DTOs\\ProductUpdateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "DocumentIndex": 16,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Services\\EmailService.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Services\\EmailService.cs",
+              "RelativeToolTip": "DeliverWholesale\\Services\\EmailService.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAA8wCAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:30:14.003Z",
+              "WhenOpened": "2026-04-16T20:06:18.581Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "RegisterDto.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\RegisterDto.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\DTOs\\RegisterDto.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\RegisterDto.cs",
-              "RelativeToolTip": "DeliverWholesale\\DTOs\\RegisterDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "DocumentIndex": 22,
+              "Title": "GetTodayProductsQuery.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\GetTodayProductsQuery.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Delivery\\GetTodayProductsQuery.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\GetTodayProductsQuery.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Delivery\\GetTodayProductsQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:30:21.351Z",
+              "WhenOpened": "2026-04-17T13:42:59.611Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 23,
+              "Title": "UpdateDeliveryDateCommand.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\UpdateDeliveryDateCommand.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Delivery\\UpdateDeliveryDateCommand.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\UpdateDeliveryDateCommand.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Delivery\\UpdateDeliveryDateCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T13:44:25.526Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "GetDeliveriesHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\GetDeliveriesHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Delivery\\GetDeliveriesHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\GetDeliveriesHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Delivery\\GetDeliveriesHandler.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T19:02:47.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "UpdateDeliveryDateHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\UpdateDeliveryDateHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Delivery\\UpdateDeliveryDateHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\UpdateDeliveryDateHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Delivery\\UpdateDeliveryDateHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T13:44:45.765Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "UpdateDeliveryStatusHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\UpdateDeliveryStatusHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Delivery\\UpdateDeliveryStatusHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Delivery\\UpdateDeliveryStatusHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Delivery\\UpdateDeliveryStatusHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T19:12:00.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "DeliveryController.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\DeliveryController.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Controllers\\DeliveryController.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\DeliveryController.cs",
+              "RelativeToolTip": "DeliverWholesale\\Controllers\\DeliveryController.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAiwE0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T19:03:52.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "DeliverWholesale\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAawEgAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-19T12:29:21.263Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "AchatLotController.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\AchatLotController.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Controllers\\AchatLotController.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\AchatLotController.cs",
+              "RelativeToolTip": "DeliverWholesale\\Controllers\\AchatLotController.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwDkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T11:59:17.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "DeliverWholesale\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-19T12:28:07.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "CategoriesController.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\CategoriesController.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Controllers\\CategoriesController.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\CategoriesController.cs",
+              "RelativeToolTip": "DeliverWholesale\\Controllers\\CategoriesController.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAkwA4AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-19T12:28:17.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "ConfigController.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\ConfigController.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Controllers\\ConfigController.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\ConfigController.cs",
+              "RelativeToolTip": "DeliverWholesale\\Controllers\\ConfigController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwBUAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-19T12:28:26.065Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Controllers\\DashboardController.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "DeliverWholesale\\Controllers\\DashboardController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-19T12:28:34.8Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Controllers\\OrdersController.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "DeliverWholesale\\Controllers\\OrdersController.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAmwBIAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-19T12:28:53.053Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "DeliverWholesale\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAkwCAAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-19T12:29:01.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "StockController.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\StockController.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Controllers\\StockController.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\StockController.cs",
+              "RelativeToolTip": "DeliverWholesale\\Controllers\\StockController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAoAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-19T12:29:09.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
               "Title": "AddStockLotDto.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\AddStockLotDto.cs",
               "RelativeDocumentMoniker": "DeliverWholesale\\DTOs\\AddStockLotDto.cs",
               "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\AddStockLotDto.cs",
               "RelativeToolTip": "DeliverWholesale\\DTOs\\AddStockLotDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-19T12:29:32.388Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 37,
               "Title": "CategoryDto.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\CategoryDto.cs",
               "RelativeDocumentMoniker": "DeliverWholesale\\DTOs\\CategoryDto.cs",
@@ -430,77 +876,90 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "GetDashboardStatsHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Dashboard\\GetDashboardStatsHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Dashboard\\GetDashboardStatsHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Dashboard\\GetDashboardStatsHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Dashboard\\GetDashboardStatsHandler.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBUAAABLAAAAAAAAAA==",
+              "DocumentIndex": 38,
+              "Title": "CreateDeliveryDto.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\CreateDeliveryDto.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\DTOs\\CreateDeliveryDto.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\CreateDeliveryDto.cs",
+              "RelativeToolTip": "DeliverWholesale\\DTOs\\CreateDeliveryDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T14:41:06.547Z",
+              "WhenOpened": "2026-04-16T19:44:25.158Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "GetStockHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Stock\\GetStockHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Stock\\GetStockHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Stock\\GetStockHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Stock\\GetStockHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 39,
+              "Title": "LoginDto.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\LoginDto.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\DTOs\\LoginDto.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\LoginDto.cs",
+              "RelativeToolTip": "DeliverWholesale\\DTOs\\LoginDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-16T13:23:20.923Z",
+              "WhenOpened": "2026-02-19T12:29:50.465Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "StockController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\StockController.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Controllers\\StockController.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\StockController.cs",
-              "RelativeToolTip": "DeliverWholesale\\Controllers\\StockController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAADAAAAAAAAAA==",
+              "DocumentIndex": 40,
+              "Title": "OrderCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\OrderCreateDto.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\DTOs\\OrderCreateDto.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\OrderCreateDto.cs",
+              "RelativeToolTip": "DeliverWholesale\\DTOs\\OrderCreateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:29:09.709Z",
+              "WhenOpened": "2026-02-19T12:29:57.981Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Program.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Program.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Program.cs",
-              "RelativeToolTip": "DeliverWholesale\\Program.cs",
-              "ViewState": "AgIAAKcAAAAAAAAAAAAwwK8AAAApAAAAAAAAAA==",
+              "DocumentIndex": 41,
+              "Title": "ProductCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\ProductCreateDto.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\DTOs\\ProductCreateDto.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\ProductCreateDto.cs",
+              "RelativeToolTip": "DeliverWholesale\\DTOs\\ProductCreateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:33:10.871Z",
+              "WhenOpened": "2026-02-19T12:30:05.921Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "OrdersController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\OrdersController.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Controllers\\OrdersController.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\OrdersController.cs",
-              "RelativeToolTip": "DeliverWholesale\\Controllers\\OrdersController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwDcAAAABAAAAAAAAAA==",
+              "DocumentIndex": 42,
+              "Title": "ProductUpdateDto.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\ProductUpdateDto.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\DTOs\\ProductUpdateDto.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\ProductUpdateDto.cs",
+              "RelativeToolTip": "DeliverWholesale\\DTOs\\ProductUpdateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:28:53.053Z",
+              "WhenOpened": "2026-02-19T12:30:14.003Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 43,
+              "Title": "RegisterDto.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\RegisterDto.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\DTOs\\RegisterDto.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\RegisterDto.cs",
+              "RelativeToolTip": "DeliverWholesale\\DTOs\\RegisterDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-19T12:30:21.351Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
               "Title": "UpdateDeliveryStatusDto.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Data\\UpdateDeliveryStatusDto.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Data\\UpdateDeliveryStatusDto.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Data\\UpdateDeliveryStatusDto.cs",
-              "RelativeToolTip": "DeliverWholesale\\Data\\UpdateDeliveryStatusDto.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\UpdateDeliveryStatusDto.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\DTOs\\UpdateDeliveryStatusDto.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\UpdateDeliveryStatusDto.cs",
+              "RelativeToolTip": "DeliverWholesale\\DTOs\\UpdateDeliveryStatusDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-16T19:01:14.998Z",
@@ -508,70 +967,436 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "ApplicationDbContextModelSnapshot.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Migrations\\ApplicationDbContextModelSnapshot.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Migrations\\ApplicationDbContextModelSnapshot.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Migrations\\ApplicationDbContextModelSnapshot.cs",
-              "RelativeToolTip": "DeliverWholesale\\Migrations\\ApplicationDbContextModelSnapshot.cs",
-              "ViewState": "AgIAALABAAAAAAAAAAAQwOAAAAALAAAAAAAAAA==",
+              "DocumentIndex": 45,
+              "Title": "GetAllAchatLotsQuery.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\AchatLots\\GetAllAchatLotsQuery.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\AchatLots\\GetAllAchatLotsQuery.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\AchatLots\\GetAllAchatLotsQuery.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\AchatLots\\GetAllAchatLotsQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T23:52:51.026Z",
+              "WhenOpened": "2026-04-17T12:01:00.285Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "DeliverWholesale\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAzwAEAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 46,
+              "Title": "GetAllAchatLotsHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\AchatLots\\GetAllAchatLotsHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\AchatLots\\GetAllAchatLotsHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\AchatLots\\GetAllAchatLotsHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\AchatLots\\GetAllAchatLotsHandler.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:29:21.263Z",
+              "WhenOpened": "2026-04-17T12:09:56.375Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Order.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Models\\Order.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Order.cs",
-              "RelativeToolTip": "DeliverWholesale\\Models\\Order.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAuwCkAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 47,
+              "Title": "GetAchatLotByIdQuery.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\AchatLots\\GetAchatLotByIdQuery.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\AchatLots\\GetAchatLotByIdQuery.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\AchatLots\\GetAchatLotByIdQuery.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\AchatLots\\GetAchatLotByIdQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:31:31.232Z",
+              "WhenOpened": "2026-04-17T12:01:25.374Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "Produit.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Produit.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Models\\Produit.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Produit.cs",
-              "RelativeToolTip": "DeliverWholesale\\Models\\Produit.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAqwB8AAAATAAAAAAAAAA==",
+              "DocumentIndex": 48,
+              "Title": "GetAchatLotByIdHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\AchatLots\\GetAchatLotByIdHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\AchatLots\\GetAchatLotByIdHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\AchatLots\\GetAchatLotByIdHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\AchatLots\\GetAchatLotByIdHandler.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:31:49.261Z"
+              "WhenOpened": "2026-04-17T12:10:28.194Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "StockLot.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\StockLot.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Models\\StockLot.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\StockLot.cs",
-              "RelativeToolTip": "DeliverWholesale\\Models\\StockLot.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAuwBEAAABCAAAAAAAAAA==",
+              "DocumentIndex": 49,
+              "Title": "DeleteAchatLotHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\AchatLots\\DeleteAchatLotHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\AchatLots\\DeleteAchatLotHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\AchatLots\\DeleteAchatLotHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\AchatLots\\DeleteAchatLotHandler.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAqwBgAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:31:57.604Z"
+              "WhenOpened": "2026-04-17T12:10:57.803Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 50,
+              "Title": "DeleteAchatLotCommand.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\AchatLots\\DeleteAchatLotCommand.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\AchatLots\\DeleteAchatLotCommand.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\AchatLots\\DeleteAchatLotCommand.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\AchatLots\\DeleteAchatLotCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T12:01:46.262Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "CreateAchatLotCommand.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\AchatLots\\CreateAchatLotCommand.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\AchatLots\\CreateAchatLotCommand.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\AchatLots\\CreateAchatLotCommand.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\AchatLots\\CreateAchatLotCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T11:58:20.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "RegisterCommand.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Auth\\RegisterCommand.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Auth\\RegisterCommand.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Auth\\RegisterCommand.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Auth\\RegisterCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T20:12:33.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "LoginCommand.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Auth\\LoginCommand.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Auth\\LoginCommand.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Auth\\LoginCommand.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Auth\\LoginCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAmwA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T20:12:44.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "ConfirmEmailHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Auth\\ConfirmEmailHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Auth\\ConfirmEmailHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Auth\\ConfirmEmailHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Auth\\ConfirmEmailHandler.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA1wA8AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T20:10:34.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "ConfirmEmailCommand.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Auth\\ConfirmEmailCommand.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Auth\\ConfirmEmailCommand.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Auth\\ConfirmEmailCommand.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Auth\\ConfirmEmailCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T20:10:24.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "UpdateCategoryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Categories\\UpdateCategoryHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Categories\\UpdateCategoryHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Categories\\UpdateCategoryHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Categories\\UpdateCategoryHandler.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAswBAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T14:40:20.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "GetCategoriesHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Categories\\GetCategoriesHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Categories\\GetCategoriesHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Categories\\GetCategoriesHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Categories\\GetCategoriesHandler.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAYwBkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T14:40:02.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "DeleteCategoryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Categories\\DeleteCategoryHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Categories\\DeleteCategoryHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Categories\\DeleteCategoryHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Categories\\DeleteCategoryHandler.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAzwCAAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T14:40:30.774Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "CreateCategoryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Categories\\CreateCategoryHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Categories\\CreateCategoryHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Categories\\CreateCategoryHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Categories\\CreateCategoryHandler.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAA3wCAAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T14:40:11.195Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "UpdateConfigHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Config\\UpdateConfigHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Config\\UpdateConfigHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Config\\UpdateConfigHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Config\\UpdateConfigHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T14:40:52.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "GetConfigHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Config\\GetConfigHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Config\\GetConfigHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Config\\GetConfigHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Config\\GetConfigHandler.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T14:40:42.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "GetDashboardAlertesHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Dashboard\\GetDashboardAlertesHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Dashboard\\GetDashboardAlertesHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Dashboard\\GetDashboardAlertesHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Dashboard\\GetDashboardAlertesHandler.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAgwB0AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T14:41:17.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "GetDashboardStatsHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Dashboard\\GetDashboardStatsHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Dashboard\\GetDashboardStatsHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Dashboard\\GetDashboardStatsHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Dashboard\\GetDashboardStatsHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T14:41:06.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "GetOrderByIdQuery.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\GetOrderByIdQuery.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Orders\\GetOrderByIdQuery.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\GetOrderByIdQuery.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Orders\\GetOrderByIdQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T12:18:55.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "GetOrderByIdHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\GetOrderByIdHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Orders\\GetOrderByIdHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\GetOrderByIdHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Orders\\GetOrderByIdHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-16T13:19:37.317Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "GetAllOrdersQuery.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\GetAllOrdersQuery.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Orders\\GetAllOrdersQuery.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\GetAllOrdersQuery.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Orders\\GetAllOrdersQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T12:18:39.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "GetAllOrdersHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\GetAllOrdersHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Orders\\GetAllOrdersHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\GetAllOrdersHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Orders\\GetAllOrdersHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-16T12:55:12.13Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "DeleteOrderHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\DeleteOrderHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Orders\\DeleteOrderHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\DeleteOrderHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Orders\\DeleteOrderHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-16T13:19:53.076Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "DeleteOrderCommand.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\DeleteOrderCommand.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Orders\\DeleteOrderCommand.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\DeleteOrderCommand.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Orders\\DeleteOrderCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T12:30:05.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "CreateOrderHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\CreateOrderHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Orders\\CreateOrderHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\CreateOrderHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Orders\\CreateOrderHandler.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAYwBoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-16T12:54:43.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "CreateOrderCommand.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\CreateOrderCommand.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Orders\\CreateOrderCommand.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\CreateOrderCommand.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Orders\\CreateOrderCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T12:16:00.008Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "UpdateProductHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Products\\UpdateProductHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Products\\UpdateProductHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Products\\UpdateProductHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Products\\UpdateProductHandler.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACYAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-16T13:16:17.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "GetProductsHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Products\\GetProductsHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Products\\GetProductsHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Products\\GetProductsHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Products\\GetProductsHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-16T13:16:02.718Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "DeleteProductHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Products\\DeleteProductHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Products\\DeleteProductHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Products\\DeleteProductHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Products\\DeleteProductHandler.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAA7wCUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-16T13:16:29.13Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "CreateProductHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Products\\CreateProductHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Products\\CreateProductHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Products\\CreateProductHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Products\\CreateProductHandler.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAqwCcAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T13:11:03.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "JwtService.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Services\\JwtService.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Services\\JwtService.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Services\\JwtService.cs",
+              "RelativeToolTip": "DeliverWholesale\\Services\\JwtService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-19T12:32:28.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 77,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Services\\OrderService.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Services\\OrderService.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Services\\OrderService.cs",
+              "RelativeToolTip": "DeliverWholesale\\Services\\OrderService.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAwwDIAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-19T12:32:37.484Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 78,
               "Title": "PricingService.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Services\\PricingService.cs",
               "RelativeDocumentMoniker": "DeliverWholesale\\Services\\PricingService.cs",
@@ -579,143 +1404,102 @@
               "RelativeToolTip": "DeliverWholesale\\Services\\PricingService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:32:46.785Z"
+              "WhenOpened": "2026-02-19T12:32:46.785Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "OrderDetail.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\OrderDetail.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Models\\OrderDetail.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\OrderDetail.cs",
-              "RelativeToolTip": "DeliverWholesale\\Models\\OrderDetail.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:31:41.066Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "DeliverWholesale\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:28:07.094Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "Transaction.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Transaction.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Models\\Transaction.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Transaction.cs",
-              "RelativeToolTip": "DeliverWholesale\\Models\\Transaction.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAQwBoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:32:06.654Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "CategoriesController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\CategoriesController.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Controllers\\CategoriesController.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\CategoriesController.cs",
-              "RelativeToolTip": "DeliverWholesale\\Controllers\\CategoriesController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:28:17.742Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "Config.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Config.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Models\\Config.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Config.cs",
-              "RelativeToolTip": "DeliverWholesale\\Models\\Config.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:31:07.065Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\User.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Models\\User.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\User.cs",
-              "RelativeToolTip": "DeliverWholesale\\Models\\User.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAuwBIAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:32:14.893Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "DeleteCategoryHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Categories\\DeleteCategoryHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Categories\\DeleteCategoryHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Categories\\DeleteCategoryHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Categories\\DeleteCategoryHandler.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAA1wCAAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T14:40:30.774Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 79,
               "Title": "StockService.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Services\\StockService.cs",
               "RelativeDocumentMoniker": "DeliverWholesale\\Services\\StockService.cs",
               "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Services\\StockService.cs",
               "RelativeToolTip": "DeliverWholesale\\Services\\StockService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:32:55.028Z"
+              "WhenOpened": "2026-02-19T12:32:55.028Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "OrderService.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Services\\OrderService.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Services\\OrderService.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Services\\OrderService.cs",
-              "RelativeToolTip": "DeliverWholesale\\Services\\OrderService.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAYwB0AAAAfAAAAAAAAAA==",
+              "DocumentIndex": 80,
+              "Title": "GetStockHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Stock\\GetStockHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Stock\\GetStockHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Stock\\GetStockHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Stock\\GetStockHandler.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAowBoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:32:37.484Z"
+              "WhenOpened": "2026-03-16T13:23:20.923Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "JwtService.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Services\\JwtService.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Services\\JwtService.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Services\\JwtService.cs",
-              "RelativeToolTip": "DeliverWholesale\\Services\\JwtService.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCgAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 81,
+              "Title": "GetProductStockHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Stock\\GetProductStockHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Stock\\GetProductStockHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Stock\\GetProductStockHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Stock\\GetProductStockHandler.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAowCAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:32:28.208Z"
+              "WhenOpened": "2026-03-16T13:23:34.947Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "Categorie.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Categorie.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Models\\Categorie.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Models\\Categorie.cs",
-              "RelativeToolTip": "DeliverWholesale\\Models\\Categorie.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAqAAAAAAAAAA==",
+              "DocumentIndex": 82,
+              "Title": "AddStockHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Stock\\AddStockHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Stock\\AddStockHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Stock\\AddStockHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Stock\\AddStockHandler.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAIwB4AAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-17T21:07:02.471Z"
+              "WhenOpened": "2026-03-16T12:53:53.374Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 83,
+              "Title": "RemoveStockHandler.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Stock\\RemoveStockHandler.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Stock\\RemoveStockHandler.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Stock\\RemoveStockHandler.cs",
+              "RelativeToolTip": "DeliverWholesale\\Handler\\Stock\\RemoveStockHandler.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-16T13:23:59.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 84,
+              "Title": "JwtConfig.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Helpers\\JwtConfig.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Helpers\\JwtConfig.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Helpers\\JwtConfig.cs",
+              "RelativeToolTip": "DeliverWholesale\\Helpers\\JwtConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-19T12:30:43.031Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 85,
+              "Title": "ApplicationDbContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "DeliverWholesale\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "RelativeToolTip": "DeliverWholesale\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "ViewState": "AgIAALABAAAAAAAAAAAQwOAAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-24T23:52:51.026Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 86,
               "Title": "20260317225156_UpdateStockAndOrders.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Migrations\\20260317225156_UpdateStockAndOrders.cs",
               "RelativeDocumentMoniker": "DeliverWholesale\\Migrations\\20260317225156_UpdateStockAndOrders.cs",
@@ -727,295 +1511,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "JwtConfig.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Helpers\\JwtConfig.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Helpers\\JwtConfig.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Helpers\\JwtConfig.cs",
-              "RelativeToolTip": "DeliverWholesale\\Helpers\\JwtConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:30:43.031Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "GetConfigHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Config\\GetConfigHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Config\\GetConfigHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Config\\GetConfigHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Config\\GetConfigHandler.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T14:40:42.618Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "UpdateCategoryHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Categories\\UpdateCategoryHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Categories\\UpdateCategoryHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Categories\\UpdateCategoryHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Categories\\UpdateCategoryHandler.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAA5wCoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T14:40:20.428Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "GetCategoriesHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Categories\\GetCategoriesHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Categories\\GetCategoriesHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Categories\\GetCategoriesHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Categories\\GetCategoriesHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T14:40:02.158Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "CreateCategoryHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Categories\\CreateCategoryHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Categories\\CreateCategoryHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Categories\\CreateCategoryHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Categories\\CreateCategoryHandler.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAYwCAAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T14:40:11.195Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "RegisterHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Auth\\RegisterHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Auth\\RegisterHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Auth\\RegisterHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Auth\\RegisterHandler.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAA5wB8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T14:39:46.717Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "LoginHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Auth\\LoginHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Auth\\LoginHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Auth\\LoginHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Auth\\LoginHandler.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAYwCEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T14:39:35.104Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "LoginDto.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\LoginDto.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\DTOs\\LoginDto.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DTOs\\LoginDto.cs",
-              "RelativeToolTip": "DeliverWholesale\\DTOs\\LoginDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:29:50.465Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "DashboardController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\DashboardController.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Controllers\\DashboardController.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\DashboardController.cs",
-              "RelativeToolTip": "DeliverWholesale\\Controllers\\DashboardController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:28:34.8Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "ProductsController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\ProductsController.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Controllers\\ProductsController.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\ProductsController.cs",
-              "RelativeToolTip": "DeliverWholesale\\Controllers\\ProductsController.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAA3wCAAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:29:01.802Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "ConfigController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\ConfigController.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Controllers\\ConfigController.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Controllers\\ConfigController.cs",
-              "RelativeToolTip": "DeliverWholesale\\Controllers\\ConfigController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAxwBUAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T12:28:26.065Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 47,
-              "Title": "CreateOrderHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\CreateOrderHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Orders\\CreateOrderHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\CreateOrderHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Orders\\CreateOrderHandler.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAowCAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-16T12:54:43.571Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "RemoveStockHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Stock\\RemoveStockHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Stock\\RemoveStockHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Stock\\RemoveStockHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Stock\\RemoveStockHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-16T13:23:59.879Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "GetProductStockHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Stock\\GetProductStockHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Stock\\GetProductStockHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Stock\\GetProductStockHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Stock\\GetProductStockHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-16T13:23:34.947Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 50,
-              "Title": "AddStockHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Stock\\AddStockHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Stock\\AddStockHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Stock\\AddStockHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Stock\\AddStockHandler.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAowCAAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-16T12:53:53.374Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 51,
-              "Title": "UpdateProductHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Products\\UpdateProductHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Products\\UpdateProductHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Products\\UpdateProductHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Products\\UpdateProductHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-16T13:16:17.116Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 52,
-              "Title": "GetProductsHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Products\\GetProductsHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Products\\GetProductsHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Products\\GetProductsHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Products\\GetProductsHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-16T13:16:02.718Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "DeleteProductHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Products\\DeleteProductHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Products\\DeleteProductHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Products\\DeleteProductHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Products\\DeleteProductHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-16T13:16:29.13Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 54,
-              "Title": "CreateProductHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Products\\CreateProductHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Products\\CreateProductHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Products\\CreateProductHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Products\\CreateProductHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-16T12:54:22.933Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 55,
-              "Title": "GetOrdersHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\GetOrdersHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Orders\\GetOrdersHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\GetOrdersHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Orders\\GetOrdersHandler.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAgwB0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-16T12:55:12.13Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
-              "Title": "GetOrderByIdHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\GetOrderByIdHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Orders\\GetOrderByIdHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\GetOrderByIdHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Orders\\GetOrderByIdHandler.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAA+wCIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-16T13:19:37.317Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "DeleteOrderHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\DeleteOrderHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Orders\\DeleteOrderHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Orders\\DeleteOrderHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Orders\\DeleteOrderHandler.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAgwCcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-16T13:19:53.076Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 58,
-              "Title": "GetDashboardAlertesHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Dashboard\\GetDashboardAlertesHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Dashboard\\GetDashboardAlertesHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Dashboard\\GetDashboardAlertesHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Dashboard\\GetDashboardAlertesHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T14:41:17.017Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 59,
-              "Title": "UpdateConfigHandler.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Config\\UpdateConfigHandler.cs",
-              "RelativeDocumentMoniker": "DeliverWholesale\\Handler\\Config\\UpdateConfigHandler.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Handler\\Config\\UpdateConfigHandler.cs",
-              "RelativeToolTip": "DeliverWholesale\\Handler\\Config\\UpdateConfigHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAABJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T14:40:52.595Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 87,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\appsettings.json",
               "RelativeDocumentMoniker": "DeliverWholesale\\appsettings.json",
@@ -1027,7 +1523,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 88,
               "Title": "DeliverWholesale.csproj",
               "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\DeliverWholesale.csproj",
               "RelativeDocumentMoniker": "DeliverWholesale\\DeliverWholesale.csproj",
@@ -1039,7 +1535,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 91,
               "Title": "20260222153821_InitialCreate.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Migrations\\20260222153821_InitialCreate.cs",
               "RelativeDocumentMoniker": "DeliverWholesale\\Migrations\\20260222153821_InitialCreate.cs",
@@ -1051,7 +1547,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 89,
               "Title": "20260222152632_InitialCreate.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Migrations\\20260222152632_InitialCreate.cs",
               "RelativeDocumentMoniker": "DeliverWholesale\\Migrations\\20260222152632_InitialCreate.cs",
@@ -1062,7 +1558,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 90,
               "Title": "20260222152057_SyncModels.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\DeliverWholesale\\DeliverWholesale\\Migrations\\20260222152057_SyncModels.cs",
               "RelativeDocumentMoniker": "DeliverWholesale\\Migrations\\20260222152057_SyncModels.cs",

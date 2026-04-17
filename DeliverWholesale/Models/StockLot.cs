@@ -1,25 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using DeliverWholesale.Models;
 
-namespace DeliverWholesale.Models
+public class StockLot
 {
-    public class StockLot
-    {
-        public int Id { get; set; }
+    public int Id { get; set; }
 
-        [Required]
-        public int ProduitId { get; set; }
-        public Produit Produit { get; set; }
+    public int AchatLotId { get; set; }
+    public AchatLot AchatLot { get; set; }
 
-        public int QuantiteAchetee { get; set; }
-        public decimal PrixAchatLot { get; set; }
+    public int QuantiteRestante { get; set; }
 
-        public DateTime DateAchat { get; set; } = DateTime.UtcNow;
-        public string Fournisseur { get; set; }
+    public DateTime DateReception { get; set; } = DateTime.UtcNow;
 
-        public string Unite { get; set; }
+   
+    public List<LotCommande> LotCommandes { get; set; } = new();
 
-        public List<Transaction> Transactions { get; set; } = new List<Transaction>();
-    }
+    public List<Transaction> Transactions { get; set; } = new();
 }

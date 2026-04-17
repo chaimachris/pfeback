@@ -27,9 +27,10 @@ namespace DeliverWholesale.Handler.Delivery
 
             delivery.Statut = request.Dto.Statut;
 
-            if (request.Dto.Statut == DeliveryStatus.livree)
+           
+            if (request.Dto.Statut == DeliveryStatus.Livree)
             {
-                delivery.DateLivraisonReelle = DateOnly.FromDateTime(DateTime.Now);
+                delivery.DateLivraisonReelle = DateTime.UtcNow;
             }
             else
             {

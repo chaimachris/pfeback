@@ -2,55 +2,74 @@
 using DeliverWholesale.Handler.Orders;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace DeliverWholesale.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class OrdersController : ControllerBase
+    public class OrderController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public OrdersController(IMediator mediator)
+        public OrderController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
+       
         [HttpPost]
-        public async Task<IActionResult> Create(OrderCreateDto dto)
+        public async Task<IActionResult> CreateOrder([FromBody] OrderCreateDto dto)
         {
-            var result = await _mediator.Send(new CreateOrderCommand(dto));
-            return Ok(result);
+            try
+            {
+                var orderId = await _mediator.Send(new CreateOrderCommand(dto));
+
+                return Ok(new
+                {
+                    Message = "Commande créée avec succès",
+                    OrderId = orderId
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    Message = "Erreur lors de la création de la commande",
+                    Error = ex.Message
+                });
+            }
         }
 
+        
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var orders = await _mediator.Send(new GetOrdersQuery());
-            return Ok(orders);
+            var result = await _mediator.Send(new GetAllOrdersQuery());
+            return Ok(result);
         }
 
+        
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var order = await _mediator.Send(new GetOrderByIdQuery(id));
+            var result = await _mediator.Send(new GetOrderByIdQuery { Id = id });
 
-            if (order == null)
-                return NotFound();
+            if (result == null)
+                return NotFound("Commande introuvable");
 
-            return Ok(order);
+            return Ok(result);
         }
 
+       
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var result = await _mediator.Send(new DeleteOrderCommand(id));
+            var result = await _mediator.Send(new DeleteOrderCommand { Id = id });
 
             if (!result)
-                return NotFound();
+                return NotFound("Commande introuvable");
 
-            return Ok();
+            return Ok(new { Message = "Commande supprimée" });
         }
     }
 }

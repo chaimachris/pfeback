@@ -51,7 +51,7 @@ namespace DeliverWholesale.Handler.Auth
                 $"http://localhost:5000/api/auth/confirm-email?email={user.Email}&token={confirmationToken}";
 
             // 6. Envoyer email
-            _emailService.SendEmail(
+            await _emailService.SendEmailAsync(
                 user.Email,
                 "Confirmation de votre compte DeliverWholesale",
                 $@"
