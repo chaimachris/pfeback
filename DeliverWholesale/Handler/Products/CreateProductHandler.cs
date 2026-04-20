@@ -30,7 +30,7 @@ namespace DeliverWholesale.Handler.Products
             {
                 Nom = request.ProductDto.Nom,
                 Description = request.ProductDto.Description,
-                Prix = request.ProductDto.Prix,   
+                PrixAchat = request.ProductDto.Prix,   
                 CategorieId = request.ProductDto.CategorieId,
                 SeuilAlerte = request.ProductDto.SeuilAlerte,
                 IsActive = true

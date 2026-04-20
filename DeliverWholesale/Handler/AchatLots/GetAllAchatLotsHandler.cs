@@ -3,7 +3,7 @@ using DeliverWholesale.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace DeliverWholesale.Application.AchatLots
+namespace DeliverWholesale.Handler.AchatLots
 {
     public class GetAllAchatLotsHandler : IRequestHandler<GetAllAchatLotsQuery, List<AchatLot>>
     {

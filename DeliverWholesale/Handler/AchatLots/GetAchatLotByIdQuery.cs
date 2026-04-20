@@ -1,7 +1,7 @@
 ﻿using DeliverWholesale.Models;
 using MediatR;
 
-namespace DeliverWholesale.Application.AchatLots
+namespace DeliverWholesale.Handler.AchatLots
 {
     public class GetAchatLotByIdQuery : IRequest<AchatLot>
     {

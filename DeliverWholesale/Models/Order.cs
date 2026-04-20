@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DeliverWholesale.Models
 {
@@ -11,12 +9,9 @@ namespace DeliverWholesale.Models
         public int UserId { get; set; }
         public User User { get; set; }
 
-
-
         public DateTime DateCommande { get; set; } = DateTime.UtcNow;
 
         public decimal TotalProduits { get; set; }
-
         public decimal FraisLivraison { get; set; }
 
         [NotMapped]
@@ -24,19 +19,16 @@ namespace DeliverWholesale.Models
 
         public StatutOrder Statut { get; set; } = StatutOrder.EnAttente;
 
+        public Delivery? Delivery { get; set; }
 
-        public Delivery Delivery { get; set; }
-
-        public List<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+        public List<OrderDetail> OrderDetails { get; set; } = new();
     }
 
     public enum StatutOrder
     {
         EnAttente,
         Confirmee,
-        Preparation,
-        Expediee,
-        livree,
+        Livree,
         Annulee
     }
 }

@@ -9,60 +9,106 @@ namespace DeliverWholesale.Handler.Auth
     public class RegisterHandler : IRequestHandler<RegisterCommand, string>
     {
         private readonly ApplicationDbContext _context;
-        private readonly EmailService _emailService;
+        private readonly IEmailService _emailService;
+        private readonly IConfiguration _config;
 
-        public RegisterHandler(ApplicationDbContext context, EmailService emailService)
+        public RegisterHandler(
+            ApplicationDbContext context,
+            IEmailService emailService,
+            IConfiguration config)
         {
             _context = context;
             _emailService = emailService;
+            _config = config;
         }
 
         public async Task<string> Handle(RegisterCommand request, CancellationToken cancellationToken)
         {
-            // 1. Vérifier si email existe
-            if (await _context.Users.AnyAsync(x => x.Email == request.Dto.Email))
-                throw new Exception("Email existe déjà");
+            var email = request.Dto.Email.Trim().ToLower();
 
-            // 2. Split prénom / nom
-            var names = request.Dto.FullName.Split(' ');
+            // ========================
+            //  Vérifier email
+            // ========================
+            if (await _context.Users.AnyAsync(x => x.Email == email, cancellationToken))
+                throw new ApplicationException("Email déjà utilisé");
+
+            // ========================
+            //  Split nom
+            // ========================
+            var names = request.Dto.FullName.Trim().Split(' ', 2);
             var prenom = names[0];
             var nom = names.Length > 1 ? names[1] : "";
 
-            // 3. Générer token confirmation
-            var confirmationToken = Guid.NewGuid().ToString();
+            // ========================
+            //  Générer token
+            // ========================
+            var token = Guid.NewGuid().ToString();
 
-            // 4. Créer user
+            // ========================
+            //  Créer user
+            // ========================
             var user = new User
             {
                 Prenom = prenom,
                 Nom = nom,
-                Email = request.Dto.Email,
+                Email = email,
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Dto.Password),
                 Role = Role.Client,
                 IsEmailConfirmed = false,
-                EmailConfirmationToken = confirmationToken
+                EmailConfirmationToken = token
             };
 
             _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
 
-            // 5. Lien confirmation email
+            // ========================
+            //  Lien confirmation (Angular)
+            // ========================
+            var frontendUrl = _config["App:FrontendUrl"] ?? "http://localhost:4200";
+
             var confirmLink =
-                $"http://localhost:5000/api/auth/confirm-email?email={user.Email}&token={confirmationToken}";
+                $"{frontendUrl}/confirm-email?email={Uri.EscapeDataString(email)}&token={Uri.EscapeDataString(token)}";
 
-            // 6. Envoyer email
-            await _emailService.SendEmailAsync(
-                user.Email,
-                "Confirmation de votre compte DeliverWholesale",
-                $@"
-                    <h2>Bienvenue {prenom}</h2>
-                    <p>Merci pour votre inscription.</p>
-                    <p>Cliquez sur le lien ci-dessous pour confirmer votre email :</p>
-                    <a href='{confirmLink}'>Confirmer mon compte</a>
-                "
-            );
+            // ========================
+            //  Email HTML PRO
+            // ========================
+            var subject = "Confirmez votre compte DeliverWholesale";
 
-            return "Compte créé avec succès. Vérifiez votre email pour activer votre compte.";
+            var body = $@"
+            <div style='font-family:Arial; max-width:600px; margin:auto;'>
+                <h2 style='color:#2E75B6;'>Bienvenue {prenom} 👋</h2>
+
+                <p>Merci pour votre inscription sur <strong>DeliverWholesale</strong>.</p>
+
+                <p>Veuillez confirmer votre email :</p>
+
+                <div style='text-align:center; margin:30px 0;'>
+                    <a href='{confirmLink}'
+                       style='background:#2E75B6;color:white;padding:12px 20px;
+                              text-decoration:none;border-radius:6px;'>
+                        Confirmer mon compte
+                    </a>
+                </div>
+
+                <p style='font-size:12px;color:gray;'>
+                    Ce lien expire dans le futur.
+                </p>
+            </div>";
+
+            // ========================
+            //  Envoi email sécurisé
+            // ========================
+            try
+            {
+                await _emailService.SendEmailAsync(email, subject, body);
+            }
+            catch
+            {
+                //  ne bloque pas inscription si email échoue
+                return "Compte créé mais email non envoyé.";
+            }
+
+            return "Compte créé avec succès. Vérifiez votre email.";
         }
     }
 }

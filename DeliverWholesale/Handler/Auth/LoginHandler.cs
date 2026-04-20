@@ -18,22 +18,22 @@ namespace DeliverWholesale.Handler.Auth
 
         public async Task<object> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
-            // 1. chercher user
+            //  chercher user
             var user = await _context.Users
                 .FirstOrDefaultAsync(x => x.Email == request.Dto.Email);
 
-            // 2. vérifier existence + password
+            //  vérifier existence + password
             if (user == null || !BCrypt.Net.BCrypt.Verify(request.Dto.Password, user.PasswordHash))
                 throw new Exception("Email ou mot de passe incorrect");
 
-            // 3. vérifier email confirmé
+            // vérifier email confirmé
             if (!user.IsEmailConfirmed)
                 throw new Exception("Veuillez confirmer votre email");
 
-            // 4. générer token JWT
+            //  générer token JWT
             var token = _jwt.GenerateToken(user);
 
-            // 5. retour réponse
+            //  retour réponse
             return new
             {
                 token,

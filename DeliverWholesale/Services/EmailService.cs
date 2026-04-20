@@ -1,33 +1,70 @@
-﻿using System.Net;
-using System.Net.Mail;
+﻿using DeliverWholesale.Models;
+using Microsoft.Extensions.Options;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 
 namespace DeliverWholesale.Services
 {
-    public class EmailService
+    public class EmailService : IEmailService
     {
+        private readonly SendGridSettings _settings;
+        private readonly ILogger<EmailService> _logger;
+
+        public EmailService(IOptions<SendGridSettings> settings,
+                            ILogger<EmailService> logger)
+        {
+            _settings = settings.Value;
+            _logger = logger;
+        }
+
+        //  Méthode principale
         public async Task SendEmailAsync(string to, string subject, string body)
         {
-            using var smtp = new SmtpClient("smtp.gmail.com")
+            var client = new SendGridClient(_settings.ApiKey);
+
+            var from = new EmailAddress(_settings.FromEmail, _settings.FromName);
+            var toEmail = new EmailAddress(to);
+
+            var msg = MailHelper.CreateSingleEmail(from, toEmail, subject, "", body);
+
+            var response = await client.SendEmailAsync(msg);
+
+            if (response.IsSuccessStatusCode)
             {
-                Port = 587,
-                Credentials = new NetworkCredential(
-                    "your_email@gmail.com",
-                    "your_app_password"
-                ),
-                EnableSsl = true
-            };
-
-            using var mail = new MailMessage
+                _logger.LogInformation("✅ Email envoyé à {Email}", to);
+            }
+            else
             {
-                From = new MailAddress("your_email@gmail.com"),
-                Subject = subject,
-                Body = body,
-                IsBodyHtml = true
-            };
+                _logger.LogError("❌ Erreur SendGrid: {Status}", response.StatusCode);
+                throw new Exception("Erreur envoi email");
+            }
+        }
 
-            mail.To.Add(to);
+        //  Email bienvenue
+        public async Task SendWelcomeEmailAsync(string to, string clientName)
+        {
+            var subject = "Bienvenue sur DeliverWholesale 🎉";
+            var body = $"Bonjour {clientName}, votre compte est créé avec succès.";
 
-            await smtp.SendMailAsync(mail);
+            await SendEmailAsync(to, subject, body);
+        }
+
+        //  Statut commande
+        public async Task SendOrderStatusEmailAsync(string to, string clientName, string status)
+        {
+            var subject = "Mise à jour commande";
+            var body = $"Bonjour {clientName}, statut: {status}";
+
+            await SendEmailAsync(to, subject, body);
+        }
+
+        //  Stock faible
+        public async Task SendLowStockAlertAsync(string to, string productName, int currentStock)
+        {
+            var subject = "⚠️ Stock faible";
+            var body = $"Produit {productName} stock: {currentStock}";
+
+            await SendEmailAsync(to, subject, body);
         }
     }
 }

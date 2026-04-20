@@ -1,8 +1,3 @@
-using DeliverWholesale.Data;
-using DeliverWholesale.Handler.Auth;
-using DeliverWholesale.Helpers;
-using DeliverWholesale.Models;
-using DeliverWholesale.Services;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -12,6 +7,12 @@ using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Text;
 using System.Text.Json.Serialization;
+using DeliverWholesale.Data;
+using DeliverWholesale.Handler.Auth;
+using DeliverWholesale.Helpers;
+using DeliverWholesale.Models;
+using DeliverWholesale.Services;
+using DeliverWholesale.Hubs;
 
 
 
@@ -30,6 +31,12 @@ builder.Services.AddCors(options =>
               .AllowAnyMethod();
     });
 });
+
+builder.Services.AddSignalR();
+
+
+builder.Services.Configure<SendGridSettings>(
+    builder.Configuration.GetSection("SendGridSettings"));
 
 // ========================
 // MEDIATR
@@ -81,7 +88,8 @@ builder.Services.AddMediatR(typeof(LoginHandler).Assembly);
 builder.Services.AddScoped<PricingService>();
 builder.Services.AddScoped<OrderService>();
 builder.Services.AddScoped<StockService>();
-builder.Services.AddScoped<EmailService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<NotificationService>();
 
 // ========================
 // CONTROLLERS + JSON + SWAGGER
@@ -134,6 +142,8 @@ builder.Services.AddSwaggerGen(c =>
 // BUILD APP
 // ========================
 var app = builder.Build();
+
+app.MapHub<NotificationHub>("/hubs/notifications");
 
 // ========================
 // MIDDLEWARE

@@ -2,7 +2,7 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace DeliverWholesale.Handler.AchatLot
+namespace DeliverWholesale.Handler.AchatLots
 {
     public class DeleteAchatLotHandler : IRequestHandler<DeleteAchatLotCommand, bool>
     {

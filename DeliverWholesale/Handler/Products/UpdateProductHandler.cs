@@ -36,7 +36,7 @@ namespace DeliverWholesale.Handler.Products
 
             product.Nom = request.ProductDto.Nom;
             product.Description = request.ProductDto.Description;
-            product.Prix = request.ProductDto.Prix;   
+            product.PrixAchat = request.ProductDto.Prix;   
             product.CategorieId = request.ProductDto.CategorieId;
 
             await _context.SaveChangesAsync(cancellationToken);

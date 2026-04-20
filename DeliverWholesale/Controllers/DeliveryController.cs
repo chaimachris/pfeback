@@ -53,7 +53,7 @@ namespace DeliverWholesale.Controllers
         }
 
         // =========================
-        // 📦 PRODUCTS TODAY
+        //  PRODUCTS TODAY
         // =========================
         [HttpGet("today/products")]
         public async Task<IActionResult> GetTodayProducts()
@@ -63,7 +63,7 @@ namespace DeliverWholesale.Controllers
         }
 
         // =========================
-        // 🧍 CLIENTS TODAY
+        //  CLIENTS TODAY
         // =========================
         [HttpGet("today/clients")]
         public async Task<IActionResult> GetTodayClients()
@@ -73,7 +73,7 @@ namespace DeliverWholesale.Controllers
         }
 
         // =========================
-        // 📅 UPDATE DELIVERY DATE
+        //  UPDATE DELIVERY DATE
         // =========================
         [HttpPut("{id}/date")]
         public async Task<IActionResult> UpdateDate(int id, [FromBody] DateTime newDate)

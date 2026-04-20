@@ -1,6 +1,4 @@
 ﻿using DeliverWholesale.Data;
-using DeliverWholesale.Handler.AchatLot;
-using DeliverWholesale.Models;
 using MediatR;
 using ModelsAchatLot = DeliverWholesale.Models.AchatLot;
 

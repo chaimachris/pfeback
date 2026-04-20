@@ -4,6 +4,7 @@ using DeliverWholesale.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DeliverWholesale.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260420144100_AddSignalRNotificationFix")]
+    partial class AddSignalRNotificationFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -264,13 +267,7 @@ namespace DeliverWholesale.Migrations
                     b.Property<decimal>("PrixAchat")
                         .HasColumnType("decimal(18,3)");
 
-                    b.Property<decimal>("PrixVente")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<int>("SeuilAlerte")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TypeDePrix")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -323,9 +320,6 @@ namespace DeliverWholesale.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Adresse")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AdresseLivraisonActive")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -565,7 +559,8 @@ namespace DeliverWholesale.Migrations
 
             modelBuilder.Entity("DeliverWholesale.Models.Order", b =>
                 {
-                    b.Navigation("Delivery");
+                    b.Navigation("Delivery")
+                        .IsRequired();
 
                     b.Navigation("OrderDetails");
                 });

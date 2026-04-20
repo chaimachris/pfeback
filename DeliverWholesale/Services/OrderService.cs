@@ -40,7 +40,7 @@ namespace DeliverWholesale.Services
                     OrderId = order.Id,
                     ProduitId = product.Id,
                     Quantite = item.Quantite,
-                    PrixUnitaire = product.Prix
+                    PrixUnitaire = product.PrixAchat
                 };
 
                 total += detail.SousTotal;

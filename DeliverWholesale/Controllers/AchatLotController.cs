@@ -1,5 +1,5 @@
-﻿using DeliverWholesale.Application.AchatLots;
-using DeliverWholesale.Handler.AchatLot;
+﻿using DeliverWholesale.Models;
+using DeliverWholesale.Handler.AchatLots;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

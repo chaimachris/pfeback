@@ -19,8 +19,6 @@
     {
         EnAttente,
         Confirmee,
-        Preparation,
-        Expediee,
         Livree,
         Annulee
     }

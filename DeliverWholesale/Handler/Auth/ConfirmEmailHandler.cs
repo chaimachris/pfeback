@@ -27,7 +27,8 @@ namespace DeliverWholesale.Handler.Auth
             user.EmailConfirmationToken = null;
 
             await _context.SaveChangesAsync();
-
+            //0sw1woASAYKZJD69oS4yozKvKfijyhXW     <=== key
+            //SKd1313d86816db4918b5a4e3ecf056e83 <=== sid
             return "Email confirmé avec succès";
         }
     }

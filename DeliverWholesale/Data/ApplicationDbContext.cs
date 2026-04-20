@@ -10,6 +10,7 @@ namespace DeliverWholesale.Data
         {
         }
 
+        public DbSet<Notification> Notifications { get; set; }
         public DbSet<AchatLot> AchatLots { get; set; }
         public DbSet<StockLot> StockLots { get; set; }
         public DbSet<LotCommande> LotCommandes { get; set; }

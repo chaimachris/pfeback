@@ -1,32 +1,39 @@
 ﻿using DeliverWholesale.Data;
-using DeliverWholesale.DTOs;
 using DeliverWholesale.Models;
+using DeliverWholesale.Services;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace DeliverWholesale.Handler.Orders
 {
     public class CreateOrderHandler : IRequestHandler<CreateOrderCommand, int>
     {
         private readonly ApplicationDbContext _context;
+        private readonly NotificationService _notification;
 
-        public CreateOrderHandler(ApplicationDbContext context)
+        public CreateOrderHandler(
+            ApplicationDbContext context,
+            NotificationService notification)
         {
             _context = context;
+            _notification = notification;
         }
 
         public async Task<int> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
         {
             if (request.OrderDto.Items == null || !request.OrderDto.Items.Any())
-                throw new Exception("Aucun produit dans la commande.");
+                throw new ApplicationException("Aucun produit dans la commande.");
 
-            using var transaction = await _context.Database.BeginTransactionAsync();
+            using var transaction = await _context.Database.BeginTransactionAsync(cancellationToken);
 
             try
             {
+                var user = await _context.Users.FirstAsync(cancellationToken);
+
                 var order = new Order
                 {
-                    UserId = 1, 
+                    UserId = user.Id,
                     DateCommande = DateTime.UtcNow,
                     FraisLivraison = 10,
                     TotalProduits = 0,
@@ -34,35 +41,33 @@ namespace DeliverWholesale.Handler.Orders
                 };
 
                 _context.Orders.Add(order);
-                await _context.SaveChangesAsync();
 
                 decimal total = 0;
 
                 foreach (var item in request.OrderDto.Items)
                 {
                     if (item.Quantite <= 0)
-                        throw new Exception($"Quantité invalide pour produit {item.ProduitId}");
+                        throw new ApplicationException($"Quantité invalide pour produit {item.ProduitId}");
 
                     var produit = await _context.Produits
-                        .FirstOrDefaultAsync(p => p.Id == item.ProduitId);
+                        .FirstOrDefaultAsync(p => p.Id == item.ProduitId, cancellationToken);
 
                     if (produit == null)
-                        throw new Exception($"Produit {item.ProduitId} introuvable");
+                        throw new ApplicationException($"Produit {item.ProduitId} introuvable");
 
                     var detail = new OrderDetail
                     {
-                        OrderId = order.Id,
+                        Order = order,
                         ProduitId = item.ProduitId,
                         Quantite = item.Quantite,
-                        PrixUnitaire = produit.Prix
+                        PrixUnitaire = produit.PrixAchat
                     };
 
                     _context.OrderDetails.Add(detail);
-                    await _context.SaveChangesAsync();
 
                     total += detail.Quantite * detail.PrixUnitaire;
 
-                    // FIFO STOCK 
+                    //  FIFO STOCK
                     int reste = item.Quantite;
 
                     var stockLots = await _context.StockLots
@@ -84,15 +89,15 @@ namespace DeliverWholesale.Handler.Orders
 
                         _context.LotCommandes.Add(new LotCommande
                         {
-                            StockLotId = lot.Id,
-                            OrderDetailId = detail.Id,
+                            StockLot = lot,
+                            OrderDetail = detail,
                             QuantitePrelevee = preleve
                         });
 
                         _context.Transactions.Add(new Transaction
                         {
-                            StockLotId = lot.Id,
-                            OrderDetailId = detail.Id,
+                            StockLot = lot,
+                            OrderDetail = detail,
                             Type = TypeMouvement.Sortie,
                             Quantite = preleve,
                             DateMouvement = DateTime.UtcNow
@@ -102,21 +107,28 @@ namespace DeliverWholesale.Handler.Orders
                     }
 
                     if (reste > 0)
-                        throw new Exception($"Stock insuffisant pour produit {item.ProduitId}");
+                        throw new ApplicationException($"Stock insuffisant pour produit {item.ProduitId}");
                 }
 
                 order.TotalProduits = total;
 
-                await _context.SaveChangesAsync();
+              
+                await _context.SaveChangesAsync(cancellationToken);
 
-                await transaction.CommitAsync();
+                await transaction.CommitAsync(cancellationToken);
+
+                //  NOTIFICATION ADMIN
+                await _notification.NotifyAdmins(
+                    $"Nouvelle commande créée (ID: {order.Id}) par {user.Prenom} {user.Nom}",
+                    "CREATE_ORDER"
+                );
 
                 return order.Id;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                await transaction.RollbackAsync();
-                throw new Exception(ex.Message);
+                await transaction.RollbackAsync(cancellationToken);
+                throw;
             }
         }
     }

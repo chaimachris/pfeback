@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace DeliverWholesale.Handler.AchatLot
+namespace DeliverWholesale.Handler.AchatLots
 {
     public class CreateAchatLotCommand : IRequest<int>
     {

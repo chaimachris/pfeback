@@ -1,5 +1,4 @@
 ﻿using DeliverWholesale.Data;
-using DeliverWholesale.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 

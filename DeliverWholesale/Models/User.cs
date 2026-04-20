@@ -8,6 +8,9 @@ namespace DeliverWholesale.Models
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public string Email { get; set; }
+
+        public string? Adresse { get; set; }
+        public string? AdresseLivraisonActive { get; set; }
         public string PasswordHash { get; set; }
         public Role Role { get; set; } = Role.Client;
 

@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using static DeliverWholesale.Models.Produit;
 
 namespace DeliverWholesale.Models
 {
@@ -17,7 +18,9 @@ namespace DeliverWholesale.Models
         public string Description { get; set; }
 
         [Column(TypeName = "decimal(18,3)")]
-        public decimal Prix { get; set; }
+        public decimal PrixAchat { get; set; }
+
+        public decimal PrixVente { get; set; }
 
         public int SeuilAlerte { get; set; }
 
@@ -27,13 +30,19 @@ namespace DeliverWholesale.Models
         public int CategorieId { get; set; }
         public Categorie Categorie { get; set; }
 
-       
+        public enum TypePrix
+        {
+            Fix,
+            Libre
+        }
+        public TypePrix TypeDePrix { get; set; } = TypePrix.Fix;
         public List<StockLot> StockLots { get; set; } = new List<StockLot>();
 
         [NotMapped]
         public int StockDisponible => StockLots.Sum(l => l.QuantiteRestante);
 
         [NotMapped]
+
         public bool AlerteStock => StockDisponible <= SeuilAlerte;
     }
 }

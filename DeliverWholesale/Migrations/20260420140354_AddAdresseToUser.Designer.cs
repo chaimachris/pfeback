@@ -4,6 +4,7 @@ using DeliverWholesale.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DeliverWholesale.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260420140354_AddAdresseToUser")]
+    partial class AddAdresseToUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -142,38 +145,6 @@ namespace DeliverWholesale.Migrations
                     b.ToTable("Deliveries");
                 });
 
-            modelBuilder.Entity("DeliverWholesale.Models.Notification", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsRead")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Notifications");
-                });
-
             modelBuilder.Entity("DeliverWholesale.Models.Order", b =>
                 {
                     b.Property<int>("Id")
@@ -264,13 +235,7 @@ namespace DeliverWholesale.Migrations
                     b.Property<decimal>("PrixAchat")
                         .HasColumnType("decimal(18,3)");
 
-                    b.Property<decimal>("PrixVente")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<int>("SeuilAlerte")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TypeDePrix")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -321,12 +286,6 @@ namespace DeliverWholesale.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Adresse")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AdresseLivraisonActive")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -447,17 +406,6 @@ namespace DeliverWholesale.Migrations
                     b.Navigation("Order");
                 });
 
-            modelBuilder.Entity("DeliverWholesale.Models.Notification", b =>
-                {
-                    b.HasOne("DeliverWholesale.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("DeliverWholesale.Models.Order", b =>
                 {
                     b.HasOne("DeliverWholesale.Models.User", "User")
@@ -565,7 +513,8 @@ namespace DeliverWholesale.Migrations
 
             modelBuilder.Entity("DeliverWholesale.Models.Order", b =>
                 {
-                    b.Navigation("Delivery");
+                    b.Navigation("Delivery")
+                        .IsRequired();
 
                     b.Navigation("OrderDetails");
                 });
