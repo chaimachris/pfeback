@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DeliverWholesale.Handler.Auth
 {
-    public class ConfirmEmailHandler : IRequestHandler<ConfirmEmailCommand, string>
+    public class ConfirmEmailHandler : IRequestHandler<ConfirmEmailCommand, bool>
     {
         private readonly ApplicationDbContext _context;
 
@@ -13,7 +13,7 @@ namespace DeliverWholesale.Handler.Auth
             _context = context;
         }
 
-        public async Task<string> Handle(ConfirmEmailCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(ConfirmEmailCommand request, CancellationToken cancellationToken)
         {
             var user = await _context.Users
                 .FirstOrDefaultAsync(x =>
@@ -21,7 +21,7 @@ namespace DeliverWholesale.Handler.Auth
                     x.EmailConfirmationToken == request.Token);
 
             if (user == null)
-                throw new Exception("Lien invalide");
+                return false;
 
             user.IsEmailConfirmed = true;
             user.EmailConfirmationToken = null;
@@ -29,7 +29,7 @@ namespace DeliverWholesale.Handler.Auth
             await _context.SaveChangesAsync();
             //0sw1woASAYKZJD69oS4yozKvKfijyhXW     <=== key
             //SKd1313d86816db4918b5a4e3ecf056e83 <=== sid
-            return "Email confirmé avec succès";
+            return true;
         }
     }
 }

@@ -35,9 +35,12 @@ namespace DeliverWholesale.Handler.Auth
             // ========================
             //  Split nom
             // ========================
-            var names = request.Dto.FullName.Trim().Split(' ', 2);
-            var prenom = names[0];
-            var nom = names.Length > 1 ? names[1] : "";
+            var fullName = request.Dto.FullName.Trim();
+
+            var index = fullName.IndexOf(' ');
+
+            var prenom = index == -1 ? fullName : fullName.Substring(0, index);
+            var nom = index == -1 ? "" : fullName.Substring(index + 1);
 
             // ========================
             //  Générer token
@@ -54,8 +57,8 @@ namespace DeliverWholesale.Handler.Auth
                 Email = email,
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Dto.Password),
                 Role = Role.Client,
-                IsEmailConfirmed = false,
-                EmailConfirmationToken = token
+                IsEmailConfirmed = true, // false
+                EmailConfirmationToken = null // token
             };
 
             _context.Users.Add(user);
@@ -72,35 +75,13 @@ namespace DeliverWholesale.Handler.Auth
             // ========================
             //  Email HTML PRO
             // ========================
-            var subject = "Confirmez votre compte DeliverWholesale";
-
-            var body = $@"
-            <div style='font-family:Arial; max-width:600px; margin:auto;'>
-                <h2 style='color:#2E75B6;'>Bienvenue {prenom} 👋</h2>
-
-                <p>Merci pour votre inscription sur <strong>DeliverWholesale</strong>.</p>
-
-                <p>Veuillez confirmer votre email :</p>
-
-                <div style='text-align:center; margin:30px 0;'>
-                    <a href='{confirmLink}'
-                       style='background:#2E75B6;color:white;padding:12px 20px;
-                              text-decoration:none;border-radius:6px;'>
-                        Confirmer mon compte
-                    </a>
-                </div>
-
-                <p style='font-size:12px;color:gray;'>
-                    Ce lien expire dans le futur.
-                </p>
-            </div>";
 
             // ========================
             //  Envoi email sécurisé
             // ========================
             try
             {
-                await _emailService.SendEmailAsync(email, subject, body);
+                await _emailService.SendWelcomeEmailAsync(email, prenom, confirmLink);
             }
             catch
             {

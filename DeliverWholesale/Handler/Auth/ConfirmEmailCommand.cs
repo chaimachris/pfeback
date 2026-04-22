@@ -2,7 +2,7 @@
 
 namespace DeliverWholesale.Handler.Auth
 {
-    public class ConfirmEmailCommand : IRequest<string>
+    public class ConfirmEmailCommand : IRequest<bool>
     {
         public string Email { get; set; }
         public string Token { get; set; }
