@@ -1,0 +1,34 @@
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace DeliverWholesale.Domain.Entities
+{
+    public class Order
+    {
+        public int Id { get; set; }
+
+        public int UserId { get; set; }
+        public User User { get; set; }
+
+        public DateTime DateCommande { get; set; } = DateTime.UtcNow;
+
+        public decimal TotalProduits { get; set; }
+        public decimal FraisLivraison { get; set; }
+
+        [NotMapped]
+        public decimal TotalFinal => TotalProduits + FraisLivraison;
+
+        public StatutOrder Statut { get; set; } = StatutOrder.EnAttente;
+
+        public Delivery? Delivery { get; set; }
+
+        public List<OrderDetail> OrderDetails { get; set; } = new();
+    }
+
+    public enum StatutOrder
+    {
+        EnAttente,
+        Confirmee,
+        Livree,
+        Annulee
+    }
+}

@@ -7,12 +7,13 @@ using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Text;
 using System.Text.Json.Serialization;
-using DeliverWholesale.Data;
-using DeliverWholesale.Handler.Auth;
-using DeliverWholesale.Helpers;
-using DeliverWholesale.Models;
-using DeliverWholesale.Services;
-using DeliverWholesale.Hubs;
+using DeliverWholesale.Application.Features.Handler.Auth;
+using DeliverWholesale.Application.Interfaces;
+using DeliverWholesale.Infrastructure.Services;
+using DeliverWholesale.Infrastructure.Data;
+using DeliverWholesale.Infrastructure.Configs;
+using DeliverWholesale.API.Hubs;
+using DeliverWholesale.Domain.Entities;
 
 
 
