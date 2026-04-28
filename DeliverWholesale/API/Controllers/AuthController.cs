@@ -1,7 +1,9 @@
 ﻿using DeliverWholesale.Application.DTOs.DTOs;
 using DeliverWholesale.Application.Features.Handler.Auth;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace DeliverWholesale.API.Controllers
 {
@@ -36,5 +38,23 @@ namespace DeliverWholesale.API.Controllers
             var result = await _mediator.Send(new LoginCommand(dto));
             return Ok(result);
         }
+
+        [HttpPost("logout")]
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            var token = Request.Headers["Authorization"]
+                               .ToString().Replace("Bearer ", "");
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            await _mediator.Send(new LogoutCommand
+            {
+                UserId = userId ?? string.Empty,
+                Token = token
+            });
+
+            return Ok(new { message = "Déconnexion réussie." });
+        }
+
     }
 }

@@ -1,6 +1,5 @@
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -15,34 +14,41 @@ using DeliverWholesale.Infrastructure.Configs;
 using DeliverWholesale.API.Hubs;
 using DeliverWholesale.Domain.Entities;
 
-
-
 var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 {
     Args = args,
     WebRootPath = null
 });
 
+// ========================
+// CORS
+// ========================
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AngularPolicy", policy =>
     {
         policy.WithOrigins("http://localhost:4200")
               .AllowAnyHeader()
-              .AllowAnyMethod();
+              .AllowAnyMethod()
+              .AllowCredentials(); // nécessaire pour SignalR
     });
 });
 
+// ========================
+// SIGNALR
+// ========================
 builder.Services.AddSignalR();
 
-
+// ========================
+// SENDGRID
+// ========================
 builder.Services.Configure<SendGridSettings>(
     builder.Configuration.GetSection("SendGridSettings"));
 
 // ========================
 // MEDIATR
 // ========================
-builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
+builder.Services.AddMediatR(typeof(LoginHandler).Assembly);
 
 // ========================
 // DATABASE
@@ -69,13 +75,28 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-
             ValidIssuer = jwt!.Issuer,
             ValidAudience = jwt.Audience,
             IssuerSigningKey = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(jwt.Secret)
             ),
             ClockSkew = TimeSpan.Zero
+        };
+
+        // Support SignalR (token dans query string)
+        options.Events = new JwtBearerEvents
+        {
+            OnMessageReceived = context =>
+            {
+                var accessToken = context.Request.Query["access_token"];
+                var path = context.HttpContext.Request.Path;
+                if (!string.IsNullOrEmpty(accessToken) &&
+                    path.StartsWithSegments("/hubs/notifications"))
+                {
+                    context.Token = accessToken;
+                }
+                return Task.CompletedTask;
+            }
         };
     });
 
@@ -85,7 +106,6 @@ builder.Services.AddAuthorization();
 // SERVICES
 // ========================
 builder.Services.AddScoped<JwtService>();
-builder.Services.AddMediatR(typeof(LoginHandler).Assembly);
 builder.Services.AddScoped<PricingService>();
 builder.Services.AddScoped<OrderService>();
 builder.Services.AddScoped<StockService>();
@@ -93,7 +113,7 @@ builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<NotificationService>();
 
 // ========================
-// CONTROLLERS + JSON + SWAGGER
+// CONTROLLERS + JSON
 // ========================
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
@@ -102,6 +122,9 @@ builder.Services.AddControllers()
             ReferenceHandler.IgnoreCycles;
     });
 
+// ========================
+// SWAGGER
+// ========================
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(c =>
@@ -144,10 +167,8 @@ builder.Services.AddSwaggerGen(c =>
 // ========================
 var app = builder.Build();
 
-app.MapHub<NotificationHub>("/hubs/notifications");
-
 // ========================
-// MIDDLEWARE
+// MIDDLEWARE PIPELINE
 // ========================
 if (app.Environment.IsDevelopment())
 {
@@ -161,9 +182,38 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+// CORS doit être avant Authentication/Authorization
+app.UseCors("AngularPolicy");
+
 app.UseAuthentication();
+
+// ========================
+// MIDDLEWARE BLACKLIST JWT (Logout)
+// ========================
+app.Use(async (context, next) =>
+{
+    var token = context.Request.Headers["Authorization"]
+                       .ToString().Replace("Bearer ", "").Trim();
+
+    if (!string.IsNullOrEmpty(token))
+    {
+        var jwtService = context.RequestServices.GetRequiredService<JwtService>();
+        if (jwtService.IsTokenRevoked(token))
+        {
+            context.Response.StatusCode = 401;
+            context.Response.ContentType = "application/json";
+            await context.Response.WriteAsync(
+                "{\"message\": \"Token révoqué. Veuillez vous reconnecter.\"}");
+            return;
+        }
+    }
+
+    await next();
+});
+
 app.UseAuthorization();
 
+app.MapHub<NotificationHub>("/hubs/notifications");
 app.MapControllers();
 
 // ========================
@@ -188,9 +238,8 @@ using (var scope = app.Services.CreateScope())
         });
 
         db.SaveChanges();
-         Console.WriteLine("Admin créé : admin@admin.com / Admin123");
+        Console.WriteLine("✅ Admin créé : admin@admin.com / Admin123");
     }
 }
-app.UseCors("AngularPolicy");
 
 app.Run();
