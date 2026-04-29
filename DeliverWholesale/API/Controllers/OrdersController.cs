@@ -1,12 +1,14 @@
 ﻿using DeliverWholesale.Application.DTOs.DTOs;
 using DeliverWholesale.Application.Features.Handler.Orders;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DeliverWholesale.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class OrderController : ControllerBase
     {
         private readonly IMediator _mediator;

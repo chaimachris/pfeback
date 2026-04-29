@@ -57,8 +57,8 @@ namespace DeliverWholesale.Application.Features.Handler.Auth
                 Email = email,
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Dto.Password),
                 Role = Role.Client,
-                IsEmailConfirmed = true, // false
-                EmailConfirmationToken = null // token
+                IsEmailConfirmed = true, // true
+                EmailConfirmationToken = token // null
             };
 
             _context.Users.Add(user);
@@ -72,9 +72,7 @@ namespace DeliverWholesale.Application.Features.Handler.Auth
             var confirmLink =
                 $"{frontendUrl}/confirm-email?email={Uri.EscapeDataString(email)}&token={Uri.EscapeDataString(token)}";
 
-            // ========================
-            //  Email HTML PRO
-            // ========================
+            
 
             // ========================
             //  Envoi email sécurisé

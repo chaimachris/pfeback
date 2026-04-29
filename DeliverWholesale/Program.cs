@@ -105,6 +105,10 @@ builder.Services.AddAuthorization();
 // ========================
 // SERVICES
 // ========================
+
+// ========================
+builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddScoped<JwtService>();
 builder.Services.AddScoped<PricingService>();
 builder.Services.AddScoped<OrderService>();
@@ -234,7 +238,8 @@ using (var scope = app.Services.CreateScope())
             Email = "admin@admin.com",
             PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123"),
             Role = Role.Admin,
-            EmailConfirmationToken = ""
+            EmailConfirmationToken = null,
+            IsEmailConfirmed = true
         });
 
         db.SaveChanges();

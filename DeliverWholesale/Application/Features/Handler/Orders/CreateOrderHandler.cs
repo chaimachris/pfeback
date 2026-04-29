@@ -1,9 +1,9 @@
 ﻿using DeliverWholesale.Domain.Entities;
 using DeliverWholesale.Domain.Enums;
-using DeliverWholesale.Domain.Entities;
 using DeliverWholesale.Infrastructure.Data;
 using DeliverWholesale.Infrastructure.Services;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
@@ -13,13 +13,16 @@ namespace DeliverWholesale.Application.Features.Handler.Orders
     {
         private readonly ApplicationDbContext _context;
         private readonly NotificationService _notification;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
         public CreateOrderHandler(
             ApplicationDbContext context,
-            NotificationService notification)
+            NotificationService notification,
+            IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
             _notification = notification;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<int> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
@@ -27,12 +30,24 @@ namespace DeliverWholesale.Application.Features.Handler.Orders
             if (request.OrderDto.Items == null || !request.OrderDto.Items.Any())
                 throw new ApplicationException("Aucun produit dans la commande.");
 
+            // ✅ FIX: Récupérer l'utilisateur depuis le JWT, pas FirstAsync()
+           
+            var userIdClaim = _httpContextAccessor.HttpContext?.User
+                .FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (string.IsNullOrEmpty(userIdClaim))
+                throw new ApplicationException("Utilisateur non authentifié.");
+
+            var userId = int.Parse(userIdClaim);
+
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.Id == userId, cancellationToken)
+                ?? throw new ApplicationException("Utilisateur introuvable.");
+
             using var transaction = await _context.Database.BeginTransactionAsync(cancellationToken);
 
             try
             {
-                var user = await _context.Users.FirstAsync(cancellationToken);
-
                 var order = new Order
                 {
                     UserId = user.Id,
@@ -66,10 +81,9 @@ namespace DeliverWholesale.Application.Features.Handler.Orders
                     };
 
                     _context.OrderDetails.Add(detail);
-
                     total += detail.Quantite * detail.PrixUnitaire;
 
-                    //  FIFO STOCK
+                    // FIFO STOCK
                     int reste = item.Quantite;
 
                     var stockLots = await _context.StockLots
@@ -80,11 +94,9 @@ namespace DeliverWholesale.Application.Features.Handler.Orders
 
                     foreach (var lot in stockLots)
                     {
-                        if (reste == 0)
-                            break;
+                        if (reste == 0) break;
 
                         int preleve = Math.Min(lot.QuantiteRestante, reste);
-
                         if (preleve <= 0) continue;
 
                         lot.QuantiteRestante -= preleve;
@@ -114,12 +126,9 @@ namespace DeliverWholesale.Application.Features.Handler.Orders
 
                 order.TotalProduits = total;
 
-              
                 await _context.SaveChangesAsync(cancellationToken);
-
                 await transaction.CommitAsync(cancellationToken);
 
-                //  NOTIFICATION ADMIN
                 await _notification.NotifyAdmins(
                     $"Nouvelle commande créée (ID: {order.Id}) par {user.Prenom} {user.Nom}",
                     "CREATE_ORDER"
