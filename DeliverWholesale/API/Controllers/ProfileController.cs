@@ -25,9 +25,7 @@ namespace DeliverWholesale.API.Controllers
             return int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
         }
 
-        // ========================
         //  GET PROFILE
-        // ========================
         [HttpGet]
         public async Task<IActionResult> GetProfile()
         {
@@ -49,9 +47,7 @@ namespace DeliverWholesale.API.Controllers
             });
         }
 
-        // ========================
         //  UPDATE PROFILE
-        // ========================
         [HttpPut]
         public async Task<IActionResult> UpdateProfile(UpdateProfileDto dto)
         {
@@ -72,9 +68,7 @@ namespace DeliverWholesale.API.Controllers
             return Ok("Profile updated successfully");
         }
 
-        // ========================
         //  CHANGE PASSWORD 
-        // ========================
         [HttpPut("change-password")]
         public async Task<IActionResult> ChangePassword(ChangePasswordDto dto)
         {

@@ -22,11 +22,10 @@ namespace DeliverWholesale.Domain.Entities
 
         public decimal PrixVente { get; set; }
 
-        public int SeuilAlerte { get; set; }
 
         public bool IsActive { get; set; } = true;
 
-        
+
         public int CategorieId { get; set; }
         public Categorie Categorie { get; set; }
 
@@ -41,8 +40,7 @@ namespace DeliverWholesale.Domain.Entities
         [NotMapped]
         public int StockDisponible => StockLots.Sum(l => l.QuantiteRestante);
 
-        [NotMapped]
 
-        public bool AlerteStock => StockDisponible <= SeuilAlerte;
-    }
+
+    } 
 }

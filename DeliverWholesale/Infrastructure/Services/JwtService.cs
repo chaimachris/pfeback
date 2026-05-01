@@ -23,9 +23,7 @@ namespace DeliverWholesale.Infrastructure.Services
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.Secret));
         }
 
-        // ========================
         // GÉNÉRATION DU TOKEN
-        // ========================
         public string GenerateToken(User user)
         {
             var claims = new List<Claim>
@@ -54,7 +52,6 @@ namespace DeliverWholesale.Infrastructure.Services
             var expiry = GetTokenExpiry(token);
             _revokedTokens[token] = expiry ?? DateTime.UtcNow.AddMinutes(_config.ExpiryMinutes);
 
-            // Nettoyage des tokens expirés pour éviter la fuite mémoire
             CleanupExpiredTokens();
         }
 
@@ -66,9 +63,7 @@ namespace DeliverWholesale.Infrastructure.Services
             return _revokedTokens.ContainsKey(token);
         }
 
-        // ========================
         // UTILITAIRES PRIVÉS
-        // ========================
 
         
         private DateTime? GetTokenExpiry(string token)

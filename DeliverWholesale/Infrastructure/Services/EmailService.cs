@@ -19,7 +19,7 @@ namespace DeliverWholesale.Infrastructure.Services
             _logger = logger;
         }
 
-        //  Méthode principale
+        
         private async Task SendEmailAsync(string to, string subject, string body)
         {
 
@@ -82,7 +82,7 @@ namespace DeliverWholesale.Infrastructure.Services
             await SendEmailAsync(to, subject, body);
         }
 
-        //  Statut commande
+        
         public async Task SendOrderStatusEmailAsync(string to, string clientName, string status)
         {
             var subject = "Mise à jour commande";

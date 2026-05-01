@@ -20,9 +20,7 @@ var builder = WebApplication.CreateBuilder(new WebApplicationOptions
     WebRootPath = null
 });
 
-// ========================
 // CORS
-// ========================
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AngularPolicy", policy =>
@@ -34,33 +32,23 @@ builder.Services.AddCors(options =>
     });
 });
 
-// ========================
 // SIGNALR
-// ========================
 builder.Services.AddSignalR();
 
-// ========================
 // SENDGRID
-// ========================
 builder.Services.Configure<SendGridSettings>(
     builder.Configuration.GetSection("SendGridSettings"));
 
-// ========================
 // MEDIATR
-// ========================
 builder.Services.AddMediatR(typeof(LoginHandler).Assembly);
 
-// ========================
 // DATABASE
-// ========================
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")
     ));
 
-// ========================
 // JWT CONFIG
-// ========================
 builder.Services.Configure<JwtConfig>(
     builder.Configuration.GetSection("JwtConfig"));
 
@@ -83,7 +71,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ClockSkew = TimeSpan.Zero
         };
 
-        // Support SignalR (token dans query string)
+        // Support SignalR 
         options.Events = new JwtBearerEvents
         {
             OnMessageReceived = context =>
@@ -102,11 +90,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
-// ========================
-// SERVICES
-// ========================
 
-// ========================
+// SERVICES
+
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<JwtService>();
@@ -116,9 +102,8 @@ builder.Services.AddScoped<StockService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<NotificationService>();
 
-// ========================
 // CONTROLLERS + JSON
-// ========================
+
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
@@ -126,9 +111,7 @@ builder.Services.AddControllers()
             ReferenceHandler.IgnoreCycles;
     });
 
-// ========================
 // SWAGGER
-// ========================
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(c =>
@@ -166,14 +149,10 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// ========================
 // BUILD APP
-// ========================
 var app = builder.Build();
 
-// ========================
 // MIDDLEWARE PIPELINE
-// ========================
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -186,14 +165,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// CORS doit être avant Authentication/Authorization
 app.UseCors("AngularPolicy");
 
 app.UseAuthentication();
 
-// ========================
 // MIDDLEWARE BLACKLIST JWT (Logout)
-// ========================
 app.Use(async (context, next) =>
 {
     var token = context.Request.Headers["Authorization"]
@@ -220,9 +196,7 @@ app.UseAuthorization();
 app.MapHub<NotificationHub>("/hubs/notifications");
 app.MapControllers();
 
-// ========================
 // AUTO MIGRATION + DEFAULT ADMIN
-// ========================
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();

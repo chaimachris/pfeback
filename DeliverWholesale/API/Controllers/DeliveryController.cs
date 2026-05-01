@@ -18,9 +18,9 @@ namespace DeliverWholesale.API.Controllers
             _mediator = mediator;
         }
 
-        // =========================
+      
         // CREATE DELIVERY
-        // =========================
+       
         [HttpPost]
         public async Task<IActionResult> Create(CreateDeliveryDto dto)
         {
@@ -28,9 +28,9 @@ namespace DeliverWholesale.API.Controllers
             return Ok(result);
         }
 
-        // =========================
+       
         // GET ALL DELIVERIES
-        // =========================
+        
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -38,9 +38,9 @@ namespace DeliverWholesale.API.Controllers
             return Ok(result);
         }
 
-        // =========================
+       
         // UPDATE STATUS
-        // =========================
+        
         [HttpPut("{id}/status")]
         public async Task<IActionResult> UpdateStatus(int id, UpdateDeliveryStatusDto dto)
         {
@@ -52,9 +52,9 @@ namespace DeliverWholesale.API.Controllers
             return Ok("Statut livraison mis à jour");
         }
 
-        // =========================
+        
         //  PRODUCTS TODAY
-        // =========================
+        
         [HttpGet("today/products")]
         public async Task<IActionResult> GetTodayProducts()
         {
@@ -62,9 +62,9 @@ namespace DeliverWholesale.API.Controllers
             return Ok(result);
         }
 
-        // =========================
+        
         //  CLIENTS TODAY
-        // =========================
+        
         [HttpGet("today/clients")]
         public async Task<IActionResult> GetTodayClients()
         {
@@ -72,9 +72,8 @@ namespace DeliverWholesale.API.Controllers
             return Ok(result);
         }
 
-        // =========================
+        
         //  UPDATE DELIVERY DATE
-        // =========================
         [HttpPut("{id}/date")]
         public async Task<IActionResult> UpdateDate(int id, [FromBody] DateTime newDate)
         {

@@ -10,6 +10,7 @@ namespace DeliverWholesale.Infrastructure.Data
         {
         }
 
+        public DbSet<Reclamation> Reclamations { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<AchatLot> AchatLots { get; set; }
         public DbSet<StockLot> StockLots { get; set; }
@@ -104,7 +105,12 @@ namespace DeliverWholesale.Infrastructure.Data
                 .IsRequired(false)
                 .OnDelete(DeleteBehavior.Restrict);
 
-           
+            modelBuilder.Entity<Reclamation>()
+    .HasOne(r => r.ResolvedByUser)
+    .WithMany()
+    .HasForeignKey(r => r.ResolvedByUserId)
+    .OnDelete(DeleteBehavior.Restrict);
+
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.Email)
                 .IsUnique();

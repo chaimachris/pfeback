@@ -26,15 +26,11 @@ namespace DeliverWholesale.Application.Features.Handler.Auth
         {
             var email = request.Dto.Email.Trim().ToLower();
 
-            // ========================
-            //  Vérifier email
-            // ========================
+            
             if (await _context.Users.AnyAsync(x => x.Email == email, cancellationToken))
                 throw new ApplicationException("Email déjà utilisé");
 
-            // ========================
-            //  Split nom
-            // ========================
+           
             var fullName = request.Dto.FullName.Trim();
 
             var index = fullName.IndexOf(' ');
@@ -42,14 +38,10 @@ namespace DeliverWholesale.Application.Features.Handler.Auth
             var prenom = index == -1 ? fullName : fullName.Substring(0, index);
             var nom = index == -1 ? "" : fullName.Substring(index + 1);
 
-            // ========================
             //  Générer token
-            // ========================
             var token = Guid.NewGuid().ToString();
 
-            // ========================
             //  Créer user
-            // ========================
             var user = new User
             {
                 Prenom = prenom,
@@ -64,9 +56,7 @@ namespace DeliverWholesale.Application.Features.Handler.Auth
             _context.Users.Add(user);
             await _context.SaveChangesAsync(cancellationToken);
 
-            // ========================
             //  Lien confirmation (Angular)
-            // ========================
             var frontendUrl = _config["App:FrontendUrl"] ?? "http://localhost:4200";
 
             var confirmLink =
@@ -74,9 +64,7 @@ namespace DeliverWholesale.Application.Features.Handler.Auth
 
             
 
-            // ========================
             //  Envoi email sécurisé
-            // ========================
             try
             {
                 await _emailService.SendWelcomeEmailAsync(email, prenom, confirmLink);

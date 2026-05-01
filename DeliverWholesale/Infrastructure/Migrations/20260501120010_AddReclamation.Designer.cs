@@ -4,6 +4,7 @@ using DeliverWholesale.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DeliverWholesale.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260501120010_AddReclamation")]
+    partial class AddReclamation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -279,56 +282,6 @@ namespace DeliverWholesale.Migrations
                     b.ToTable("Produits");
                 });
 
-            modelBuilder.Entity("DeliverWholesale.Domain.Entities.Reclamation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("DateCreation")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DateResolution")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ReponseAdmin")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ResolvedByUserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Sujet")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("ResolvedByUserId");
-
-                    b.ToTable("Reclamations");
-                });
-
             modelBuilder.Entity("DeliverWholesale.Domain.Entities.Transaction", b =>
                 {
                     b.Property<int>("Id")
@@ -544,24 +497,6 @@ namespace DeliverWholesale.Migrations
                         .IsRequired();
 
                     b.Navigation("Categorie");
-                });
-
-            modelBuilder.Entity("DeliverWholesale.Domain.Entities.Reclamation", b =>
-                {
-                    b.HasOne("DeliverWholesale.Domain.Entities.Order", "Order")
-                        .WithMany()
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DeliverWholesale.Domain.Entities.User", "ResolvedByUser")
-                        .WithMany()
-                        .HasForeignKey("ResolvedByUserId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.Navigation("Order");
-
-                    b.Navigation("ResolvedByUser");
                 });
 
             modelBuilder.Entity("DeliverWholesale.Domain.Entities.Transaction", b =>
