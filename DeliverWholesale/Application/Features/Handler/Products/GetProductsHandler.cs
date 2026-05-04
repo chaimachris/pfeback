@@ -1,5 +1,4 @@
-﻿using DeliverWholesale.Application.Features.Handler.Stock;
-using DeliverWholesale.Domain.Entities;
+﻿using DeliverWholesale.Domain.Entities;
 using DeliverWholesale.Infrastructure.Data;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -10,20 +9,21 @@ namespace DeliverWholesale.Application.Features.Handler.Products
     {
     }
 
-    public class GetProductStockHandler : IRequestHandler<GetProductStockQuery, List<StockLot>>
+    public class GetProductsHandler
+        : IRequestHandler<GetProductsQuery, List<Produit>>
     {
         private readonly ApplicationDbContext _context;
 
-        public GetProductStockHandler(ApplicationDbContext context)
+        public GetProductsHandler(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task<List<StockLot>> Handle(GetProductStockQuery request, CancellationToken cancellationToken)
+        public async Task<List<Produit>> Handle(
+            GetProductsQuery request,
+            CancellationToken cancellationToken)
         {
-            return await _context.StockLots
-                .Include(s => s.AchatLot) 
-                .Where(s => s.AchatLot.ProduitId == request.ProduitId)
+            return await _context.Produits
                 .ToListAsync(cancellationToken);
         }
     }
