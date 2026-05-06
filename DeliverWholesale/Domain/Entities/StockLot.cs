@@ -11,6 +11,8 @@ public class StockLot
 
     public DateTime DateReception { get; set; } = DateTime.UtcNow;
 
+    public Produit Produit { get; set; }
+    public int ProduitId { get; set; }
    
     public List<LotCommande> LotCommandes { get; set; } = new();
 

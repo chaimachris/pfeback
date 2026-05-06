@@ -48,83 +48,74 @@ namespace DeliverWholesale.Application.Features.Handler.Orders
 
             try
             {
+                var listProduitId = request.OrderDto.Items.Select(x => x.ProduitId).ToList();
+                var products = _context.Produits.Where(x => listProduitId.Contains(x.Id)).ToList();
+                var totaldict = products.Select(x => new { x.PrixVente, request.OrderDto.Items.Find(y => y.ProduitId == x.Id).Quantite }).ToList();
+
                 var order = new Order
                 {
-                    UserId = user.Id,
-                    DateCommande = DateTime.UtcNow,
-                    FraisLivraison = 10,
-                    TotalProduits = 0,
-                    OrderDetails = new List<OrderDetail>()
+                    DateCommande = DateTime.Now,
+                    FraisLivraison = 0,
+                    Statut = StatutOrder.EnAttente,
+                    TotalProduits = totaldict.Sum(x=> x.Quantite * x.PrixVente),
+                    User = user,
                 };
 
                 _context.Orders.Add(order);
 
-                decimal total = 0;
+                var orderItems = request.OrderDto.Items.SelectMany(x => new List<OrderDetail>
+                {
+                    new OrderDetail
+                    {
+                        Order = order,
+                        PrixUnitaire = products.First(y => y.Id == x.ProduitId).PrixVente,
+                        Produit = products.First(y => y.Id == x.ProduitId),
+                        Quantite = x.Quantite
+                    }
+                }).ToList();
+
+                _context.OrderDetails.AddRange(orderItems);
+
+                var stockLots = _context.StockLots.Where(x => listProduitId.Contains(x.ProduitId)).OrderByDescending(x=>x.DateReception).ToList();
+                
+                foreach (var item in stockLots)
+                {
+                    
+                    var product = request.OrderDto.Items.First(x => x.ProduitId == item.ProduitId);
+                    if(product.Quantite == 0)
+                    {
+                        continue;
+                    }
+
+                    if (item.QuantiteRestante >= product.Quantite)
+                    {
+                        item.QuantiteRestante -= product.Quantite;
+                    }
+                    else
+                    {
+                        product.Quantite -= item.QuantiteRestante;
+                        item.QuantiteRestante = 0;
+                    }
+                }
+
+                _context.StockLots.UpdateRange(stockLots);
+
+                var listTransation = new List<Transaction>();
 
                 foreach (var item in request.OrderDto.Items)
                 {
-                    if (item.Quantite <= 0)
-                        throw new ApplicationException($"Quantité invalide pour produit {item.ProduitId}");
-
-                    var produit = await _context.Produits
-                        .FirstOrDefaultAsync(p => p.Id == item.ProduitId, cancellationToken);
-
-                    if (produit == null)
-                        throw new ApplicationException($"Produit {item.ProduitId} introuvable");
-
-                    var detail = new OrderDetail
+                    listTransation.Add(new Transaction
                     {
-                        Order = order,
-                        ProduitId = item.ProduitId,
+                        DateMouvement = DateTime.Now,
+                        OrderDetail = orderItems.First(x => x.ProduitId == item.ProduitId),
                         Quantite = item.Quantite,
-                        PrixUnitaire = produit.PrixAchat
-                    };
-
-                    _context.OrderDetails.Add(detail);
-                    total += detail.Quantite * detail.PrixUnitaire;
-
-                    // FIFO STOCK
-                    int reste = item.Quantite;
-
-                    var stockLots = await _context.StockLots
-                        .Include(s => s.AchatLot)
-                        .Where(s => s.AchatLot.ProduitId == item.ProduitId && s.QuantiteRestante > 0)
-                        .OrderBy(s => s.DateReception)
-                        .ToListAsync(cancellationToken);
-
-                    foreach (var lot in stockLots)
-                    {
-                        if (reste == 0) break;
-
-                        int preleve = Math.Min(lot.QuantiteRestante, reste);
-                        if (preleve <= 0) continue;
-
-                        lot.QuantiteRestante -= preleve;
-
-                        _context.LotCommandes.Add(new LotCommande
-                        {
-                            StockLot = lot,
-                            OrderDetail = detail,
-                            QuantitePrelevee = preleve
-                        });
-
-                        _context.Transactions.Add(new Transaction
-                        {
-                            StockLot = lot,
-                            OrderDetail = detail,
-                            Type = TypeMouvement.Sortie,
-                            Quantite = preleve,
-                            DateMouvement = DateTime.UtcNow
-                        });
-
-                        reste -= preleve;
-                    }
-
-                    if (reste > 0)
-                        throw new ApplicationException($"Stock insuffisant pour produit {item.ProduitId}");
+                        StockLot = stockLots.First(x => x.ProduitId == item.ProduitId),
+                        Type = TypeMouvement.Sortie
+                    });
                 }
+                order.OrderDetails = orderItems.ToList();
 
-                order.TotalProduits = total;
+                _context.Transactions.AddRange(listTransation);
 
                 await _context.SaveChangesAsync(cancellationToken);
                 await transaction.CommitAsync(cancellationToken);
@@ -136,11 +127,109 @@ namespace DeliverWholesale.Application.Features.Handler.Orders
 
                 return order.Id;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                await transaction.RollbackAsync(cancellationToken);
-                throw;
+
+                throw e;
             }
+
+
+
+            //try
+            //{
+            //    var order = new Order
+            //    {
+            //        UserId = user.Id,
+            //        DateCommande = DateTime.UtcNow,
+            //        FraisLivraison = 10,
+            //        TotalProduits = 0,
+            //        OrderDetails = new List<OrderDetail>()
+            //    };
+
+            //    _context.Orders.Add(order);
+
+            //    decimal total = 0;
+
+            //    foreach (var item in request.OrderDto.Items)
+            //    {
+            //        if (item.Quantite <= 0)
+            //            throw new ApplicationException($"Quantité invalide pour produit {item.ProduitId}");
+
+            //        var produit = await _context.Produits
+            //            .FirstOrDefaultAsync(p => p.Id == item.ProduitId, cancellationToken);
+
+            //        if (produit == null)
+            //            throw new ApplicationException($"Produit {item.ProduitId} introuvable");
+
+            //        var detail = new OrderDetail
+            //        {
+            //            Order = order,
+            //            ProduitId = item.ProduitId,
+            //            Quantite = item.Quantite,
+            //            PrixUnitaire = produit.PrixAchat
+            //        };
+
+            //        _context.OrderDetails.Add(detail);
+            //        total += detail.Quantite * detail.PrixUnitaire;
+
+            //        // FIFO STOCK
+            //        int reste = item.Quantite;
+
+            //        var stockLots = await _context.StockLots
+            //            .Include(s => s.AchatLot)
+            //            .Where(s => s.AchatLot.ProduitId == item.ProduitId && s.QuantiteRestante > 0)
+            //            .OrderBy(s => s.DateReception)
+            //            .ToListAsync(cancellationToken);
+
+            //        foreach (var lot in stockLots)
+            //        {
+            //            if (reste == 0) break;
+
+            //            int preleve = Math.Min(lot.QuantiteRestante, reste);
+            //            if (preleve <= 0) continue;
+
+            //            lot.QuantiteRestante -= preleve;
+
+            //            _context.LotCommandes.Add(new LotCommande
+            //            {
+            //                StockLot = lot,
+            //                OrderDetail = detail,
+            //                QuantitePrelevee = preleve
+            //            });
+
+            //            _context.Transactions.Add(new Transaction
+            //            {
+            //                StockLot = lot,
+            //                OrderDetail = detail,
+            //                Type = TypeMouvement.Sortie,
+            //                Quantite = preleve,
+            //                DateMouvement = DateTime.UtcNow
+            //            });
+
+            //            reste -= preleve;
+            //        }
+
+            //        if (reste > 0)
+            //            throw new ApplicationException($"Stock insuffisant pour produit {item.ProduitId}");
+            //    }
+
+            //    order.TotalProduits = total;
+
+            //    await _context.SaveChangesAsync(cancellationToken);
+            //    await transaction.CommitAsync(cancellationToken);
+
+            //    await _notification.NotifyAdmins(
+            //        $"Nouvelle commande créée (ID: {order.Id}) par {user.Prenom} {user.Nom}",
+            //        "CREATE_ORDER"
+            //    );
+
+            //    return order.Id;
+            //}
+            //catch (Exception)
+            //{
+            //    await transaction.RollbackAsync(cancellationToken);
+            //    throw;
+            //}
         }
     }
 }

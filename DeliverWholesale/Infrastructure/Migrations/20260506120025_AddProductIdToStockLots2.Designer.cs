@@ -4,6 +4,7 @@ using DeliverWholesale.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DeliverWholesale.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260506120025_AddProductIdToStockLots2")]
+    partial class AddProductIdToStockLots2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -256,9 +259,6 @@ namespace DeliverWholesale.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<int>("NbUnite")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nom")
                         .IsRequired()
                         .HasMaxLength(150)
@@ -268,7 +268,7 @@ namespace DeliverWholesale.Migrations
                         .HasColumnType("decimal(18,3)");
 
                     b.Property<decimal>("PrixVente")
-                        .HasColumnType("decimal(18,3)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("TypeDePrix")
                         .HasColumnType("int");

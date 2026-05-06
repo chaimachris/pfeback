@@ -15,6 +15,9 @@ namespace DeliverWholesale.Application.Features.Handler.AchatLots
 
         public async Task<int> Handle(CreateAchatLotCommand request, CancellationToken cancellationToken)
         {
+            var produit = _context.Produits.First(x => x.Id == request.ProduitId);
+            // Null Guard here to check if product exist
+
             var achat = new AchatLot
             {
                 ProduitId = request.ProduitId,
@@ -22,21 +25,34 @@ namespace DeliverWholesale.Application.Features.Handler.AchatLots
                 PrixUnitaire = request.PrixUnitaire,
                 Fournisseur = request.Fournisseur,
                 NumeroLot = request.NumeroLot,
-                DateAchat = DateTime.UtcNow
+                DateAchat = DateTime.UtcNow,
             };
 
             _context.AchatLots.Add(achat);
             await _context.SaveChangesAsync(cancellationToken);
 
-            for (int i = 0; i < request.QuantiteAchetee; i++)
+            // SAVE Stock
+            var stockLot = new StockLot()
             {
-                _context.StockLots.Add(new StockLot
-                {
-                    AchatLotId = achat.Id,
-                    QuantiteRestante = 1,
-                    DateReception = DateTime.UtcNow
-                });
-            }
+                AchatLotId = achat.Id,
+                DateReception = DateTime.Now,
+                QuantiteRestante = achat.QuantiteAchetee * produit.NbUnite,
+                ProduitId = achat.ProduitId,
+                Produit = achat.Produit
+            };
+
+            await _context.SaveChangesAsync(cancellationToken);
+
+            // SAVE Transaction
+            _context.Transactions.Add(new Transaction
+            {
+                DateMouvement = DateTime.Now,
+                Quantite = achat.QuantiteAchetee,
+                StockLotId = stockLot.Id,
+                StockLot = stockLot,
+                Type = Domain.Enums.TypeMouvement.Entree
+            });
+          
 
             await _context.SaveChangesAsync(cancellationToken);
 
