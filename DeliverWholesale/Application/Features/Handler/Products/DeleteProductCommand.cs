@@ -3,6 +3,7 @@ using MediatR;
 
 namespace DeliverWholesale.Application.Features.Handler.Products
 {
+    // ✅ COMMAND
     public class DeleteProductCommand : IRequest<bool>
     {
         public int Id { get; set; }
@@ -30,7 +31,8 @@ namespace DeliverWholesale.Application.Features.Handler.Products
                 return false;
 
             _context.Produits.Remove(product);
-            await _context.SaveChangesAsync();
+
+            await _context.SaveChangesAsync(cancellationToken);
 
             return true;
         }

@@ -1,18 +1,18 @@
-﻿using DeliverWholesale.Application.Features.Handler.Stock;
-using DeliverWholesale.Domain.Entities;
+﻿using DeliverWholesale.Domain.Entities;
 using DeliverWholesale.Infrastructure.Data;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace DeliverWholesale.Application.Features.Handler.Products
 {
+    // ✅ QUERY
     public class GetProductStockQuery : IRequest<List<StockLot>>
     {
         public int ProduitId { get; set; }
     }
 
-    public class GetProductStockHandler
-        : IRequestHandler<GetProductStockQuery, List<StockLot>>
+    // ✅ HANDLER
+    public class GetProductStockHandler : IRequestHandler<GetProductStockQuery, List<StockLot>>
     {
         private readonly ApplicationDbContext _context;
 
