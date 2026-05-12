@@ -32,6 +32,7 @@ namespace DeliverWholesale.Application.Features.Handler.Products
                 Description = request.ProductDto.Description,
                 PrixAchat = request.ProductDto.Prix,   
                 CategorieId = request.ProductDto.CategorieId,
+                NbUnite = request.ProductDto.NbUnite,
                 
                 IsActive = true
             };

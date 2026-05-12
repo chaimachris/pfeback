@@ -4,6 +4,7 @@ using DeliverWholesale.Infrastructure.Data;
 using DeliverWholesale.Infrastructure.Services;
 using MediatR;
 using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
 
 namespace DeliverWholesale.Application.Features.Handler.Reclamations
 {
@@ -28,10 +29,13 @@ namespace DeliverWholesale.Application.Features.Handler.Reclamations
             CreateReclamationCommand request,
             CancellationToken cancellationToken)
         {
-            var userId = _httpContextAccessor
-                .HttpContext?
-                .User?
-                .FindFirst("uid")?.Value;
+            var userIdClaim = _httpContextAccessor.HttpContext?.User
+                .FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (string.IsNullOrEmpty(userIdClaim))
+                throw new ApplicationException("Utilisateur non authentifié.");
+
+            var userId = userIdClaim;
 
             var reclamation = new Reclamation
             {

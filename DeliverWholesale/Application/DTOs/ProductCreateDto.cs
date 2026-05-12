@@ -7,5 +7,6 @@
         public decimal Prix { get; set; }
 
         public int CategorieId { get; set; }
+        public int NbUnite { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using DeliverWholesale.Application.DTOs.DTOs;
+﻿using DeliverWholesale.Application.DTOs;
+using DeliverWholesale.Application.DTOs.DTOs;
 using DeliverWholesale.Application.Features.Handler.Orders;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -72,6 +73,16 @@ namespace DeliverWholesale.API.Controllers
                 return NotFound("Commande introuvable");
 
             return Ok(new { Message = "Commande supprimée" });
+        }
+        [HttpPut("{id}/status")]
+        public async Task<IActionResult> UpdateStatus(int id, [FromBody] UpdateOrderStatusDto dto)
+        {
+            var result = await _mediator.Send(new UpdateOrderStatusCommand(id, dto.Statut));
+
+            if (!result)
+                return NotFound("Commande introuvable");
+
+            return Ok(new { message = "Statut mis à jour" });
         }
     }
 }

@@ -17,6 +17,7 @@ namespace DeliverWholesale.Application.Features.Handler.Orders
         public async Task<List<Order>> Handle(GetAllOrdersQuery request, CancellationToken cancellationToken)
         {
             return await _context.Orders
+                 .Include(o => o.User)
                 .Include(o => o.OrderDetails)
                     .ThenInclude(d => d.Produit)
                 .Include(o => o.Delivery)

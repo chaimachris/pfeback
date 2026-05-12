@@ -109,6 +109,9 @@ builder.Services.AddControllers()
     {
         options.JsonSerializerOptions.ReferenceHandler =
             ReferenceHandler.IgnoreCycles;
+        options.JsonSerializerOptions.Converters.Add(
+            new JsonStringEnumConverter()  // ← AJOUTE CETTE LIGNE
+        );
     });
 
 // SWAGGER
