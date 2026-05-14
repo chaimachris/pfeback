@@ -22,7 +22,9 @@ namespace DeliverWholesale.Application.Features.Handler.Stock
         public async Task<List<StockDetailsDTO>> Handle(GetStockQuery request, CancellationToken cancellationToken)
         {
             var stock = await _context.StockLots
-                .ToListAsync(cancellationToken);
+     .Include(x => x.Transactions)
+     .Include(x => x.Produit)
+     .ToListAsync(cancellationToken);
             var productIds = stock.Select(x => x.ProduitId).Distinct().ToList();
             var products = _context.Produits.Where(x => productIds.Contains(x.Id)).ToList();
 
@@ -36,7 +38,10 @@ namespace DeliverWholesale.Application.Features.Handler.Stock
                     Product = products.First(x => x.Id == item),
                     QuantiteTotalRestante = stock.Where(x => x.ProduitId == item).Sum(x => x.QuantiteRestante),
                     StockLotId = listStockIds,
-                    Transations = _context.Transactions.Where(x => listStockIds.Contains(x.StockLotId)).ToList()
+                    Transactions = stock
+    .Where(x => listStockIds.Contains(x.Id))
+    .SelectMany(x => x.Transactions)
+    .ToList()
                 });
             }
 

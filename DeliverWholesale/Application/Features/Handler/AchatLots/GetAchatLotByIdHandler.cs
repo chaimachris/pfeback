@@ -19,6 +19,8 @@ namespace DeliverWholesale.Application.Features.Handler.AchatLots
             return await _context.AchatLots
                 .Include(a => a.Produit)
                 .Include(a => a.StockLots)
+                        .ThenInclude(sl => sl.Transactions) // ✅ AJOUT ICI
+
                 .FirstOrDefaultAsync(a => a.Id == request.Id, cancellationToken);
         }
     }

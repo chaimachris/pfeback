@@ -11,6 +11,7 @@ namespace DeliverWholesale.Application.DTOs.DTOs
         public decimal? PrixAchat { get; set; }
 
         public int? CategorieId { get; set; }
+        public int? NbUnite { get; set; }
 
         public IFormFile? Image { get; set; }
     }

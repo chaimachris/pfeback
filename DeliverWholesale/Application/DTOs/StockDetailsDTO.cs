@@ -7,6 +7,6 @@ namespace DeliverWholesale.Application.DTOs
         public List<int> StockLotId { get; set; }
         public Produit Product { get; set; }
         public decimal QuantiteTotalRestante { get; set; }
-        public List<Transaction> Transations { get; set; }
+        public List<Transaction> Transactions { get; set; }
     }
 }

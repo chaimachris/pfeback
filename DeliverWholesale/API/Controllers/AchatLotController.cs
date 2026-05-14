@@ -57,5 +57,17 @@ namespace DeliverWholesale.API.Controllers
 
             return Ok("Achat supprimé avec succès");
         }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateAchatLotCommand command)
+        {
+            command.Id = id;
+
+            var success = await _mediator.Send(command);
+
+            if (!success)
+                return NotFound("Achat introuvable");
+
+            return Ok("Achat mis à jour");
+        }
     }
 }
