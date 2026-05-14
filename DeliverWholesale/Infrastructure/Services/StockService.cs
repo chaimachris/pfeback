@@ -14,7 +14,7 @@ namespace DeliverWholesale.Infrastructure.Services
 
         public async Task<int> GetStock(int produitId)
         {
-            var product = await _context.Produits.Include(p => p.StockLots).ThenInclude(l => l.Transactions).FirstOrDefaultAsync(p => p.Id == produitId);
+            var product = await _context.Produits.Include(p => p.StockLots).ThenInclude(l => l.Transactions).FirstOrDefaultAsync(p => p.idP == produitId);
             return product?.StockDisponible ?? 0;
         }
     }

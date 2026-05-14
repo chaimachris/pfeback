@@ -1,7 +1,6 @@
 ﻿using DeliverWholesale.Application.DTOs.DTOs;
 using DeliverWholesale.Domain.Entities;
 using DeliverWholesale.Domain.Enums;
-using DeliverWholesale.Domain.Entities;
 using DeliverWholesale.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -28,29 +27,30 @@ namespace DeliverWholesale.Infrastructure.Services
 
             var productIds = dto.Items.Select(i => i.ProduitId).ToList();
             var products = await _context.Produits
-                .Where(p => productIds.Contains(p.Id) && p.IsActive)
+                .Where(p => productIds.Contains(p.idP) && p.IsActive)
                 .ToListAsync();
 
             foreach (var item in dto.Items)
             {
-                var product = products.FirstOrDefault(p => p.Id == item.ProduitId);
+                var product = products.FirstOrDefault(p => p.idP == item.ProduitId);
                 if (product == null)
                     throw new Exception("Produit invalide");
 
                 var detail = new OrderDetail
                 {
                     OrderId = order.Id,
-                    ProduitId = product.Id,
+                    ProduitId = product.idP,
                     Quantite = item.Quantite,
-                    PrixUnitaire = product.PrixAchat
+                    PrixUnitaire = product.PrixVenteActuel ?? 0, // ← CORRIGÉ : PrixAchat n'existe plus, on utilise le prix de vente actuel
                 };
 
                 total += detail.SousTotal;
                 _context.OrderDetails.Add(detail);
                 await _context.SaveChangesAsync();
+
                 var lot = await _context.StockLots
                     .Include(l => l.AchatLot)
-                    .Where(l => l.AchatLot.ProduitId == product.Id && l.QuantiteRestante > 0)
+                    .Where(l => l.AchatLot.ProduitId == product.idP && l.QuantiteRestante > 0) // ← CORRIGÉ : product.Id → product.idP
                     .OrderBy(l => l.DateReception)
                     .FirstOrDefaultAsync();
 

@@ -23,7 +23,7 @@ namespace DeliverWholesale.Application.Features.Handler.Deliveries
                 .Where(od => od.Order.DateCommande.Date == today)
                 .Select(od => new
                 {
-                    Produit = od.Produit.Nom,
+                    Produit = od.Produit.libelle,   // ← CORRIGÉ : Nom → libelle
                     Quantite = od.Quantite,
                     Prix = od.PrixUnitaire,
                     OrderId = od.OrderId

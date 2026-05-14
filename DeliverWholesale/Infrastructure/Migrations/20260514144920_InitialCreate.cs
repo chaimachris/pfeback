@@ -55,8 +55,12 @@ namespace DeliverWholesale.Migrations
                     Nom = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Prenom = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Adresse = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AdresseLivraisonActive = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Role = table.Column<int>(type: "int", nullable: false)
+                    Role = table.Column<int>(type: "int", nullable: false),
+                    IsEmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    EmailConfirmationToken = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -67,24 +71,50 @@ namespace DeliverWholesale.Migrations
                 name: "Produits",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    idP = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nom = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    libelle = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
-                    PrixAchat = table.Column<decimal>(type: "decimal(18,3)", nullable: false),
-                    PrixVente = table.Column<decimal>(type: "decimal(18,3)", nullable: false),
-                    CategorieId = table.Column<int>(type: "int", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                    seuil = table.Column<int>(type: "int", nullable: false),
+                    prixModifiable = table.Column<bool>(type: "bit", nullable: false),
+                    idCategorie = table.Column<int>(type: "int", nullable: false),
+                    NbUnite = table.Column<int>(type: "int", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PrixAchat = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Produits", x => x.Id);
+                    table.PrimaryKey("PK_Produits", x => x.idP);
                     table.ForeignKey(
-                        name: "FK_Produits_Categories_CategorieId",
-                        column: x => x.CategorieId,
+                        name: "FK_Produits_Categories_idCategorie",
+                        column: x => x.idCategorie,
                         principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Notifications",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Message = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsRead = table.Column<bool>(type: "bit", nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Notifications", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Notifications_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -97,8 +127,7 @@ namespace DeliverWholesale.Migrations
                     DateCommande = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TotalProduits = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     FraisLivraison = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Statut = table.Column<int>(type: "int", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                    Statut = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -112,26 +141,47 @@ namespace DeliverWholesale.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "StockLots",
+                name: "AchatLots",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProduitId = table.Column<int>(type: "int", nullable: false),
-                    QuantiteAchetee = table.Column<int>(type: "int", nullable: false),
-                    PrixAchatLot = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     DateAchat = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    QuantiteAchetee = table.Column<int>(type: "int", nullable: false),
+                    PrixUnitaire = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Fournisseur = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Unite = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    NumeroLot = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_StockLots", x => x.Id);
+                    table.PrimaryKey("PK_AchatLots", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_StockLots_Produits_ProduitId",
+                        name: "FK_AchatLots_Produits_ProduitId",
                         column: x => x.ProduitId,
                         principalTable: "Produits",
-                        principalColumn: "Id",
+                        principalColumn: "idP",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PrixVentes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    idP = table.Column<int>(type: "int", nullable: false),
+                    Valeur = table.Column<decimal>(type: "decimal(18,3)", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PrixVentes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PrixVentes_Produits_idP",
+                        column: x => x.idP,
+                        principalTable: "Produits",
+                        principalColumn: "idP",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -143,10 +193,9 @@ namespace DeliverWholesale.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     AdresseLivraison = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DateLivraisonPrevue = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DateLivraisonPrevue = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateLivraisonReelle = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Statut = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NotesLivraison = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Statut = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -183,6 +232,94 @@ namespace DeliverWholesale.Migrations
                         name: "FK_OrderDetails_Produits_ProduitId",
                         column: x => x.ProduitId,
                         principalTable: "Produits",
+                        principalColumn: "idP",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Reclamations",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    OrderId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Sujet = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ReponseAdmin = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DateCreation = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateResolution = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ResolvedByUserId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reclamations", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Reclamations_Orders_OrderId",
+                        column: x => x.OrderId,
+                        principalTable: "Orders",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Reclamations_Users_ResolvedByUserId",
+                        column: x => x.ResolvedByUserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "StockLots",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AchatLotId = table.Column<int>(type: "int", nullable: false),
+                    QuantiteRestante = table.Column<int>(type: "int", nullable: false),
+                    DateReception = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ProduitId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_StockLots", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_StockLots_AchatLots_AchatLotId",
+                        column: x => x.AchatLotId,
+                        principalTable: "AchatLots",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_StockLots_Produits_ProduitId",
+                        column: x => x.ProduitId,
+                        principalTable: "Produits",
+                        principalColumn: "idP",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LotCommandes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StockLotId = table.Column<int>(type: "int", nullable: false),
+                    OrderDetailId = table.Column<int>(type: "int", nullable: false),
+                    QuantitePrelevee = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LotCommandes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_LotCommandes_OrderDetails_OrderDetailId",
+                        column: x => x.OrderDetailId,
+                        principalTable: "OrderDetails",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_LotCommandes_StockLots_StockLotId",
+                        column: x => x.StockLotId,
+                        principalTable: "StockLots",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -217,6 +354,17 @@ namespace DeliverWholesale.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_AchatLots_NumeroLot",
+                table: "AchatLots",
+                column: "NumeroLot",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AchatLots_ProduitId",
+                table: "AchatLots",
+                column: "ProduitId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Categories_ParentId",
                 table: "Categories",
                 column: "ParentId");
@@ -226,6 +374,21 @@ namespace DeliverWholesale.Migrations
                 table: "Deliveries",
                 column: "OrderId",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LotCommandes_OrderDetailId",
+                table: "LotCommandes",
+                column: "OrderDetailId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LotCommandes_StockLotId",
+                table: "LotCommandes",
+                column: "StockLotId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Notifications_UserId",
+                table: "Notifications",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderDetails_OrderId",
@@ -253,14 +416,34 @@ namespace DeliverWholesale.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Produits_CategorieId",
-                table: "Produits",
-                column: "CategorieId");
+                name: "IX_PrixVentes_idP",
+                table: "PrixVentes",
+                column: "idP");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Produits_Nom",
+                name: "IX_Produits_idCategorie",
                 table: "Produits",
-                column: "Nom");
+                column: "idCategorie");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Produits_libelle",
+                table: "Produits",
+                column: "libelle");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reclamations_OrderId",
+                table: "Reclamations",
+                column: "OrderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reclamations_ResolvedByUserId",
+                table: "Reclamations",
+                column: "ResolvedByUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_StockLots_AchatLotId",
+                table: "StockLots",
+                column: "AchatLotId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_StockLots_ProduitId",
@@ -294,6 +477,18 @@ namespace DeliverWholesale.Migrations
                 name: "Deliveries");
 
             migrationBuilder.DropTable(
+                name: "LotCommandes");
+
+            migrationBuilder.DropTable(
+                name: "Notifications");
+
+            migrationBuilder.DropTable(
+                name: "PrixVentes");
+
+            migrationBuilder.DropTable(
+                name: "Reclamations");
+
+            migrationBuilder.DropTable(
                 name: "Transactions");
 
             migrationBuilder.DropTable(
@@ -306,10 +501,13 @@ namespace DeliverWholesale.Migrations
                 name: "Orders");
 
             migrationBuilder.DropTable(
-                name: "Produits");
+                name: "AchatLots");
 
             migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Produits");
 
             migrationBuilder.DropTable(
                 name: "Categories");

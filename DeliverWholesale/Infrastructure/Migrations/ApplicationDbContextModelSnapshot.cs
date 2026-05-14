@@ -237,7 +237,7 @@ namespace DeliverWholesale.Migrations
                     b.ToTable("OrderDetails");
                 });
 
-            modelBuilder.Entity("DeliverWholesale.Domain.Entities.Produit", b =>
+            modelBuilder.Entity("DeliverWholesale.Domain.Entities.PrixVente", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -245,8 +245,29 @@ namespace DeliverWholesale.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CategorieId")
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Valeur")
+                        .HasColumnType("decimal(18,3)");
+
+                    b.Property<int>("idP")
                         .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("idP");
+
+                    b.ToTable("PrixVentes");
+                });
+
+            modelBuilder.Entity("DeliverWholesale.Domain.Entities.Produit", b =>
+                {
+                    b.Property<int>("idP")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("idP"));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -262,25 +283,25 @@ namespace DeliverWholesale.Migrations
                     b.Property<int>("NbUnite")
                         .HasColumnType("int");
 
-                    b.Property<string>("Nom")
+                    b.Property<int>("idCategorie")
+                        .HasColumnType("int");
+
+                    b.Property<string>("libelle")
                         .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<decimal>("PrixAchat")
-                        .HasColumnType("decimal(18,3)");
+                    b.Property<bool>("prixModifiable")
+                        .HasColumnType("bit");
 
-                    b.Property<decimal>("PrixVente")
-                        .HasColumnType("decimal(18,3)");
-
-                    b.Property<int>("TypeDePrix")
+                    b.Property<int>("seuil")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("idP");
 
-                    b.HasIndex("CategorieId");
+                    b.HasIndex("idCategorie");
 
-                    b.HasIndex("Nom");
+                    b.HasIndex("libelle");
 
                     b.ToTable("Produits");
                 });
@@ -541,11 +562,22 @@ namespace DeliverWholesale.Migrations
                     b.Navigation("Produit");
                 });
 
+            modelBuilder.Entity("DeliverWholesale.Domain.Entities.PrixVente", b =>
+                {
+                    b.HasOne("DeliverWholesale.Domain.Entities.Produit", "Produit")
+                        .WithMany("PrixVentes")
+                        .HasForeignKey("idP")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Produit");
+                });
+
             modelBuilder.Entity("DeliverWholesale.Domain.Entities.Produit", b =>
                 {
                     b.HasOne("DeliverWholesale.Domain.Entities.Categorie", "Categorie")
                         .WithMany("Produits")
-                        .HasForeignKey("CategorieId")
+                        .HasForeignKey("idCategorie")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -647,6 +679,8 @@ namespace DeliverWholesale.Migrations
 
             modelBuilder.Entity("DeliverWholesale.Domain.Entities.Produit", b =>
                 {
+                    b.Navigation("PrixVentes");
+
                     b.Navigation("StockLots");
                 });
 

@@ -16,12 +16,11 @@ namespace DeliverWholesale.Infrastructure.Data
         public DbSet<StockLot> StockLots { get; set; }
         public DbSet<LotCommande> LotCommandes { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
-
         public DbSet<User> Users { get; set; }
         public DbSet<Categorie> Categories { get; set; }
         public DbSet<Produit> Produits { get; set; }
+        public DbSet<PrixVente> PrixVentes { get; set; }
         public DbSet<Config> Configs { get; set; }
-
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Delivery> Deliveries { get; set; }
@@ -30,12 +29,47 @@ namespace DeliverWholesale.Infrastructure.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            // ─── Produit ────────────────────────────────────────────────
+            modelBuilder.Entity<Produit>()
+                .HasKey(p => p.idP);
+
+            modelBuilder.Entity<Produit>()
+                .Property(p => p.idP)
+                .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Produit>()
+                .HasOne(p => p.Categorie)
+                .WithMany(c => c.Produits)
+                .HasForeignKey(p => p.idCategorie)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Produit>()
+                .HasIndex(p => p.libelle);
+
+            // ─── PrixVente ─────────────────────────────────────────────
+            modelBuilder.Entity<PrixVente>()
+                .HasKey(pv => pv.Id);
+
+            modelBuilder.Entity<PrixVente>()
+                .HasOne(pv => pv.Produit)
+                .WithMany(p => p.PrixVentes)
+                .HasForeignKey(pv => pv.idP)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // ─── Order ──────────────────────────────────────────────────
             modelBuilder.Entity<Order>()
                 .HasOne(o => o.User)
                 .WithMany(u => u.Orders)
                 .HasForeignKey(o => o.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<Order>()
+                .HasIndex(o => o.DateCommande);
+
+            modelBuilder.Entity<Order>()
+                .HasIndex(o => o.Statut);
+
+            // ─── OrderDetail ────────────────────────────────────────────
             modelBuilder.Entity<OrderDetail>()
                 .HasOne(od => od.Order)
                 .WithMany(o => o.OrderDetails)
@@ -48,20 +82,14 @@ namespace DeliverWholesale.Infrastructure.Data
                 .HasForeignKey(od => od.ProduitId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            
+            // ─── Delivery ───────────────────────────────────────────────
             modelBuilder.Entity<Delivery>()
                 .HasOne(d => d.Order)
                 .WithOne(o => o.Delivery)
                 .HasForeignKey<Delivery>(d => d.OrderId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Produit>()
-                .HasOne(p => p.Categorie)
-                .WithMany(c => c.Produits)
-                .HasForeignKey(p => p.CategorieId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            
+            // ─── AchatLot ───────────────────────────────────────────────
             modelBuilder.Entity<AchatLot>()
                 .HasOne(a => a.Produit)
                 .WithMany()
@@ -72,13 +100,14 @@ namespace DeliverWholesale.Infrastructure.Data
                 .HasIndex(a => a.NumeroLot)
                 .IsUnique();
 
-            
+            // ─── StockLot ───────────────────────────────────────────────
             modelBuilder.Entity<StockLot>()
                 .HasOne(s => s.AchatLot)
                 .WithMany(a => a.StockLots)
                 .HasForeignKey(s => s.AchatLotId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            // ─── LotCommande ────────────────────────────────────────────
             modelBuilder.Entity<LotCommande>()
                 .HasOne(l => l.StockLot)
                 .WithMany(s => s.LotCommandes)
@@ -91,10 +120,10 @@ namespace DeliverWholesale.Infrastructure.Data
                 .HasForeignKey(l => l.OrderDetailId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            
+            // ─── Transaction ────────────────────────────────────────────
             modelBuilder.Entity<Transaction>()
                 .HasOne(t => t.StockLot)
-                .WithMany(s => s.Transactions) 
+                .WithMany(s => s.Transactions)
                 .HasForeignKey(t => t.StockLotId)
                 .OnDelete(DeleteBehavior.Restrict);
 
@@ -105,26 +134,19 @@ namespace DeliverWholesale.Infrastructure.Data
                 .IsRequired(false)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            // ─── Reclamation ────────────────────────────────────────────
             modelBuilder.Entity<Reclamation>()
-    .HasOne(r => r.ResolvedByUser)
-    .WithMany()
-    .HasForeignKey(r => r.ResolvedByUserId)
-    .OnDelete(DeleteBehavior.Restrict);
+                .HasOne(r => r.ResolvedByUser)
+                .WithMany()
+                .HasForeignKey(r => r.ResolvedByUserId)
+                .OnDelete(DeleteBehavior.Restrict);
 
+            // ─── User ───────────────────────────────────────────────────
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.Email)
                 .IsUnique();
 
-            modelBuilder.Entity<Produit>()
-                .HasIndex(p => p.Nom);
-
-            modelBuilder.Entity<Order>()
-                .HasIndex(o => o.DateCommande);
-
-            modelBuilder.Entity<Order>()
-                .HasIndex(o => o.Statut);
-
-            
+            // ─── Config ─────────────────────────────────────────────────
             modelBuilder.Entity<Config>()
                 .HasKey(c => c.Id);
 

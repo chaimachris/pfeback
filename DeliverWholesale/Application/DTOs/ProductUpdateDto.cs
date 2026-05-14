@@ -1,16 +1,20 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace DeliverWholesale.Application.DTOs.DTOs
+namespace DeliverWholesale.Application.DTOs
 {
     public class ProductUpdateDto
     {
-        public string? Nom { get; set; }
+        public string? libelle { get; set; }
 
         public string? Description { get; set; }
 
-        public decimal? PrixAchat { get; set; }
+        public decimal? NouveauPrixVente { get; set; }   // crée une nouvelle entrée PrixVente si renseigné
 
-        public int? CategorieId { get; set; }
+        public int? idCategorie { get; set; }
+
+        public int? seuil { get; set; }
+
+        public bool? prixModifiable { get; set; }
 
         public IFormFile? Image { get; set; }
     }

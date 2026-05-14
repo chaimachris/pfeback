@@ -15,8 +15,7 @@ namespace DeliverWholesale.Application.Features.Handler.AchatLots
 
         public async Task<int> Handle(CreateAchatLotCommand request, CancellationToken cancellationToken)
         {
-            var produit = _context.Produits.First(x => x.Id == request.ProduitId);
-            // Null Guard here to check if product exist
+            var produit = _context.Produits.First(x => x.idP == request.ProduitId);
 
             var achat = new AchatLot
             {
@@ -31,7 +30,6 @@ namespace DeliverWholesale.Application.Features.Handler.AchatLots
             _context.AchatLots.Add(achat);
             await _context.SaveChangesAsync(cancellationToken);
 
-            // SAVE Stock
             var stockLot = new StockLot()
             {
                 AchatLotId = achat.Id,
@@ -41,9 +39,9 @@ namespace DeliverWholesale.Application.Features.Handler.AchatLots
                 Produit = achat.Produit
             };
 
+            _context.StockLots.Add(stockLot);
             await _context.SaveChangesAsync(cancellationToken);
 
-            // SAVE Transaction
             _context.Transactions.Add(new Transaction
             {
                 DateMouvement = DateTime.Now,
@@ -52,7 +50,6 @@ namespace DeliverWholesale.Application.Features.Handler.AchatLots
                 StockLot = stockLot,
                 Type = Domain.Enums.TypeMouvement.Entree
             });
-          
 
             await _context.SaveChangesAsync(cancellationToken);
 

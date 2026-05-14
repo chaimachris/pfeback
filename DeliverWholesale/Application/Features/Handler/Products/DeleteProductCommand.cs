@@ -1,5 +1,6 @@
 ﻿using DeliverWholesale.Infrastructure.Data;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace DeliverWholesale.Application.Features.Handler.Products
 {
@@ -25,15 +26,14 @@ namespace DeliverWholesale.Application.Features.Handler.Products
 
         public async Task<bool> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
         {
-            var product = await _context.Produits.FindAsync(request.Id);
+            var product = await _context.Produits
+                .FirstOrDefaultAsync(p => p.idP == request.Id, cancellationToken);
 
             if (product == null)
                 return false;
 
-            _context.Produits.Remove(product);
-
+            product.IsActive = false;
             await _context.SaveChangesAsync(cancellationToken);
-
             return true;
         }
     }
