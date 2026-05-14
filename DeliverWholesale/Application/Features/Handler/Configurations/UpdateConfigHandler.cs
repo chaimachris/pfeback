@@ -24,8 +24,7 @@ namespace DeliverWholesale.Application.Features.Handler.Configurations
 
         public async Task<bool> Handle(UpdateConfigCommand request, CancellationToken cancellationToken)
         {
-            var config = await _context.Configs.FindAsync(1);
-
+            var config = await _context.Configs.FindAsync(request.UpdatedConfig.Id);
             if (config == null)
                 return false;
 

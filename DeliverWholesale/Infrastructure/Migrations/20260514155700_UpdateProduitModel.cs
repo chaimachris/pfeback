@@ -5,25 +5,25 @@
 namespace DeliverWholesale.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdateStockAndOrders : Migration
+    public partial class UpdateProduitModel : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "NotesLivraison",
-                table: "Deliveries");
+                name: "PrixAchat",
+                table: "Produits");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "NotesLivraison",
-                table: "Deliveries",
-                type: "nvarchar(max)",
+            migrationBuilder.AddColumn<decimal>(
+                name: "PrixAchat",
+                table: "Produits",
+                type: "decimal(18,2)",
                 nullable: false,
-                defaultValue: "");
+                defaultValue: 0m);
         }
     }
 }

@@ -7,43 +7,41 @@ namespace DeliverWholesale.Domain.Entities
 {
     public class Produit
     {
-        public int Id { get; set; }
+        [Key]
+        public int idP { get; set; }
 
         [Required]
         [StringLength(150)]
-        public string Nom { get; set; }
+        public string libelle { get; set; }
 
         [StringLength(1000)]
         public string Description { get; set; }
 
-        [Column(TypeName = "decimal(18,3)")]
-        public decimal PrixAchat { get; set; }
+        public int seuil { get; set; } = 0;
 
-        [Column(TypeName = "decimal(18,3)")]
-        public decimal PrixVente { get; set; }
+        public bool prixModifiable { get; set; } = false;
+
+        public int idCategorie { get; set; }
+
+        [ForeignKey("idCategorie")]
+        public Categorie Categorie { get; set; }
 
         public int NbUnite { get; set; }
 
         public bool IsActive { get; set; } = true;
 
-        public int CategorieId { get; set; }
-
-        public Categorie Categorie { get; set; }
-
-        // ✅ IMAGE
         public string? ImageUrl { get; set; }
-
-        public enum TypePrix
-        {
-            Fix,
-            Libre
-        }
-
-        public TypePrix TypeDePrix { get; set; } = TypePrix.Fix;
 
         public List<StockLot> StockLots { get; set; } = new();
 
+        public List<PrixVente> PrixVentes { get; set; } = new();
+
         [NotMapped]
         public int StockDisponible => StockLots.Sum(l => l.QuantiteRestante);
+
+        [NotMapped]
+        public decimal? PrixVenteActuel => PrixVentes
+            .OrderByDescending(p => p.Date)
+            .FirstOrDefault()?.Valeur;
     }
 }

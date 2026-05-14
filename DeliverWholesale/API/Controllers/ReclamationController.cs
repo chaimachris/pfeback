@@ -1,5 +1,4 @@
 ﻿using DeliverWholesale.Application.DTOs;
-using DeliverWholesale.Application.DTOs;
 using DeliverWholesale.Application.Features.Handler.Reclamations;
 using DeliverWholesale.Infrastructure.Data;
 using MediatR;
@@ -42,7 +41,7 @@ namespace DeliverWholesale.API.Controllers
         [Authorize(Roles = "Client")]
         public async Task<IActionResult> MesReclamations()
         {
-            var userId = User.FindFirst("uid")?.Value;
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             var reclamations = await _context.Reclamations
                 .Where(r => r.UserId == userId)
@@ -59,9 +58,8 @@ namespace DeliverWholesale.API.Controllers
         {
             var reclamations = await _context.Reclamations
                 .Include(r => r.Order)
-                .Include(r => r.ResolvedByUser)
+                .Include(r => r.ResolvedByUser) // ← Un seul Include suffit
                 .OrderByDescending(r => r.DateCreation)
-                .Include(r => r.ResolvedByUser)
                 .ToListAsync();
 
             return Ok(reclamations);
@@ -83,8 +81,8 @@ namespace DeliverWholesale.API.Controllers
             reclamation.Status = dto.Status;
             reclamation.ReponseAdmin = dto.ReponseAdmin;
 
-            // récupérer admin connecté
-            var adminId = User.FindFirst("uid")?.Value;
+            // ✅ CORRIGÉ : Même chose ici, on utilise ClaimTypes.NameIdentifier au lieu de "uid"
+            var adminId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             // Si résolue
             if (dto.Status == "Résolue")

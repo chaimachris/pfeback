@@ -12,15 +12,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DeliverWholesale.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260501120758_AddReclamationModule")]
-    partial class AddReclamationModule
+    [Migration("20260514144920_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.2")
+                .HasAnnotation("ProductVersion", "9.0.15")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -240,7 +240,7 @@ namespace DeliverWholesale.Migrations
                     b.ToTable("OrderDetails");
                 });
 
-            modelBuilder.Entity("DeliverWholesale.Domain.Entities.Produit", b =>
+            modelBuilder.Entity("DeliverWholesale.Domain.Entities.PrixVente", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -248,38 +248,118 @@ namespace DeliverWholesale.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CategorieId")
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Valeur")
+                        .HasColumnType("decimal(18,3)");
+
+                    b.Property<int>("idP")
                         .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("idP");
+
+                    b.ToTable("PrixVentes");
+                });
+
+            modelBuilder.Entity("DeliverWholesale.Domain.Entities.Produit", b =>
+                {
+                    b.Property<int>("idP")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("idP"));
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Nom")
+                    b.Property<int>("NbUnite")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("PrixAchat")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("idCategorie")
+                        .HasColumnType("int");
+
+                    b.Property<string>("libelle")
                         .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<decimal>("PrixAchat")
-                        .HasColumnType("decimal(18,3)");
+                    b.Property<bool>("prixModifiable")
+                        .HasColumnType("bit");
 
-                    b.Property<decimal>("PrixVente")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("TypeDePrix")
+                    b.Property<int>("seuil")
                         .HasColumnType("int");
+
+                    b.HasKey("idP");
+
+                    b.HasIndex("idCategorie");
+
+                    b.HasIndex("libelle");
+
+                    b.ToTable("Produits");
+                });
+
+            modelBuilder.Entity("DeliverWholesale.Domain.Entities.Reclamation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("DateCreation")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateResolution")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReponseAdmin")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ResolvedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sujet")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategorieId");
+                    b.HasIndex("OrderId");
 
-                    b.HasIndex("Nom");
+                    b.HasIndex("ResolvedByUserId");
 
-                    b.ToTable("Produits");
+                    b.ToTable("Reclamations");
                 });
 
             modelBuilder.Entity("DeliverWholesale.Domain.Entities.Transaction", b =>
@@ -401,7 +481,7 @@ namespace DeliverWholesale.Migrations
                     b.Property<DateTime>("DateReception")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("ProduitId")
+                    b.Property<int>("ProduitId")
                         .HasColumnType("int");
 
                     b.Property<int>("QuantiteRestante")
@@ -488,15 +568,44 @@ namespace DeliverWholesale.Migrations
                     b.Navigation("Produit");
                 });
 
+            modelBuilder.Entity("DeliverWholesale.Domain.Entities.PrixVente", b =>
+                {
+                    b.HasOne("DeliverWholesale.Domain.Entities.Produit", "Produit")
+                        .WithMany("PrixVentes")
+                        .HasForeignKey("idP")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Produit");
+                });
+
             modelBuilder.Entity("DeliverWholesale.Domain.Entities.Produit", b =>
                 {
                     b.HasOne("DeliverWholesale.Domain.Entities.Categorie", "Categorie")
                         .WithMany("Produits")
-                        .HasForeignKey("CategorieId")
+                        .HasForeignKey("idCategorie")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Categorie");
+                });
+
+            modelBuilder.Entity("DeliverWholesale.Domain.Entities.Reclamation", b =>
+                {
+                    b.HasOne("DeliverWholesale.Domain.Entities.Order", "Order")
+                        .WithMany()
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DeliverWholesale.Domain.Entities.User", "ResolvedByUser")
+                        .WithMany()
+                        .HasForeignKey("ResolvedByUserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Order");
+
+                    b.Navigation("ResolvedByUser");
                 });
 
             modelBuilder.Entity("DeliverWholesale.Domain.Entities.Transaction", b =>
@@ -544,11 +653,15 @@ namespace DeliverWholesale.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DeliverWholesale.Domain.Entities.Produit", null)
+                    b.HasOne("DeliverWholesale.Domain.Entities.Produit", "Produit")
                         .WithMany("StockLots")
-                        .HasForeignKey("ProduitId");
+                        .HasForeignKey("ProduitId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("AchatLot");
+
+                    b.Navigation("Produit");
                 });
 
             modelBuilder.Entity("DeliverWholesale.Domain.Entities.AchatLot", b =>
@@ -572,6 +685,8 @@ namespace DeliverWholesale.Migrations
 
             modelBuilder.Entity("DeliverWholesale.Domain.Entities.Produit", b =>
                 {
+                    b.Navigation("PrixVentes");
+
                     b.Navigation("StockLots");
                 });
 

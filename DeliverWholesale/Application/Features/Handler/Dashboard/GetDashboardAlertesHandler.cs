@@ -24,15 +24,14 @@ namespace DeliverWholesale.Application.Features.Handler.Dashboard
                 .Where(p => p.IsActive)
                 .Select(p => new
                 {
-                    Produit = p.Nom,
+                    Produit = p.libelle,              // ← Nom → libelle
 
-                    
                     Stock = _context.StockLots
-                        .Where(l => l.AchatLot.ProduitId == p.Id)
+                        .Where(l => l.AchatLot.ProduitId == p.idP)   // ← p.Id → p.idP
                         .Sum(l => l.QuantiteRestante),
 
                     EstCritique = _context.StockLots
-                        .Where(l => l.AchatLot.ProduitId == p.Id)
+                        .Where(l => l.AchatLot.ProduitId == p.idP)   // ← p.Id → p.idP
                         .Sum(l => l.QuantiteRestante) < seuil
                 })
                 .ToListAsync(cancellationToken);

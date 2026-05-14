@@ -23,17 +23,23 @@ namespace DeliverWholesale.Application.Features.Handler.Stock
         {
             var stock = await _context.StockLots
                 .ToListAsync(cancellationToken);
-            var productIds = stock.Select(x => x.ProduitId).Distinct().ToList();
-            var products = _context.Produits.Where(x => productIds.Contains(x.Id)).ToList();
 
-            var listStock = new List<StockDetailsDTO>(); 
+            var productIds = stock.Select(x => x.ProduitId).Distinct().ToList();
+
+            // ✅ CORRIGÉ : Ajout de .Include(x => x.PrixVentes) pour charger les prix
+            var products = _context.Produits
+                .Include(x => x.PrixVentes)
+                .Where(x => productIds.Contains(x.idP))
+                .ToList();
+
+            var listStock = new List<StockDetailsDTO>();
 
             foreach (var item in productIds)
             {
                 var listStockIds = stock.FindAll(x => x.ProduitId == item).Select(x => x.Id).ToList();
                 listStock.Add(new StockDetailsDTO
                 {
-                    Product = products.First(x => x.Id == item),
+                    Product = products.First(x => x.idP == item),
                     QuantiteTotalRestante = stock.Where(x => x.ProduitId == item).Sum(x => x.QuantiteRestante),
                     StockLotId = listStockIds,
                     Transations = _context.Transactions.Where(x => listStockIds.Contains(x.StockLotId)).ToList()
