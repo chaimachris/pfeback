@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DeliverWholesale.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260514155700_UpdateProduitModel")]
-    partial class UpdateProduitModel
+    [Migration("20260517234714_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,6 +45,7 @@ namespace DeliverWholesale.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<decimal>("PrixUnitaire")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("ProduitId")
@@ -53,12 +54,17 @@ namespace DeliverWholesale.Migrations
                     b.Property<int>("QuantiteAchetee")
                         .HasColumnType("int");
 
+                    b.Property<int?>("SupplierId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NumeroLot")
                         .IsUnique();
 
                     b.HasIndex("ProduitId");
+
+                    b.HasIndex("SupplierId");
 
                     b.ToTable("AchatLots");
                 });
@@ -97,12 +103,15 @@ namespace DeliverWholesale.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("FraisLivraison")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("MontantMinimumCommande")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("ProfitPercentage")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("SeuilAlerteStockBas")
@@ -189,12 +198,14 @@ namespace DeliverWholesale.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("FraisLivraison")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Statut")
                         .HasColumnType("int");
 
                     b.Property<decimal>("TotalProduits")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("UserId")
@@ -223,6 +234,7 @@ namespace DeliverWholesale.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("PrixUnitaire")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("ProduitId")
@@ -359,6 +371,29 @@ namespace DeliverWholesale.Migrations
                     b.ToTable("Reclamations");
                 });
 
+            modelBuilder.Entity("DeliverWholesale.Domain.Entities.Supplier", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ContactEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Suppliers");
+                });
+
             modelBuilder.Entity("DeliverWholesale.Domain.Entities.Transaction", b =>
                 {
                     b.Property<int>("Id")
@@ -386,7 +421,7 @@ namespace DeliverWholesale.Migrations
 
                     b.HasIndex("OrderDetailId");
 
-                    b.HasIndex("StockLotId");
+                    b.HasIndex("StockLotId", "DateMouvement");
 
                     b.ToTable("Transactions");
                 });
@@ -478,19 +513,31 @@ namespace DeliverWholesale.Migrations
                     b.Property<DateTime>("DateReception")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime?>("ExpirationDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("ProduitId")
                         .HasColumnType("int");
 
                     b.Property<int>("QuantiteRestante")
                         .HasColumnType("int");
 
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AchatLotId");
 
-                    b.HasIndex("ProduitId");
+                    b.HasIndex("ProduitId", "QuantiteRestante", "ExpirationDate", "DateReception");
 
-                    b.ToTable("StockLots");
+                    b.ToTable("StockLots", t =>
+                        {
+                            t.HasCheckConstraint("CK_StockLot_QuantiteRestante_NonNegative", "[QuantiteRestante] >= 0");
+                        });
                 });
 
             modelBuilder.Entity("DeliverWholesale.Domain.Entities.AchatLot", b =>
@@ -501,7 +548,14 @@ namespace DeliverWholesale.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("DeliverWholesale.Domain.Entities.Supplier", "Supplier")
+                        .WithMany("AchatLots")
+                        .HasForeignKey("SupplierId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
                     b.Navigation("Produit");
+
+                    b.Navigation("Supplier");
                 });
 
             modelBuilder.Entity("DeliverWholesale.Domain.Entities.Categorie", b =>
@@ -685,6 +739,11 @@ namespace DeliverWholesale.Migrations
                     b.Navigation("PrixVentes");
 
                     b.Navigation("StockLots");
+                });
+
+            modelBuilder.Entity("DeliverWholesale.Domain.Entities.Supplier", b =>
+                {
+                    b.Navigation("AchatLots");
                 });
 
             modelBuilder.Entity("DeliverWholesale.Domain.Entities.User", b =>

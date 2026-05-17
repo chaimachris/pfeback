@@ -10,9 +10,19 @@ namespace DeliverWholesale.Infrastructure.Data
         {
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            // Suppress the PendingModelChangesWarning at the context level to allow runtime
+            // detection of pending migrations without throwing an exception. Migrations
+            // should be generated and applied explicitly during deployment.
+            optionsBuilder.ConfigureWarnings(w => w.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning));
+            base.OnConfiguring(optionsBuilder);
+        }
+
         public DbSet<Reclamation> Reclamations { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<AchatLot> AchatLots { get; set; }
+        public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<StockLot> StockLots { get; set; }
         public DbSet<LotCommande> LotCommandes { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
@@ -97,6 +107,12 @@ namespace DeliverWholesale.Infrastructure.Data
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<AchatLot>()
+                .HasOne(a => a.Supplier)
+                .WithMany(s => s.AchatLots)
+                .HasForeignKey(a => a.SupplierId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<AchatLot>()
                 .HasIndex(a => a.NumeroLot)
                 .IsUnique();
 
@@ -106,6 +122,19 @@ namespace DeliverWholesale.Infrastructure.Data
                 .WithMany(a => a.StockLots)
                 .HasForeignKey(s => s.AchatLotId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            // Ensure QuantiteRestante never goes negative at the DB level
+            modelBuilder.Entity<StockLot>()
+                .HasCheckConstraint("CK_StockLot_QuantiteRestante_NonNegative", "[QuantiteRestante] >= 0");
+
+            // Helpful indexes for allocation queries (fast lookups of available lots per product, FIFO)
+            modelBuilder.Entity<StockLot>()
+                .HasIndex(s => new { s.ProduitId, s.QuantiteRestante, s.ExpirationDate, s.DateReception });
+
+            // Configure RowVersion as concurrency token
+            modelBuilder.Entity<StockLot>()
+                .Property<byte[]>(s => s.RowVersion)
+                .IsRowVersion();
 
             // ─── LotCommande ────────────────────────────────────────────
             modelBuilder.Entity<LotCommande>()
@@ -126,6 +155,10 @@ namespace DeliverWholesale.Infrastructure.Data
                 .WithMany(s => s.Transactions)
                 .HasForeignKey(t => t.StockLotId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            // Indexes to support audit queries: transactions by stocklot and by date
+            modelBuilder.Entity<Transaction>()
+                .HasIndex(t => new { t.StockLotId, t.DateMouvement });
 
             modelBuilder.Entity<Transaction>()
                 .HasOne(t => t.OrderDetail)
@@ -153,6 +186,35 @@ namespace DeliverWholesale.Infrastructure.Data
             modelBuilder.Entity<Config>()
                 .Property(c => c.Id)
                 .ValueGeneratedNever();
+
+            // Explicit decimal precision to avoid silent truncation on SQL Server
+            modelBuilder.Entity<OrderDetail>()
+                .Property(od => od.PrixUnitaire)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<AchatLot>()
+                .Property(a => a.PrixUnitaire)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Config>()
+                .Property(c => c.FraisLivraison)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Config>()
+                .Property(c => c.MontantMinimumCommande)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Config>()
+                .Property(c => c.ProfitPercentage)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Order>()
+                .Property(o => o.FraisLivraison)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Order>()
+                .Property(o => o.TotalProduits)
+                .HasPrecision(18, 2);
         }
     }
 }

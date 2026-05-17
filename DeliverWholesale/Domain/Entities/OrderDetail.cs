@@ -14,6 +14,7 @@ namespace DeliverWholesale.Domain.Entities
 
         public int Quantite { get; set; }
 
+        [Column(TypeName = "decimal(18,2)")]
         public decimal PrixUnitaire { get; set; }
 
         [NotMapped]

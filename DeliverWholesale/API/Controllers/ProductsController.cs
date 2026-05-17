@@ -33,6 +33,18 @@ namespace DeliverWholesale.API.Controllers
             return Ok(products);
         }
 
+        // ✅ GET BY ID
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var product = await _mediator.Send(new GetProductByIdQuery(id));
+
+            if (product == null)
+                return NotFound();
+
+            return Ok(product);
+        }
+
         // ✅ UPDATE
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(

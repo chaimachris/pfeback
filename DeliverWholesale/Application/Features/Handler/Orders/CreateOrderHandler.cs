@@ -14,15 +14,18 @@ namespace DeliverWholesale.Application.Features.Handler.Orders
         private readonly ApplicationDbContext _context;
         private readonly NotificationService _notification;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IInventoryService _inventory;
 
         public CreateOrderHandler(
             ApplicationDbContext context,
             NotificationService notification,
-            IHttpContextAccessor httpContextAccessor)
+            IHttpContextAccessor httpContextAccessor,
+            IInventoryService inventory)
         {
             _context = context;
             _notification = notification;
             _httpContextAccessor = httpContextAccessor;
+            _inventory = inventory;
         }
 
         public async Task<int> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
@@ -42,8 +45,6 @@ namespace DeliverWholesale.Application.Features.Handler.Orders
             var user = await _context.Users
                 .FirstOrDefaultAsync(u => u.Id == userId, cancellationToken)
                 ?? throw new ApplicationException("Utilisateur introuvable.");
-
-            using var transaction = await _context.Database.BeginTransactionAsync(cancellationToken);
 
             try
             {
@@ -91,55 +92,31 @@ namespace DeliverWholesale.Application.Features.Handler.Orders
                 _context.Orders.Add(order);
                 _context.OrderDetails.AddRange(orderItems);
 
-                // ✅ CORRIGÉ : Récupération du stock de manière sécurisée
-                var stockLots = await _context.StockLots
-                    .Where(x => listProduitId.Contains(x.ProduitId) && x.QuantiteRestante > 0)
-                    .OrderBy(x => x.DateReception) // FIFO : on vide les vieux stocks d'abord
-                    .ToListAsync(cancellationToken);
-
-                var listTransation = new List<Transaction>();
-                var itemsToProcess = request.OrderDto.Items.ToDictionary(i => i.ProduitId, i => i.Quantite);
-
-                // ✅ CORRIGÉ : Déduction du stock sans faire planter l'API si le stock est faible
-                foreach (var produitId in listProduitId)
-                {
-                    int quantiteRestanteAPrelever = itemsToProcess[produitId];
-                    var lotsPourCeProduit = stockLots.Where(sl => sl.ProduitId == produitId).ToList();
-
-                    foreach (var lot in lotsPourCeProduit)
-                    {
-                        if (quantiteRestanteAPrelever <= 0) break;
-
-                        int quantitePrelevee = Math.Min(lot.QuantiteRestante, quantiteRestanteAPrelever);
-                        lot.QuantiteRestante -= quantitePrelevee;
-                        quantiteRestanteAPrelever -= quantitePrelevee;
-
-                        listTransation.Add(new Transaction
-                        {
-                            DateMouvement = DateTime.UtcNow,
-                            OrderDetail = orderItems.First(od => od.ProduitId == produitId),
-                            Quantite = quantitePrelevee,
-                            StockLot = lot,
-                            Type = TypeMouvement.Sortie
-                        });
-                    }
-
-                    // Si après avoir vidé tous les lots, il manque du stock
-                    if (quantiteRestanteAPrelever < 0)
-                        throw new ApplicationException($"Stock insuffisant pour le produit ID {produitId}");
-                }
-
-                _context.StockLots.UpdateRange(stockLots);
-                _context.Transactions.AddRange(listTransation);
-
+                // Persist order and details first to obtain IDs for allocation
                 await _context.SaveChangesAsync(cancellationToken);
-                await transaction.CommitAsync(cancellationToken);
+
+                // Prepare allocation items (ProduitId -> OrderDetailId -> Quantite)
+                var allocateItems = orderItems.Select(od => new AllocateItem(od.ProduitId, od.Id, od.Quantite)).ToList();
+
+                try
+                {
+                    // Call centralized inventory allocation. This will create LotCommande and Transaction rows,
+                    // and update StockLot.QuantiteRestante atomically. If it fails it will throw and no inventory changes are persisted.
+                    var allocations = await _inventory.AllocateOrderStockAsync(order.Id, allocateItems);
+                }
+                catch (Exception)
+                {
+                    // Allocation failed: remove created order/details to rollback the whole operation
+                    _context.OrderDetails.RemoveRange(orderItems);
+                    _context.Orders.Remove(order);
+                    await _context.SaveChangesAsync(cancellationToken);
+                    throw;
+                }
 
                 await _notification.NotifyAdmins(
                     $"Nouvelle commande créée (ID: {order.Id}) par {user.Prenom} {user.Nom}",
                     "CREATE_ORDER"
                 );
-
                 return order.Id;
             }
             catch (Exception)

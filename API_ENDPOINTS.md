@@ -1,60 +1,59 @@
-# DeliverWholesale API - Endpoints Reference
+﻿# DeliverWholesale API - Endpoints Reference
 
-This document lists the HTTP endpoints provided by the DeliverWholesale backend, expected request payloads, authorization requirements, and typical responses. Give this to the development team for implementation.
+This document lists the HTTP endpoints provided by the DeliverWholesale backend, expected request payloads, authorization requirements, and typical responses.
 
-Notes:
-- The API base path is /api
-- Authentication uses JWT tokens in the Authorization header: `Authorization: Bearer <token>`
+## Basics
+
+- Base path: /api
+- Auth: JWT Bearer in the Authorization header: Bearer <token>
 - Roles used: Admin, Client (where indicated)
-- Date/time values use ISO 8601 where applicable
+- Date/time values: ISO 8601 strings
+- JSON enum values are serialized as strings
 
 ---
 
-## Auth
+## Auth (/api/auth)
 
 ### POST /api/auth/register
 - Auth: Public
-- Body (application/json):
-  - FullName: string (required)
-  - Email: string (required, email)
-  - Password: string (required)
-- Success: 200 OK
+- Body (application/json): RegisterDto
+  - FullName: string
+  - Email: string
+  - Password: string
+- Returns: 200 OK
   - { message: string }
-- Notes: Creates a new user and triggers email confirmation flow.
 
-### GET /api/auth/confirm-email?email={email}&token={token}
+### GET /api/auth/confirm-email
 - Auth: Public
 - Query params:
   - email: string
   - token: string
-- Success: 200 OK
+- Returns: 200 OK
   - { message: string }
 
 ### POST /api/auth/login
 - Auth: Public
-- Body (application/json):
-  - Email: string (required)
-  - Password: string (required)
-- Success: 200 OK
+- Body (application/json): LoginDto
+  - Email: string
+  - Password: string
+- Returns: 200 OK
   - { token: string, role: string, email: string, fullName: string }
-- Error: 400/exception if credentials invalid or email not confirmed.
+- Errors: 400/exception when credentials are invalid or email not confirmed
 
 ### POST /api/auth/logout
-- Auth: Bearer (any authenticated user)
+- Auth: Bearer
 - Body: none
-- Success: 200 OK
+- Returns: 200 OK
   - { message: "Déconnexion réussie." }
-- Notes: Token is revoked server-side.
 
 ---
 
-## Products
-Base: /api/products
+## Products (/api/products)
 
 ### POST /api/products
-- Auth: none (controller not decorated) — check business rules (may require auth depending on configuration)
+- Auth: Public (no controller-level authorization)
 - Content-Type: multipart/form-data
-- Body (form):
+- Body (form): ProductCreateDto
   - libelle: string
   - Description: string
   - PrixVente: decimal
@@ -63,140 +62,363 @@ Base: /api/products
   - seuil: int
   - prixModifiable: bool
   - Image: file (optional)
-- Success: 200 OK
-  - returns created product object (implementation-specific)
+- Returns: 200 OK
+  - created product (handler result)
 
 ### GET /api/products
 - Auth: Public
-- Success: 200 OK
-  - returns list of products
+- Returns: 200 OK
+  - list of products (handler result)
+
+### GET /api/products/{id}
+- Auth: Public
+- Returns: 200 OK
+  - product details (handler result)
+- Errors: 404 Not Found if product does not exist
 
 ### PUT /api/products/{id}
 - Auth: Public
 - Content-Type: multipart/form-data
-- Body (form):
-  - libelle: string? (optional)
-  - Description: string? (optional)
-  - NouveauPrixVente: decimal? (optional) — will create a new prix entry if provided
-  - idCategorie: int? (optional)
-  - seuil: int? (optional)
-  - prixModifiable: bool? (optional)
-  - Image: file? (optional)
-- Success: 200 OK (empty body)
-- NotFound: 404 if product not found
+- Body (form): ProductUpdateDto
+  - libelle: string?
+  - Description: string?
+  - NouveauPrixVente: decimal?
+  - idCategorie: int?
+  - seuil: int?
+  - prixModifiable: bool?
+  - Image: file?
+- Returns: 200 OK (empty body)
+- Errors: 404 Not Found if product does not exist
 
 ### DELETE /api/products/{id}
 - Auth: Public
-- Success: 200 OK
-- NotFound: 404 if product not found
+- Returns: 200 OK (empty body)
+- Errors: 404 Not Found if product does not exist
 
 ### POST /api/products/{id}/prix
 - Auth: Public
-- Body (application/json):
+- Body (application/json): PrixVenteCreateDto
   - Valeur: decimal
-- Success: 200 OK
+- Returns: 200 OK
   - { PrixVenteId: int }
-- Notes: id (route) is assigned to dto.idP by controller.
+- Notes: idP is taken from the route and set by the controller
 
 ### GET /api/products/{id}/prix
 - Auth: Public
-- Success: 200 OK
-  - returns price history for product
+- Returns: 200 OK
+  - list of PrixVenteReadDto
+    - Id: int
+    - idP: int
+    - Valeur: decimal
+    - Date: DateTime
 
 ---
 
-## Categories
-Base: /api/categories
+## Categories (/api/categories)
 
 ### GET /api/categories
 - Auth: Public
-- Success: 200 OK
-  - returns list of categories
+- Returns: 200 OK
+  - list of categories (handler result)
 
 ### POST /api/categories
 - Auth: Bearer (Role: Admin)
 - Body (application/json): CategoryDto
-  - (CategoryDto fields as implemented in code: typically name, etc.)
-- Success: 200 OK
-  - returns created category object
+  - Nom: string
+  - Description: string
+  - ParentId: int?
+- Returns: 200 OK
+  - created category (handler result)
 
 ### PUT /api/categories/{id}
 - Auth: Bearer (Role: Admin)
 - Body (application/json): CategoryDto
-- Success: 204 No Content
-- NotFound: 404 if category not found
+- Returns: 204 No Content
+- Errors: 404 Not Found with "Catégorie introuvable"
 
 ### DELETE /api/categories/{id}
 - Auth: Bearer (Role: Admin)
-- Success: 204 No Content
-- NotFound: 404 if category not found
+- Returns: 204 No Content
+- Errors: 404 Not Found with "Catégorie introuvable"
 
 ---
 
-## Orders
-Base: /api/order
-Class: [Authorize] — requires authentication
+## Orders (/api/order)
+
+All endpoints require authentication.
 
 ### POST /api/order
 - Auth: Bearer
-- Body (application/json):
-  - Items: array of { ProduitId: int, Quantite: int }
-- Success: 200 OK
+- Body (application/json): OrderCreateDto
+  - Items: array of OrderItemDto
+    - ProduitId: int
+    - Quantite: int
+- Returns: 200 OK
   - { Message: string, OrderId: int }
-- Error: 400 Bad Request on failure
+- Errors: 400 Bad Request with { Message, Error }
 
 ### GET /api/order
 - Auth: Bearer
-- Success: 200 OK
-  - returns list of orders
+- Returns: 200 OK
+  - list of orders (handler result)
 
 ### GET /api/order/{id}
 - Auth: Bearer
-- Success: 200 OK
-  - returns single order object
-- NotFound: 404 if order not found
+- Returns: 200 OK
+  - order details (handler result)
+- Errors: 404 Not Found with "Commande introuvable"
 
 ### DELETE /api/order/{id}
 - Auth: Bearer
-- Success: 200 OK
+- Returns: 200 OK
   - { Message: "Commande supprimée" }
-- NotFound: 404 if order not found
+- Errors: 404 Not Found with "Commande introuvable"
 
 ### PUT /api/order/{id}/status
 - Auth: Bearer
-- Body (application/json):
+- Body (application/json): UpdateOrderStatusDto
   - Statut: string
-- Success: 200 OK
+- Returns: 200 OK
   - { message: "Statut mis à jour" }
-- NotFound: 404 if order not found
+- Errors: 404 Not Found with "Commande introuvable"
 
 ---
 
-## Deliveries
-Base: /api/delivery
-Class: [Authorize(Roles = "Admin")] — Admin only
+## Deliveries (/api/delivery)
+
+All endpoints require Admin role.
 
 ### POST /api/delivery
 - Auth: Bearer (Role: Admin)
-- Body (application/json):
+- Body (application/json): CreateDeliveryDto
   - OrderId: int
   - AdresseLivraison: string
-  - DateLivraisonPrevue: DateTime (ISO 8601)
-- Success: 200 OK
-  - returns created delivery object
+  - DateLivraisonPrevue: DateTime
+- Returns: 200 OK
+  - created delivery (handler result)
 
 ### GET /api/delivery
 - Auth: Bearer (Role: Admin)
-- Success: 200 OK
-  - returns list of deliveries
+- Returns: 200 OK
+  - list of deliveries (handler result)
 
 ### PUT /api/delivery/{id}/status
 - Auth: Bearer (Role: Admin)
-- Body (application/json):
-  - Statut: DeliveryStatus (enum)
-  - DateLivraisonReelle: DateTime? (optional)
-- Success: 200 OK
-- NotFound: 404 if delivery not found
+- Body (application/json): UpdateDeliveryStatusDto
+  - Statut: DeliveryStatus
+  - DateLivraisonReelle: DateTime?
+- Returns: 200 OK
+  - "Statut livraison mis à jour"
+- Errors: 404 Not Found
+
+### GET /api/delivery/today/products
+- Auth: Bearer (Role: Admin)
+- Returns: 200 OK
+  - list of products for today (handler result)
+
+### GET /api/delivery/today/clients
+- Auth: Bearer (Role: Admin)
+- Returns: 200 OK
+  - list of clients for today (handler result)
+
+### PUT /api/delivery/{id}/date
+- Auth: Bearer (Role: Admin)
+- Body (application/json): DateTime (raw JSON string or ISO date)
+- Returns: 200 OK
+  - "Date de livraison mise à jour"
+- Errors: 404 Not Found
+
+---
+
+## Stock (/api/stock)
+
+All endpoints require Admin role.
+
+### POST /api/stock
+- Auth: Bearer (Role: Admin)
+- Body (application/json): AddStockLotDto
+  - AchatLotId: int
+  - Quantite: int
+  - PrixAchatTotal: decimal
+  - Fournisseur: string?
+  - Unite: string?
+- Returns: 200 OK
+  - stock update result (handler result)
+
+### GET /api/stock
+- Auth: Bearer (Role: Admin)
+- Returns: 200 OK
+  - list of StockDetailsDTO
+    - StockLotId: List<int>
+    - Product: Produit
+    - QuantiteTotalRestante: decimal
+    - Transations: List<Transaction>
+
+### GET /api/stock/{produitId}
+- Auth: Bearer (Role: Admin)
+- Returns: 200 OK
+  - stock details for product (handler result)
+
+---
+
+## Reclamation (/api/reclamation)
+
+### POST /api/reclamation
+- Auth: Bearer (Role: Client)
+- Body (application/json): CreateReclamationDto
+  - OrderId: int
+  - Sujet: string
+  - Description: string
+- Returns: 200 OK
+  - created reclamation (handler result)
+
+### GET /api/reclamation/mes-reclamations
+- Auth: Bearer (Role: Client)
+- Returns: 200 OK
+  - list of reclamations for current user
+
+### GET /api/reclamation
+- Auth: Bearer (Role: Admin)
+- Returns: 200 OK
+  - list of reclamations (includes Order and ResolvedByUser)
+
+### PUT /api/reclamation/{id}/traiter
+- Auth: Bearer (Role: Admin)
+- Body (application/json): TraiterReclamationDto
+  - Status: string
+  - ReponseAdmin: string
+- Returns: 200 OK
+  - updated reclamation
+- Notes: if Status == "Résolue", DateResolution and ResolvedByUserId are set
+
+### DELETE /api/reclamation/{id}
+- Auth: Bearer
+- Returns: 200 OK
+  - { message: "Réclamation supprimée avec succès" }
+
+---
+
+## Profile (/api/profile)
+
+All endpoints require authentication.
+
+### GET /api/profile
+- Auth: Bearer
+- Returns: 200 OK
+  - { Id, Nom, Prenom, Email, Adresse, Role }
+- Errors: 404 Not Found if user not found
+
+### PUT /api/profile
+- Auth: Bearer
+- Body (application/json): UpdateProfileDto
+  - Nom: string
+  - Prenom: string
+  - Email: string
+  - Adresse: string?
+- Returns: 200 OK
+  - "Profile updated successfully"
+
+### PUT /api/profile/change-password
+- Auth: Bearer
+- Body (application/json): ChangePasswordDto
+  - OldPassword: string
+  - NewPassword: string
+- Returns: 200 OK
+  - "Password updated successfully"
+- Errors: 400 Bad Request with "Old password is incorrect"
+
+### PUT /api/profile/update-delivery-address
+- Auth: Bearer
+- Body (application/json): UpdateDeliveryAddressDto
+  - AdresseLivraisonActive: string
+- Returns: 200 OK
+  - "Delivery address updated successfully"
+
+---
+
+## Config (/api/config)
+
+All endpoints require Admin role.
+
+### GET /api/config
+- Auth: Bearer (Role: Admin)
+- Returns: 200 OK
+  - Config
+    - Id: int
+    - MontantMinimumCommande: decimal
+    - ProfitPercentage: decimal
+    - FraisLivraison: decimal
+    - SeuilAlerteStockBas: int
+
+### PUT /api/config
+- Auth: Bearer (Role: Admin)
+- Body (application/json): Config
+  - Id: int
+  - MontantMinimumCommande: decimal
+  - ProfitPercentage: decimal
+  - FraisLivraison: decimal
+  - SeuilAlerteStockBas: int
+- Returns: 204 No Content
+- Errors: 404 Not Found with "Configuration introuvable"
+
+---
+
+## Dashboard (/api/dashboard)
+
+All endpoints require Admin role.
+
+### GET /api/dashboard/stats
+- Auth: Bearer (Role: Admin)
+- Returns: 200 OK
+  - stats payload (handler result)
+
+### GET /api/dashboard/alertes
+- Auth: Bearer (Role: Admin)
+- Returns: 200 OK
+  - alertes payload (handler result)
+
+---
+
+## AchatLot (/api/achatlot)
+
+### POST /api/achatlot
+- Auth: Public
+- Body (application/json): CreateAchatLotCommand
+  - ProduitId: int
+  - QuantiteAchetee: int
+  - PrixUnitaire: decimal
+  - Fournisseur: string
+  - SupplierId: int?
+- Returns: 200 OK
+  - { message: "Achat créé avec succès", AchatLotId: int }
+- Notes: NumeroLot is generated server-side.
+
+### GET /api/achatlot
+- Auth: Public
+- Returns: 200 OK
+  - list of achat lots (handler result)
+
+### GET /api/achatlot/{id}
+- Auth: Public
+- Returns: 200 OK
+  - achat lot details (handler result)
+- Errors: 404 Not Found with "Achat introuvable"
+
+### DELETE /api/achatlot/{id}
+- Auth: Public
+- Returns: 200 OK
+  - "Achat supprimé avec succès"
+- Errors: 404 Not Found with "Achat introuvable"
+
+---
+
+## SignalR Hub
+
+- Hub URL: /hubs/notifications
+- Auth: Bearer via access_token query string (for SignalR)
+- Hub methods:
+  - JoinAdminGroup()
+  - LeaveAdminGroup()
 
 ### GET /api/delivery/today/products
 - Auth: Bearer (Role: Admin)

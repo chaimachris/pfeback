@@ -36,14 +36,29 @@ namespace DeliverWholesale.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
-                    MontantMinimumCommande = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    ProfitPercentage = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    FraisLivraison = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    MontantMinimumCommande = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    ProfitPercentage = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    FraisLivraison = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     SeuilAlerteStockBas = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Configs", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Suppliers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ContactEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Suppliers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -80,8 +95,7 @@ namespace DeliverWholesale.Migrations
                     idCategorie = table.Column<int>(type: "int", nullable: false),
                     NbUnite = table.Column<int>(type: "int", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PrixAchat = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -125,8 +139,8 @@ namespace DeliverWholesale.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     DateCommande = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    TotalProduits = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    FraisLivraison = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    TotalProduits = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    FraisLivraison = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     Statut = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -149,8 +163,9 @@ namespace DeliverWholesale.Migrations
                     ProduitId = table.Column<int>(type: "int", nullable: false),
                     DateAchat = table.Column<DateTime>(type: "datetime2", nullable: false),
                     QuantiteAchetee = table.Column<int>(type: "int", nullable: false),
-                    PrixUnitaire = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    PrixUnitaire = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     Fournisseur = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SupplierId = table.Column<int>(type: "int", nullable: true),
                     NumeroLot = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
@@ -162,6 +177,12 @@ namespace DeliverWholesale.Migrations
                         principalTable: "Produits",
                         principalColumn: "idP",
                         onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_AchatLots_Suppliers_SupplierId",
+                        column: x => x.SupplierId,
+                        principalTable: "Suppliers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(
@@ -217,7 +238,7 @@ namespace DeliverWholesale.Migrations
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     ProduitId = table.Column<int>(type: "int", nullable: false),
                     Quantite = table.Column<int>(type: "int", nullable: false),
-                    PrixUnitaire = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    PrixUnitaire = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -278,11 +299,14 @@ namespace DeliverWholesale.Migrations
                     AchatLotId = table.Column<int>(type: "int", nullable: false),
                     QuantiteRestante = table.Column<int>(type: "int", nullable: false),
                     DateReception = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ProduitId = table.Column<int>(type: "int", nullable: false)
+                    ExpirationDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ProduitId = table.Column<int>(type: "int", nullable: false),
+                    RowVersion = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_StockLots", x => x.Id);
+                    table.CheckConstraint("CK_StockLot_QuantiteRestante_NonNegative", "[QuantiteRestante] >= 0");
                     table.ForeignKey(
                         name: "FK_StockLots_AchatLots_AchatLotId",
                         column: x => x.AchatLotId,
@@ -363,6 +387,11 @@ namespace DeliverWholesale.Migrations
                 name: "IX_AchatLots_ProduitId",
                 table: "AchatLots",
                 column: "ProduitId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AchatLots_SupplierId",
+                table: "AchatLots",
+                column: "SupplierId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Categories_ParentId",
@@ -446,9 +475,9 @@ namespace DeliverWholesale.Migrations
                 column: "AchatLotId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_StockLots_ProduitId",
+                name: "IX_StockLots_ProduitId_QuantiteRestante_ExpirationDate_DateReception",
                 table: "StockLots",
-                column: "ProduitId");
+                columns: new[] { "ProduitId", "QuantiteRestante", "ExpirationDate", "DateReception" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Transactions_OrderDetailId",
@@ -456,9 +485,9 @@ namespace DeliverWholesale.Migrations
                 column: "OrderDetailId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Transactions_StockLotId",
+                name: "IX_Transactions_StockLotId_DateMouvement",
                 table: "Transactions",
-                column: "StockLotId");
+                columns: new[] { "StockLotId", "DateMouvement" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_Email",
@@ -508,6 +537,9 @@ namespace DeliverWholesale.Migrations
 
             migrationBuilder.DropTable(
                 name: "Produits");
+
+            migrationBuilder.DropTable(
+                name: "Suppliers");
 
             migrationBuilder.DropTable(
                 name: "Categories");

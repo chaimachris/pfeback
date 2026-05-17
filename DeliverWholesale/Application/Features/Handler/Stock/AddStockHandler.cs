@@ -1,5 +1,6 @@
 ﻿using DeliverWholesale.Application.DTOs.DTOs;
 using DeliverWholesale.Infrastructure.Data;
+using DeliverWholesale.Infrastructure.Services;
 using DeliverWholesale.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -20,9 +21,12 @@ namespace DeliverWholesale.Application.Features.Handler.Stock
     {
         private readonly ApplicationDbContext _context;
 
-        public AddStockHandler(ApplicationDbContext context)
+        private readonly IInventoryService _inventory;
+
+        public AddStockHandler(ApplicationDbContext context, IInventoryService inventory)
         {
             _context = context;
+            _inventory = inventory;
         }
 
         public async Task<int> Handle(AddStockCommand request, CancellationToken cancellationToken)
@@ -35,28 +39,9 @@ namespace DeliverWholesale.Application.Features.Handler.Stock
                 throw new Exception("AchatLot introuvable");
 
           
-            var stockLot = new StockLot
-            {
-                AchatLotId = request.StockDto.AchatLotId,
-                ProduitId = achatLot.ProduitId, // ✅ AJOUT TRÈS IMPORTANT
-                QuantiteRestante = request.StockDto.Quantite,
-                DateReception = DateTime.UtcNow
-            };
-
-            _context.StockLots.Add(stockLot);
-
-            // 3. Création de la Transaction pour tracer l'entrée en stock
-            _context.Transactions.Add(new Transaction
-            {
-                DateMouvement = DateTime.UtcNow,
-                Quantite = request.StockDto.Quantite,
-                StockLot = stockLot,
-                Type = Domain.Enums.TypeMouvement.Entree // ✅ AJOUT TRÈS IMPORTANT
-            });
-
-            await _context.SaveChangesAsync(cancellationToken);
-
-            return stockLot.Id;
+            // Delegate to inventory service to create StockLot + Transaction for existing AchatLot
+            var stockLotId = await _inventory.ReceiveStockForAchatLotAsync(achatLot.Id, request.StockDto.Quantite, request.StockDto.PrixAchatTotal, request.StockDto.Fournisseur);
+            return stockLotId;
         }
     }
 }

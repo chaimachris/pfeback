@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.Logging;
 using System.Reflection;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -21,7 +22,7 @@ var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 });
 
 // CORS
-builder.Services.AddCors(options =>
+/*builder.Services.AddCors(options =>
 {
     options.AddPolicy("AngularPolicy", policy =>
     {
@@ -30,7 +31,7 @@ builder.Services.AddCors(options =>
               .AllowAnyMethod()
               .AllowCredentials(); // nécessaire pour SignalR
     });
-});
+});*/
 
 // SIGNALR
 builder.Services.AddSignalR();
@@ -44,9 +45,10 @@ builder.Services.AddMediatR(typeof(LoginHandler).Assembly);
 
 // DATABASE
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection")
-    ));
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.ConfigureWarnings(w => w.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning));
+});
 
 // JWT CONFIG
 builder.Services.Configure<JwtConfig>(
@@ -99,6 +101,7 @@ builder.Services.AddScoped<JwtService>();
 builder.Services.AddScoped<PricingService>();
 builder.Services.AddScoped<OrderService>();
 builder.Services.AddScoped<StockService>();
+builder.Services.AddScoped<IInventoryService, InventoryService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<NotificationService>();
 
@@ -200,54 +203,11 @@ app.UseAuthorization();
 app.MapHub<NotificationHub>("/hubs/notifications");
 app.MapControllers();
 
-// AUTO MIGRATION + DEFAULT ADMIN + DB DIAGNOSTICS
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
     db.Database.Migrate();
-
-    var connection = db.Database.GetDbConnection();
-    Console.WriteLine($"🗄️ DB Connected -> Server: {connection.DataSource} | Database: {connection.Database}");
-
-    // Raw SQL diagnostic - bypass EF Core entirely
-    await connection.OpenAsync();
-    using (var cmd = connection.CreateCommand())
-    {
-        cmd.CommandText = "SELECT DB_NAME() AS CurrentDB, @@SERVERNAME AS ServerName";
-        using var reader = await cmd.ExecuteReaderAsync();
-        if (reader.Read())
-            Console.WriteLine($"🔍 RAW SQL CHECK -> Server: {reader["ServerName"]} | Database: {reader["CurrentDB"]}");
-    }
-    using (var cmd = connection.CreateCommand())
-    {
-        cmd.CommandText = "SELECT COUNT(*) FROM Produits";
-        var rawCount = await cmd.ExecuteScalarAsync();
-        Console.WriteLine($"🔍 RAW SQL Produits count: {rawCount}");
-    }
-    await connection.CloseAsync();
-    // Raw SQL diagnostic - bypass EF Core entirely
-    await connection.OpenAsync();
-    using (var cmd = connection.CreateCommand())
-    {
-        cmd.CommandText = "SELECT DB_NAME() AS CurrentDB, @@SERVERNAME AS ServerName";
-        using var reader = await cmd.ExecuteReaderAsync();
-        if (reader.Read())
-            Console.WriteLine($"🔍 RAW SQL CHECK -> Server: {reader["ServerName"]} | Database: {reader["CurrentDB"]}");
-    }
-    using (var cmd = connection.CreateCommand())
-    {
-        cmd.CommandText = "SELECT COUNT(*) FROM Produits";
-        var rawCount = await cmd.ExecuteScalarAsync();
-        Console.WriteLine($"🔍 RAW SQL Produits count: {rawCount}");
-    }
-    await connection.CloseAsync();
-    var usersCount = db.Users.Count();
-    var categoriesCount = db.Categories.Count();
-    var productsCount = db.Produits.Count();
-    var ordersCount = db.Orders.Count();
-
-    Console.WriteLine($"📊 DB Rows -> Users: {usersCount}, Categories: {categoriesCount}, Products: {productsCount}, Orders: {ordersCount}");
 
     if (!db.Users.Any(u => u.Role == Role.Admin))
     {
@@ -255,7 +215,7 @@ using (var scope = app.Services.CreateScope())
         {
             Nom = "Admin",
             Prenom = "System",
-            Email = "cc",
+            Email = "admin@admin.com",
             PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123"),
             Role = Role.Admin,
             EmailConfirmationToken = null,
@@ -266,5 +226,4 @@ using (var scope = app.Services.CreateScope())
         Console.WriteLine("✅ Admin créé : admin@admin.com / Admin123");
     }
 }
-
 app.Run();

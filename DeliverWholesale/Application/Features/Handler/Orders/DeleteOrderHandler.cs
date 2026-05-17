@@ -1,4 +1,5 @@
 ﻿using DeliverWholesale.Infrastructure.Data;
+using DeliverWholesale.Infrastructure.Services;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,10 +8,12 @@ namespace DeliverWholesale.Application.Features.Handler.Orders
     public class DeleteOrderHandler : IRequestHandler<DeleteOrderCommand, bool>
     {
         private readonly ApplicationDbContext _context;
+        private readonly IInventoryService _inventory;
 
-        public DeleteOrderHandler(ApplicationDbContext context)
+        public DeleteOrderHandler(ApplicationDbContext context, IInventoryService inventory)
         {
             _context = context;
+            _inventory = inventory;
         }
 
         public async Task<bool> Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
@@ -22,43 +25,23 @@ namespace DeliverWholesale.Application.Features.Handler.Orders
             if (order == null)
                 return false;
 
-            // 1. Récupérer les IDs des OrderDetails
-            var orderDetailIds = order.OrderDetails.Select(od => od.Id).ToList();
+            // If order already cancelled, nothing to do
+            if (order.Statut == Domain.Entities.StatutOrder.Annulee)
+                return false;
 
-            // 2. Supprimer les Transactions liées aux OrderDetails (Clé étrangère Restrict)
-            if (orderDetailIds.Any())
-            {
-                var transactions = await _context.Transactions
-                    .Where(t => t.OrderDetailId.HasValue && orderDetailIds.Contains(t.OrderDetailId.Value))
-                    .ToListAsync(cancellationToken);
+            // Begin transaction so revert + status change are atomic
+            using var tx = await _context.Database.BeginTransactionAsync(cancellationToken);
 
-                _context.Transactions.RemoveRange(transactions);
-            }
+            // Use InventoryService to revert stock for this order deterministically
+            await _inventory.RevertOrderStockTransactionalAsync(order.Id);
 
-            // 3. Supprimer les OrderDetails
-            _context.OrderDetails.RemoveRange(order.OrderDetails);
-
-            // 4. Supprimer la Livraison liée si elle existe
-            var delivery = await _context.Deliveries
-                .FirstOrDefaultAsync(d => d.OrderId == order.Id, cancellationToken);
-            if (delivery != null)
-            {
-                _context.Deliveries.Remove(delivery);
-            }
-
-            // 5. Supprimer les Réclamations liées si elles existent
-            var reclamations = await _context.Reclamations
-                .Where(r => r.OrderId == order.Id)
-                .ToListAsync(cancellationToken);
-            if (reclamations.Any())
-            {
-                _context.Reclamations.RemoveRange(reclamations);
-            }
-
-            // 6. Enfin, supprimer la commande elle-même
-            _context.Orders.Remove(order);
+            // Mark order as cancelled instead of deleting history
+            order.Statut = Domain.Entities.StatutOrder.Annulee;
+            _context.Orders.Update(order);
 
             await _context.SaveChangesAsync(cancellationToken);
+            await tx.CommitAsync(cancellationToken);
+
             return true;
         }
     }

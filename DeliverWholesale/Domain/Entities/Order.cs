@@ -14,7 +14,10 @@ namespace DeliverWholesale.Domain.Entities
 
         public DateTime DateCommande { get; set; } = DateTime.UtcNow;
 
+        [Column(TypeName = "decimal(18,2)")]
         public decimal TotalProduits { get; set; }
+
+        [Column(TypeName = "decimal(18,2)")]
         public decimal FraisLivraison { get; set; }
 
         [NotMapped]
