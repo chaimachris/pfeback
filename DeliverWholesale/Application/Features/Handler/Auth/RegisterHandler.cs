@@ -28,7 +28,7 @@ namespace DeliverWholesale.Application.Features.Handler.Auth
 
             
             if (await _context.Users.AnyAsync(x => x.Email == email, cancellationToken))
-                throw new ApplicationException("Email déjà utilisé");
+                throw new ApplicationException("Email déjà utilisé"); //To Fix
 
            
             var fullName = request.Dto.FullName.Trim();

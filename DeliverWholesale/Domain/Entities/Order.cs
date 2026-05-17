@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace DeliverWholesale.Domain.Entities
 {
@@ -7,6 +8,8 @@ namespace DeliverWholesale.Domain.Entities
         public int Id { get; set; }
 
         public int UserId { get; set; }
+
+        [JsonIgnore]
         public User User { get; set; }
 
         public DateTime DateCommande { get; set; } = DateTime.UtcNow;

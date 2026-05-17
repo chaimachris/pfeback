@@ -5,6 +5,7 @@ using System.Linq;
 
 namespace DeliverWholesale.Domain.Entities
 {
+    [Table("Produits")]
     public class Produit
     {
         [Key]

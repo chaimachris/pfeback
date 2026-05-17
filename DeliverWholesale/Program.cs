@@ -200,12 +200,54 @@ app.UseAuthorization();
 app.MapHub<NotificationHub>("/hubs/notifications");
 app.MapControllers();
 
-// AUTO MIGRATION + DEFAULT ADMIN
+// AUTO MIGRATION + DEFAULT ADMIN + DB DIAGNOSTICS
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
     db.Database.Migrate();
+
+    var connection = db.Database.GetDbConnection();
+    Console.WriteLine($"🗄️ DB Connected -> Server: {connection.DataSource} | Database: {connection.Database}");
+
+    // Raw SQL diagnostic - bypass EF Core entirely
+    await connection.OpenAsync();
+    using (var cmd = connection.CreateCommand())
+    {
+        cmd.CommandText = "SELECT DB_NAME() AS CurrentDB, @@SERVERNAME AS ServerName";
+        using var reader = await cmd.ExecuteReaderAsync();
+        if (reader.Read())
+            Console.WriteLine($"🔍 RAW SQL CHECK -> Server: {reader["ServerName"]} | Database: {reader["CurrentDB"]}");
+    }
+    using (var cmd = connection.CreateCommand())
+    {
+        cmd.CommandText = "SELECT COUNT(*) FROM Produits";
+        var rawCount = await cmd.ExecuteScalarAsync();
+        Console.WriteLine($"🔍 RAW SQL Produits count: {rawCount}");
+    }
+    await connection.CloseAsync();
+    // Raw SQL diagnostic - bypass EF Core entirely
+    await connection.OpenAsync();
+    using (var cmd = connection.CreateCommand())
+    {
+        cmd.CommandText = "SELECT DB_NAME() AS CurrentDB, @@SERVERNAME AS ServerName";
+        using var reader = await cmd.ExecuteReaderAsync();
+        if (reader.Read())
+            Console.WriteLine($"🔍 RAW SQL CHECK -> Server: {reader["ServerName"]} | Database: {reader["CurrentDB"]}");
+    }
+    using (var cmd = connection.CreateCommand())
+    {
+        cmd.CommandText = "SELECT COUNT(*) FROM Produits";
+        var rawCount = await cmd.ExecuteScalarAsync();
+        Console.WriteLine($"🔍 RAW SQL Produits count: {rawCount}");
+    }
+    await connection.CloseAsync();
+    var usersCount = db.Users.Count();
+    var categoriesCount = db.Categories.Count();
+    var productsCount = db.Produits.Count();
+    var ordersCount = db.Orders.Count();
+
+    Console.WriteLine($"📊 DB Rows -> Users: {usersCount}, Categories: {categoriesCount}, Products: {productsCount}, Orders: {ordersCount}");
 
     if (!db.Users.Any(u => u.Role == Role.Admin))
     {
@@ -213,7 +255,7 @@ using (var scope = app.Services.CreateScope())
         {
             Nom = "Admin",
             Prenom = "System",
-            Email = "admin@admin.com",
+            Email = "cc",
             PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123"),
             Role = Role.Admin,
             EmailConfirmationToken = null,

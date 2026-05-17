@@ -125,7 +125,7 @@ namespace DeliverWholesale.Application.Features.Handler.Orders
                     }
 
                     // Si après avoir vidé tous les lots, il manque du stock
-                    if (quantiteRestanteAPrelever > 0)
+                    if (quantiteRestanteAPrelever < 0)
                         throw new ApplicationException($"Stock insuffisant pour le produit ID {produitId}");
                 }
 
