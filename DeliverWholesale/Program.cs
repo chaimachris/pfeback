@@ -22,7 +22,7 @@ var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 });
 
 // CORS
-/*builder.Services.AddCors(options =>
+builder.Services.AddCors(options =>
 {
     options.AddPolicy("AngularPolicy", policy =>
     {
@@ -31,7 +31,7 @@ var builder = WebApplication.CreateBuilder(new WebApplicationOptions
               .AllowAnyMethod()
               .AllowCredentials(); // nécessaire pour SignalR
     });
-});*/
+});
 
 // SIGNALR
 builder.Services.AddSignalR();

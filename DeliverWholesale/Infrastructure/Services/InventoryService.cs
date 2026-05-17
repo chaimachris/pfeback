@@ -116,7 +116,7 @@ namespace DeliverWholesale.Infrastructure.Services
             {
                 AchatLot = achat,
                 DateReception = DateTime.UtcNow,
-                QuantiteRestante = quantiteAchetee * (produit?.NbUnite ?? 1),
+                QuantiteRestante = quantiteAchetee * Math.Max(1, produit?.NbUnite ?? 1),
                 ProduitId = produitId,
             };
 
@@ -198,7 +198,7 @@ namespace DeliverWholesale.Infrastructure.Services
             {
                 AchatLotId = achat.Id,
                 DateReception = DateTime.UtcNow,
-                QuantiteRestante = quantite * (produit?.NbUnite ?? 1),
+                QuantiteRestante = quantite * Math.Max(1, produit?.NbUnite ?? 1),
                 ProduitId = achat.ProduitId
             };
 
