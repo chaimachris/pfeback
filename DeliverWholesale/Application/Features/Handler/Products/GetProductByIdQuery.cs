@@ -30,7 +30,7 @@ namespace DeliverWholesale.Application.Features.Handler.Products
                 .Include(p => p.Categorie)
                 .Include(p => p.PrixVentes)
                 .Include(p => p.StockLots)
-                .FirstOrDefaultAsync(p => p.idP == request.Id, cancellationToken);
+                .FirstOrDefaultAsync(p => p.idP == request.Id && p.IsActive, cancellationToken);
         }
     }
 }

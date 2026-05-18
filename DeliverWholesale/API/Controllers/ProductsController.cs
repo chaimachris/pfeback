@@ -51,13 +51,20 @@ namespace DeliverWholesale.API.Controllers
             int id,
             [FromForm] ProductUpdateDto dto)
         {
-            var result = await _mediator.Send(
-                new UpdateProductCommand(id, dto));
+            try
+            {
+                var result = await _mediator.Send(
+                    new UpdateProductCommand(id, dto));
 
-            if (!result)
-                return NotFound();
+                if (!result)
+                    return NotFound();
 
-            return Ok();
+                return Ok();
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
 
         // ✅ DELETE
@@ -85,8 +92,15 @@ namespace DeliverWholesale.API.Controllers
             // On s'assure que l'idP correspond bien à l'ID de la route URL
             dto.idP = id;
 
-            var result = await _mediator.Send(new CreatePrixVenteCommand(dto));
-            return Ok(new { PrixVenteId = result });
+            try
+            {
+                var result = await _mediator.Send(new CreatePrixVenteCommand(dto));
+                return Ok(new { PrixVenteId = result });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
 
         // GET api/products/{id}/prix

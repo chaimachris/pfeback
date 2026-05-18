@@ -75,6 +75,7 @@ namespace DeliverWholesale.API.Controllers
             return Ok(new { Message = "Commande supprimée" });
         }
         [HttpPut("{id}/status")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateStatus(int id, [FromBody] UpdateOrderStatusDto dto)
         {
             var result = await _mediator.Send(new UpdateOrderStatusCommand(id, dto.Statut));

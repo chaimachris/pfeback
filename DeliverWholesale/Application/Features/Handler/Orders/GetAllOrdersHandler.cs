@@ -20,7 +20,22 @@ namespace DeliverWholesale.Application.Features.Handler.Orders
 
         public async Task<List<Order>> Handle(GetAllOrdersQuery request, CancellationToken cancellationToken)
         {
-            var userIdClaim = _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var user = _httpContextAccessor.HttpContext?.User;
+            if (user?.Identity?.IsAuthenticated != true)
+                throw new ApplicationException("Utilisateur non authentifié.");
+
+            // Admins can see every order
+            if (user.IsInRole("Admin"))
+            {
+                return await _context.Orders
+                    .Include(o => o.OrderDetails)
+                        .ThenInclude(d => d.Produit)
+                    .Include(o => o.Delivery)
+                    .ToListAsync(cancellationToken);
+            }
+
+            // Regular users only see their own orders
+            var userIdClaim = user.FindFirstValue(ClaimTypes.NameIdentifier);
             if (string.IsNullOrWhiteSpace(userIdClaim))
                 throw new ApplicationException("Utilisateur non authentifié.");
 

@@ -203,40 +203,51 @@ Auth: Bearer
 Input (JSON): OrderCreateDto
 Output 200:
 ```json
-{ "Message": "string", "OrderId": 123 }
+{ "Message": "Commande créée avec succès", "OrderId": 123 }
 ```
 Output 400:
 ```json
-{ "Message": "string", "Error": "string" }
+{ "Message": "Erreur lors de la création de la commande", "Error": "string" }
 ```
+Notes: User ID is automatically extracted from JWT token. Initial status is always "EnAttente".
 
-**GET /api/order**
+**GET /api/order** (Admin)
+Auth: Bearer (Admin)
+Role: Admin
+Output 200: List<Order> (all orders in system, includes OrderDetails+Produit and Delivery)
+Notes: Admin only endpoint. Returns ALL orders regardless of user.
+
+**GET /api/order** (User)
 Auth: Bearer
 Output 200: List<Order> (current user only, includes OrderDetails+Produit and Delivery)
+Notes: Regular users see only their own orders. Admins should use the Admin endpoint above.
 
 **GET /api/order/{id}**
 Auth: Bearer
-Output 200: Order (current user only, includes OrderDetails+Produit and Delivery)
+Output 200: Order (includes OrderDetails+Produit and Delivery)
 Output 404: "Commande introuvable"
+Notes: Users can only view their own orders. Admins can view any order.
 
 **DELETE /api/order/{id}**
 Auth: Bearer
 Output 200:
 ```json
-{ "Message": "string" }
+{ "Message": "Commande supprimée" }
 ```
 Output 404: "Commande introuvable"
-Notes: sets Statut = Annulee and reverts stock; does not delete rows.
+Notes: Users can delete their own orders. Admins can delete any order.
 
 **PUT /api/order/{id}/status**
-Auth: Bearer
+Auth: Bearer (Admin)
+Role: Admin
 Input (JSON): UpdateOrderStatusDto (Statut string)
 Output 200:
 ```json
-{ "message": "string" }
+{ "message": "Statut mis à jour" }
 ```
 Output 404: "Commande introuvable"
-Notes: Statut must parse to StatutOrder (case-insensitive).
+Output 403: Access denied (user is not admin)
+Notes: Admin only endpoint. Statut must be: EnAttente, Confirmee, Livree, or Annulee (case-insensitive).
 
 **Deliveries**
 **POST /api/delivery**

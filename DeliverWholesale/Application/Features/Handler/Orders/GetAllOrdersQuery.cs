@@ -5,5 +5,6 @@ namespace DeliverWholesale.Application.Features.Handler.Orders
 {
     public class GetAllOrdersQuery : IRequest<List<Order>>
     {
+        public bool IsAdminRequest { get; set; } = false;
     }
 }

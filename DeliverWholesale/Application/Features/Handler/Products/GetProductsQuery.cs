@@ -25,7 +25,7 @@ namespace DeliverWholesale.Application.Features.Handler.Products
                 .Include(p => p.Categorie)
                 .Include(p => p.PrixVentes)
                 .Include(p => p.StockLots)
-                //.Where(p => p.IsActive)
+                .Where(p => p.IsActive)
                 .ToListAsync(cancellationToken);
         }
     }

@@ -30,6 +30,9 @@ namespace DeliverWholesale.Application.Features.Handler.Products
             if (produit == null)
                 throw new Exception("Produit introuvable");
 
+            if (!produit.prixModifiable)
+                throw new InvalidOperationException("Le prix de ce produit ne peut pas être modifié car 'prixModifiable' est désactivé.");
+
             var prix = new PrixVente
             {
                 idP = request.Dto.idP,

@@ -58,6 +58,9 @@ namespace DeliverWholesale.Application.Features.Handler.Products
             // Si nouveau prix renseigné → créer une entrée PrixVente
             if (request.ProductDto.NouveauPrixVente.HasValue)
             {
+                if (!product.prixModifiable)
+                    throw new InvalidOperationException("Le prix de ce produit ne peut pas être modifié car 'prixModifiable' est désactivé.");
+
                 var prix = new PrixVente
                 {
                     idP = product.idP,
