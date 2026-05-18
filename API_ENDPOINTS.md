@@ -114,6 +114,52 @@ This document lists the HTTP endpoints provided by the DeliverWholesale backend,
 
 ---
 
+## Panier (/api/panier)
+
+All endpoints require authentication.
+
+### GET /api/panier
+- Auth: Bearer
+- Returns: 200 OK
+  - PanierDto
+    - UserId: int
+    - TotalPrix: decimal
+    - Items: list of PanierItemDto
+
+### POST /api/panier/items
+- Auth: Bearer
+- Body (application/json): AddToPanierDto
+  - ProduitId: int
+  - Quantite: int
+- Returns: 200 OK
+  - PanierDto
+
+### PUT /api/panier/items/{produitId}
+- Auth: Bearer
+- Body (application/json): UpdatePanierItemDto
+  - Quantite: int
+- Returns: 200 OK
+  - PanierDto
+- Notes: Quantite = 0 removes the item.
+
+### DELETE /api/panier/items/{produitId}
+- Auth: Bearer
+- Returns: 200 OK
+  - PanierDto
+
+### DELETE /api/panier/clear
+- Auth: Bearer
+- Returns: 200 OK
+  - PanierDto
+
+### POST /api/panier/checkout
+- Auth: Bearer
+- Returns: 200 OK
+  - { Message: string, OrderId: int }
+- Notes: Creates an Order from panier items and clears the panier.
+
+---
+
 ## Categories (/api/categories)
 
 ### GET /api/categories

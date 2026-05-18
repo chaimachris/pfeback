@@ -34,6 +34,8 @@ namespace DeliverWholesale.Infrastructure.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Delivery> Deliveries { get; set; }
+        public DbSet<Panier> Paniers { get; set; }
+        public DbSet<PanierItem> PanierItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -98,6 +100,33 @@ namespace DeliverWholesale.Infrastructure.Data
                 .WithOne(o => o.Delivery)
                 .HasForeignKey<Delivery>(d => d.OrderId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            // ─── Panier ────────────────────────────────────────────────
+            modelBuilder.Entity<Panier>()
+                .HasOne(p => p.User)
+                .WithOne()
+                .HasForeignKey<Panier>(p => p.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Panier>()
+                .HasIndex(p => p.UserId)
+                .IsUnique();
+
+            modelBuilder.Entity<PanierItem>()
+                .HasOne(i => i.Panier)
+                .WithMany(p => p.Items)
+                .HasForeignKey(i => i.PanierId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<PanierItem>()
+                .HasOne(i => i.Produit)
+                .WithMany()
+                .HasForeignKey(i => i.ProduitId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<PanierItem>()
+                .HasIndex(i => new { i.PanierId, i.ProduitId })
+                .IsUnique();
 
             // ─── AchatLot ───────────────────────────────────────────────
             modelBuilder.Entity<AchatLot>()
